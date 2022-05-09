@@ -1,0 +1,98 @@
+.medicines .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+}
+
+.medicines .box-container .box{
+    text-align: center;
+    background:#fff;
+    border-radius: .5rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+}
+
+.medicines .box-container .box img{
+    height: 20rem;
+    /* border:var(--border); */
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.navbar{
+    background-color:var(--green) !important;
+    /* width: 200rem; */
+}
+.medicines .box-container .box h3{
+    color:var(--black);
+    font-size: 2.5rem;
+}
+
+/* .medicines .box-container .box span{
+    color:var(--green);
+    font-size: 1.5rem;
+} */
+.medicines .box-container .box .bx{
+    font-size: 25px;
+}
+
+.medicines .box-container .box .share{
+    padding-top: 2rem;
+}
+
+/* .medicines .box-container .box .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color:var(--green);
+    border-radius: .5rem;
+    border:var(--border);
+    margin:.3rem;
+} */
+
+/* .medicines .box-container .box .share a:hover{
+    background:var(--green);
+    color:#fff;
+    box-shadow: var(--box-shadow);
+} */
+.search-form {
+    height: 5rem;
+    width: 30rem;
+    border-radius: 1rem;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 0.1rem solid var(--green);
+    
+  }
+  
+   .search-form input {
+    height: 100%;
+    width: 100%;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+    color: solid var(--green);
+    text-transform: none;
+    /* text-decoration: none; */
+    outline: none;
+    border: 0;
+  }
+  
+   .search-form label {
+    font-size: 2.2rem;
+    padding-right: 1.7rem;
+    cursor: pointer;
+    color: solid var(--green);
+  }
+  
+  .search-form label:hover {
+    color: solid var(--green);
+  }
+  
