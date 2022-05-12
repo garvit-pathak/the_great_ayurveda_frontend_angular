@@ -14,6 +14,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DiseasesComponent } from './diseases/diseases.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     BookAppointmentComponent,
     UserDashboardComponent,
   
-    CartComponent
+    CartComponent,
+       DiseasesComponent
   ],
   imports: [
     BrowserModule,
