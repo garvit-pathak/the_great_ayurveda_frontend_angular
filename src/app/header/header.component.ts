@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   demail = '';
   dpassword = '';
   dexprience = '';
-  dcategory = '627b431a52fbcda0b8a5dd7e';
+  dcategory = '';
   dspecialities = '';
   dclinicName = '';
   dclinicAddress = '';
@@ -36,11 +36,19 @@ export class HeaderComponent implements OnInit {
   ddegree = '';
   dotp = '';
   did = '';
+  catList:any=[];
   constructor(
     private _userService: UserService,
     private _doctorService: DoctorService
-  ) {}
-
+  ) {
+    this._doctorService.categoryView().subscribe(data=>{
+      console.log(data)
+     this.catList=data;
+    })
+  }
+  get(id: any) {
+    this.dcategory = id;
+  }
   ngOnInit(): void {}
 
   public signInUser() {
