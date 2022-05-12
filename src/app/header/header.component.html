@@ -4,40 +4,42 @@
 
 <header class="header">
 
-    <a href="#" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg" style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
+  <a href="#" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg"
+      style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
 
-    <nav class="navbar">
-        <a href="medicines">medicines</a>
-        <a href="doctors">doctors</a>
-        <a href="#about">about</a>
-        <a routerLink="cart">
-            <i class='bx bx-cart-alt' ></i>
-        </a>
-     
-        <div class="dropdown">
-            
-              <a data-toggle="dropdown" >
-              <i class='bx bx-user-circle'  ></i>
-            </a>
-            
-            <div class="dropdown-menu">
-              <a class="dropdown-item"   data-toggle="modal" data-target="#SignInModal">SignIn </a>
+  <nav class="navbar">
+    <a href="medicines">medicines</a>
+    <a href="doctors">doctors</a>
+    <a href="#about">about</a>
+    <a routerLink="cart">
+      <i class='bx bx-cart-alt'></i>
+    </a>
 
+    <div class="dropdown">
 
-              <a class="dropdown-item" data-toggle="modal" data-target="#SignUpModal" >SignUp</a>
+      <a data-toggle="dropdown">
+        <i class='bx bx-user-circle'></i>
+      </a>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" data-toggle="modal" data-target="#SignInModal">SignIn </a>
 
 
-              <a class="dropdown-item" data-toggle="modal" data-target="#DrRegistrationModal" >Dr. Registration</a>
-             </div>
-          </div>
-             
-    </nav>
+        <a class="dropdown-item" data-toggle="modal" data-target="#SignUpModal">SignUp</a>
+
+
+        <a class="dropdown-item" data-toggle="modal" data-target="#DrRegistrationModal">Dr. Registration</a>
+      </div>
+    </div>
+
+  </nav>
   <div id="menu-btn" class="fas fa-bars"></div>
 
 </header>
 
 <!--signin Modal -->
-<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel" aria-hidden="true">
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,26 +49,29 @@
         </button>
       </div>
       <div class="modal-body">
-      
+
         <div class="login-form">
 
           <div class="form">
-              <input [(ngModel)]="user.email" type="email" placeholder=" email" class="box">
-              <input [(ngModel)]="user.password" type="password" placeholder=" password" class="box">
-              <input type="submit" (click)="signInUser()" value="Sign in as user" class="btn1" data-dismiss="modal" aria-label="Close">
-              <hr style="border:#2b734b solid">
-              <h4 style="text-align: center;color:#2b734b;">or</h4>
-            
-              <input type="submit" value="Sign in  as Doctor" class="btn1">
-              <button type="button" class="btn">Google</button>
+            <input [(ngModel)]="email" type="email" placeholder=" email" class="box">
+            <input [(ngModel)]="password" type="password" placeholder=" password" class="box">
+            <input type="submit" (click)="signInUser()" value="Sign in as user" class="btn1" data-dismiss="modal"
+              aria-label="Close">
+            <hr style="border:#2b734b solid">
+            <h4 style="text-align: center;color:#2b734b;">or</h4>
 
-              <p>forget password? <a href="#">click here</a></p>
-              <p>don't have an account? <a href="#" data-toggle="modal" data-target="#SignUpModal"   data-dismiss="modal" aria-label="Close" >SignUp now </a></p>
-        <p>Register As Doctor :<a href="#" data-toggle="modal" data-target="#DrRegistrationModal" data-dismiss="modal" aria-label="Close" > Register</a></p>
+            <input type="submit" (click)="doctorSignin()" value="Sign in  as Doctor" class="btn1">
+            <button type="button" class="btn">Google</button>
 
-      </div>
-   
-       </div>
+            <p>forget password? <a href="#">click here</a></p>
+            <p>don't have an account? <a href="#" data-toggle="modal" data-target="#SignUpModal" data-dismiss="modal"
+                aria-label="Close">SignUp now </a></p>
+            <p>Register As Doctor :<a href="#" data-toggle="modal" data-target="#DrRegistrationModal"
+                data-dismiss="modal" aria-label="Close"> Register</a></p>
+
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -75,11 +80,12 @@
 
 
 <!-- sign up modal  -->
-<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="SignUpModalLabel" style="font-size: large;color:#2b734b;" >User SignUp form</h5>
+        <h5 class="modal-title" id="SignUpModalLabel" style="font-size: large;color:#2b734b;">User SignUp form</h5>
         <button type="button" class="close" style="font-size: 30px;" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -88,18 +94,19 @@
         <div class="login-form">
 
           <div class="form">
-              <input type="text"  placeholder="name" [(ngModel)]="name" class="box">
-              <input type="email" placeholder="email" [(ngModel)]="email" class="box">
-              <input type="password" placeholder="password" [(ngModel)]="password" class="box">
-              <label for="" style="font-size: 15px; color: #779;">upload your image</label>
-              <input type="file" (change)="selectImage($event)" placeholder="" class="box">
-              <input type="text" placeholder="mobile no." [(ngModel)]="mobile" class="box">
-              <input type="submit" value="Send Otp " (click)="sendOtp()" class="btn1" data-toggle="modal" data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close" >
-           
-            </div>
-      
-      </div>
-    
+            <input type="text" placeholder="name" [(ngModel)]="name" class="box">
+            <input type="email" placeholder="email" [(ngModel)]="email" class="box">
+            <input type="password" placeholder="password" [(ngModel)]="password" class="box">
+            <label for="" style="font-size: 15px; color: #779;">upload your image</label>
+            <input type="file" (change)="selectImage($event)" placeholder="" class="box">
+            <input type="text" placeholder="mobile no." [(ngModel)]="mobile" class="box">
+            <input type="submit" value="Send Otp " (click)="sendOtp()" class="btn1" data-toggle="modal"
+              data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close">
+
+          </div>
+
+        </div>
+
 
 
       </div>
@@ -108,7 +115,8 @@
 </div>
 
 <!--verify  Modal -->
-<div class="modal fade" id="VerfyOtpModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel" aria-hidden="true">
+<div class="modal fade" id="VerfyOtpModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -118,19 +126,20 @@
         </button>
       </div>
       <div class="modal-body">
-      
+
         <div class="login-form">
 
           <div class="form">
-              <input  type="text" [(ngModel)]="tempOtp" placeholder="enter otp" class="box">
-              <input type="submit" (click)="checkOtp()" value="sign up" class="btn1" data-dismiss="modal" aria-label="Close">
-              <hr style="border:#2b734b solid">
-              <h4 style="text-align: center;color:#2b734b;">or</h4>
-              <input type="submit" value="resend otp" class="btn1" data-dismiss="modal" aria-label="Close">
-            
+            <input type="text" [(ngModel)]="tempOtp" placeholder="enter otp" class="box">
+            <input type="submit" (click)="checkOtp()" value="sign up" class="btn1" data-dismiss="modal"
+              aria-label="Close">
+            <hr style="border:#2b734b solid">
+            <h4 style="text-align: center;color:#2b734b;">or</h4>
+            <input type="submit" value="resend otp" class="btn1" data-dismiss="modal" aria-label="Close">
+
           </div>
-   
-       </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -138,12 +147,15 @@
 
 
 
+
 <!-- doctor sign up modal  -->
-<div class="modal fade" id="DrRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel" aria-hidden="true">
+<div class="modal fade" id="DrRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="DrRegistrationModalLabel" style="color:#2b734b;font-size: large;" > Dr. Registration form</h5>
+        <h5 class="modal-title" id="DrRegistrationModalLabel" style="color:#2b734b;font-size: large;"> Dr. Registration
+          form</h5>
         <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -152,26 +164,60 @@
         <div class="login-form">
 
           <div class="form">
-            <input type="text" placeholder="name" class="box">
-            <input type="email" placeholder=" email" class="box">
-            <input type="text" placeholder="Degree" class="box">
-            <input type="text" placeholder=" experience" class="box">
-            <input type="text" placeholder=" Clinic name" class="box">
-            <input type="text" placeholder=" Clinic Phone no." class="box">
-            <input type="text" placeholder=" Clinic address" class="box">
-            <input type="password" placeholder="password" class="box">
+            <input [(ngModel)]="dname" type="text" placeholder="name" class="box">
+            <input [(ngModel)]="demail" type="email" placeholder=" email" class="box">
+            <input [(ngModel)]="ddegree" type="text" placeholder="Degree" class="box">
+            <input [(ngModel)]="dexprience" type="text" placeholder=" experience" class="box">
+            <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box">
+            <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box">
+            <input [(ngModel)]="dclinicName" type="text" placeholder=" Clinic name" class="box">
+            <input [(ngModel)]="dclinicNo" type="text" placeholder=" Clinic Phone no." class="box">
+            <input [(ngModel)]="dclinicAddress" type="text" placeholder=" Clinic address" class="box">
+            <input [(ngModel)]="dclinicTiming" type="text" placeholder=" clinicTiming" class="box">
+            <input [(ngModel)]="dpassword" type="password" placeholder="password" class="box">
             <label for="" style="font-size: 15px; color: #779;">upload your image</label>
-            <input type="file" placeholder="" class="box">
-            <input type="text" placeholder="mobile no." class="box">
-            <input type="submit" value="Send Otp " class="btn1">
-            </div>
-      
-      </div>
+            <input type="file" (change)="selectimage($event)" placeholder="" class="box">
+            <input [(ngModel)]="dmobile" type="text" placeholder="mobile no." class="box">
+            <input type="submit" value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal"
+              data-target="#VerfyOtpModalDoctor" data-dismiss="modal" aria-label="Close">
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!--verify  Modal doctor-->
+<div class="modal fade" id="VerfyOtpModalDoctor" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="VerfyOtpModalLabel" style="color: #2b734b; font-size: large;">Verification</h5>
+        <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="login-form">
+
+          <div class="form">
+            <input type="text" [(ngModel)]="tempOtp" placeholder="enter otp" class="box">
+            <input type="submit" (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
+              aria-label="Close">
+            <hr style="border:#2b734b solid">
+            <h4 style="text-align: center;color:#2b734b;">or</h4>
+            <input type="submit" value="resend otp" class="btn1" data-dismiss="modal" aria-label="Close">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
