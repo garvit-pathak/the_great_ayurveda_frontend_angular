@@ -28,4 +28,9 @@ export class DoctorService {
     let View = 'http://localhost:8801/api/doctor/viewAllDoctor';
     return this.http.get<any>(View);
   }
+
+  public categoryView(): Observable<any> {
+    let cat = 'http://localhost:8801/api/category/view';
+    return this.http.get<any>(cat);
+  }
 }
