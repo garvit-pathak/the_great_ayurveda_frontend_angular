@@ -10,7 +10,7 @@ import { DoctorService } from '../service/doctor.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  [x: string]: any;
+  
   name: string = '';
   email: string = '';
   mobile: string = '';
@@ -54,14 +54,17 @@ export class HeaderComponent implements OnInit {
     this._userService.signInUser(this.email, this.password).subscribe(
       (data) => {
         console.log(data);
-        alert('successfull logined');
+        // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
-        sessionStorage.setItem('userId', data.result._id);
-        alert(data.result._id);
+        if(data)
         this.taoster.success('Login Success', 'Success');
+
+        sessionStorage.setItem('userId', data.result._id);
+        
       },
       (err) => {
         console.log(err);
+        this.taoster.success('somethink went wrong');
       }
     );
   }
@@ -90,7 +93,9 @@ export class HeaderComponent implements OnInit {
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
       console.log(data);
-      if (data) alert('registretion success' + this.uid + ' ' + this.uotp);
+      if (data) this.taoster.success('SignUp Success', 'Success');
+      
+        
     });
   }
 
@@ -121,14 +126,14 @@ export class HeaderComponent implements OnInit {
       this.dotp = data.otp;
       this.did = data._id;
       console.log(this.did + ' ' + this.dotp);
-      if (data) alert('registretion success' + this.did + ' ' + this.dotp);
+      if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
 
   doctorVerify() {
     this._doctorService.otpcheck(this.did, this.dotp).subscribe((data) => {
       console.log(data);
-      if (data) alert('registretion success' + this.did + ' ' + this.dotp);
+      if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
   doctorSignin() {
@@ -137,7 +142,8 @@ export class HeaderComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         sessionStorage.setItem('doctoreId', data._id);
-        if (data) alert('signin success');
+        if(data)
+        this.taoster.success('Login Success', 'Success');
       });
   }
 }
