@@ -130,7 +130,7 @@
         <div class="login-form">
 
           <div class="form">
-            <input type="text" [(ngModel)]="tempOtp" placeholder="enter otp" class="box">
+            <input type="text" [(ngModel)]="uotp" placeholder="enter otp" class="box">
             <input type="submit" (click)="checkOtp()" value="sign up" class="btn1" data-dismiss="modal"
               aria-label="Close">
             <hr style="border:#2b734b solid">
@@ -168,13 +168,13 @@
             <input [(ngModel)]="demail" type="email" placeholder=" email" class="box">
             <input [(ngModel)]="ddegree" type="text" placeholder="Degree" class="box">
             <input [(ngModel)]="dexprience" type="text" placeholder=" experience" class="box">
-            <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box">
+            <!-- <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box"> -->
             <label>Category Name</label>
             <select name="categoryId" class="form-control">
               <option>Select Category</option>
               <option (click)="get(cat._id)" *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
             </select>
-            <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box">
+            <!-- <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box"> -->
             <input [(ngModel)]="dclinicName" type="text" placeholder=" Clinic name" class="box">
             <input [(ngModel)]="dclinicNo" type="text" placeholder=" Clinic Phone no." class="box">
             <input [(ngModel)]="dclinicAddress" type="text" placeholder=" Clinic address" class="box">
@@ -209,7 +209,7 @@
         <div class="login-form">
 
           <div class="form">
-            <input type="text" [(ngModel)]="tempOtp" placeholder="enter otp" class="box">
+            <input type="text" [(ngModel)]="dotp" placeholder="enter otp" class="box">
             <input type="submit" (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
               aria-label="Close">
             <hr style="border:#2b734b solid">

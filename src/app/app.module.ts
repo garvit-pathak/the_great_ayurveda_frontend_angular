@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +35,8 @@ import { DiseasesComponent } from './diseases/diseases.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
