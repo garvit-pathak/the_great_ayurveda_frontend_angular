@@ -373,10 +373,11 @@ section:nth-child(even){
     }
 
 }
+
 .search-form {
     height: 5rem;
     width: 30rem;
-    border-radius: 5rem;
+    border-radius: 0.8rem;
     background: #fff;
     overflow: hidden;
     display: -webkit-box;
