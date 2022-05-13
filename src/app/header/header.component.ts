@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/app/model/user';
 import { DoctorService } from '../service/doctor.service';
+import { HostListener } from "@angular/core";
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -36,12 +38,32 @@ export class HeaderComponent implements OnInit {
   ddegree = '';
   dotp = '';
   did = '';
+  value:any;
+  scrHeight:any;
+  scrWidth:any;
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event:any) {
+        this.scrHeight = window.innerHeight;
+        this.scrWidth = window.innerWidth;
+        
+        if(this.scrWidth>=768)
+          this.value=false;
+        else  
+          this.value = true;
+  }
   constructor(
     private _userService: UserService,
     private _doctorService: DoctorService
-  ) {}
+  ) {
+    let id = document.querySelectorAll("#menu");
+    console.log(id);
+  }
 
   ngOnInit(): void {}
+
+  check(){
+    
+  }
 
   public signInUser() {
     this._userService.signInUser(this.user).subscribe(
@@ -76,6 +98,25 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
+   navbar:any="";
+menu:any="";
+  public nav(navbar:any){
+    navbar.classList.toggle('active');
+  } 
+  public menue(menu:any){
+   this.navbar = document.querySelector('.navbar');
+
+   menu.classList.toggle('fa-times');
+   this.navbar.classList.toggle('active');
+
+ }
+//  window.onscroll = ():any =>{
+//   this.menu = document.querySelector('#menu-btn');
+//    this.navbar = document.querySelector('.navbar');
+//   this.menu.classList.remove('fa-times');
+//   this.navbar.classList.remove('active');
+// }
   checkOtp() {
     // this._userService.signUpByOtp(this.otp,this.id).subscribe(data=>{
     //   console.log(data);
