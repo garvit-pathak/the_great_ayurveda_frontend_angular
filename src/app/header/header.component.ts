@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/app/model/user';
+import { ToastrService } from 'ngx-toastr';
+
 import { DoctorService } from '../service/doctor.service';
 @Component({
   selector: 'app-header',
@@ -8,43 +10,40 @@ import { DoctorService } from '../service/doctor.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  user: User = new User('', '', '', '');
+  [x: string]: any;
   name: string = '';
   email: string = '';
   mobile: string = '';
   password: string = '';
   image: any;
-  id: any;
-  otp: string = '';
-
-  otp1: any;
-  tempOtp: any;
+  uid: any;
+  uotp: string = '';
 
   dname = '';
   demail = '';
   dpassword = '';
   dexprience = '';
   dcategory = '';
-  dspecialities = '';
   dclinicName = '';
   dclinicAddress = '';
   dclinicNo = '';
   dclinicTiming = '';
-  dkeyword = '';
   dmobile = '';
   dimage = '';
   ddegree = '';
   dotp = '';
   did = '';
-  catList:any=[];
+  catList: any = [];
+
   constructor(
     private _userService: UserService,
-    private _doctorService: DoctorService
+    private _doctorService: DoctorService,
+    private taoster: ToastrService
   ) {
-    this._doctorService.categoryView().subscribe(data=>{
-      console.log(data)
-     this.catList=data;
-    })
+    this._doctorService.categoryView().subscribe((data) => {
+      console.log(data);
+      this.catList = data;
+    });
   }
   get(id: any) {
     this.dcategory = id;
@@ -52,10 +51,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   public signInUser() {
-    this._userService.signInUser(this.user).subscribe(
+    this._userService.signInUser(this.email, this.password).subscribe(
       (data) => {
         console.log(data);
         alert('successfull logined');
+        // sessionStorage.setItem('token',data.token);
+        sessionStorage.setItem('userId', data.result._id);
+        alert(data.result._id);
+        this.taoster.success('Login Success', 'Success');
       },
       (err) => {
         console.log(err);
@@ -79,26 +82,16 @@ export class HeaderComponent implements OnInit {
     this._userService.signUpUser(formData).subscribe((data) => {
       console.log(data);
       console.log(data.result.otp);
-      this.otp1 = data.result.otp;
-      this.id = data.result._id;
+      this.uid = data.result._id;
+      alert('singup');
     });
   }
 
   checkOtp() {
-    // this._userService.signUpByOtp(this.otp,this.id).subscribe(data=>{
-    //   console.log(data);
-    //   if(this.otp==this.tempOtp){
-    //   alert("signupsuccess");
-
-    //    localStorage.setItem("user",JSON.stringify(data));
-    //   }
-    // })
-
-    if (this.otp1 == this.tempOtp) {
-      alert('signupsuccess');
-    } else {
-      console.log('denied');
-    }
+    this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
+      console.log(data);
+      if (data) alert('registretion success' + this.uid + ' ' + this.uotp);
+    });
   }
 
   selectimage(event: any) {
@@ -116,18 +109,15 @@ export class HeaderComponent implements OnInit {
     formData.append('password', this.dpassword);
     formData.append('mobile', this.dmobile);
     formData.append('category', this.dcategory);
-    formData.append('specialities', this.dspecialities);
     formData.append('clinicName', this.dclinicName);
     formData.append('clinicAddress', this.dclinicAddress);
     formData.append('clinicNo', this.dclinicNo);
     formData.append('clinicTiming', this.dclinicTiming);
-    formData.append('keyword', this.dkeyword);
     formData.append('image', this.dimage);
     formData.append('degree', this.ddegree);
 
     this._doctorService.doctorSingup(formData).subscribe((data) => {
       console.log(data);
-      // console.log(data.result.otp);
       this.dotp = data.otp;
       this.did = data._id;
       console.log(this.did + ' ' + this.dotp);
@@ -146,6 +136,7 @@ export class HeaderComponent implements OnInit {
       .signinDoctor(this.email, this.password)
       .subscribe((data) => {
         console.log(data);
+        sessionStorage.setItem('doctoreId', data._id);
         if (data) alert('signin success');
       });
   }

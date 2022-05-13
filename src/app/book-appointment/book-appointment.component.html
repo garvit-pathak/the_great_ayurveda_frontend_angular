@@ -14,11 +14,11 @@
         </div>
 
         <form action="">
-            <input type="text" placeholder="patient name" class="box">
-            <input type="text" placeholder="disease" class="box">
-            <input type="text" placeholder="mobile" class="box">
-            <input type="text" placeholder="age" class="box">
-            <input type="date" class="box">
+            <input type="text" name="name" placeholder="patient name" [(ngModel)]="appointMent.patientName" class="box">
+            <input type="text" name="disease" placeholder="disease" [(ngModel)]="appointMent.disease" class="box">
+            <input type="text" name="disease" placeholder="mobile" [(ngModel)]="appointMent.mobile" class="box">
+            <input type="text" name="age" placeholder="age" [(ngModel)]="appointMent.age" class="box">
+            <!-- <input type="date" class="box"> -->
 
             <input type="submit" value="book now" class="btn">
         </form>
