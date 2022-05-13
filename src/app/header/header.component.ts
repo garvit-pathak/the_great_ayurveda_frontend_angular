@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/app/model/user';
+import { ToastrService } from 'ngx-toastr';
+
 import { DoctorService } from '../service/doctor.service';
 import { HostListener } from "@angular/core";
 
@@ -10,34 +12,30 @@ import { HostListener } from "@angular/core";
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  user: User = new User('', '', '', '');
+  
   name: string = '';
   email: string = '';
   mobile: string = '';
   password: string = '';
   image: any;
-  id: any;
-  otp: string = '';
-
-  otp1: any;
-  tempOtp: any;
+  uid: any;
+  uotp: string = '';
 
   dname = '';
   demail = '';
   dpassword = '';
   dexprience = '';
-  dcategory = '627b431a52fbcda0b8a5dd7e';
-  dspecialities = '';
+  dcategory = '';
   dclinicName = '';
   dclinicAddress = '';
   dclinicNo = '';
   dclinicTiming = '';
-  dkeyword = '';
   dmobile = '';
   dimage = '';
   ddegree = '';
   dotp = '';
   did = '';
+
   value:any;
   scrHeight:any;
   scrWidth:any;
@@ -59,6 +57,23 @@ export class HeaderComponent implements OnInit {
     console.log(id);
   }
 
+
+  catList: any = [];
+
+  constructor(
+    private _userService: UserService,
+    private _doctorService: DoctorService,
+    private taoster: ToastrService
+  ) {
+    this._doctorService.categoryView().subscribe((data) => {
+      console.log(data);
+      this.catList = data;
+    });
+  }
+  get(id: any) {
+    this.dcategory = id;
+  }
+
   ngOnInit(): void {}
 
   check(){
@@ -66,13 +81,20 @@ export class HeaderComponent implements OnInit {
   }
 
   public signInUser() {
-    this._userService.signInUser(this.user).subscribe(
+    this._userService.signInUser(this.email, this.password).subscribe(
       (data) => {
         console.log(data);
-        alert('successfull logined');
+        // alert('successfull logined');
+        // sessionStorage.setItem('token',data.token);
+        if(data)
+        this.taoster.success('Login Success', 'Success');
+
+        sessionStorage.setItem('userId', data.result._id);
+        
       },
       (err) => {
         console.log(err);
+        this.taoster.success('somethink went wrong');
       }
     );
   }
@@ -93,8 +115,8 @@ export class HeaderComponent implements OnInit {
     this._userService.signUpUser(formData).subscribe((data) => {
       console.log(data);
       console.log(data.result.otp);
-      this.otp1 = data.result.otp;
-      this.id = data.result._id;
+      this.uid = data.result._id;
+      alert('singup');
     });
   }
 
@@ -118,20 +140,12 @@ menu:any="";
 //   this.navbar.classList.remove('active');
 // }
   checkOtp() {
-    // this._userService.signUpByOtp(this.otp,this.id).subscribe(data=>{
-    //   console.log(data);
-    //   if(this.otp==this.tempOtp){
-    //   alert("signupsuccess");
-
-    //    localStorage.setItem("user",JSON.stringify(data));
-    //   }
-    // })
-
-    if (this.otp1 == this.tempOtp) {
-      alert('signupsuccess');
-    } else {
-      console.log('denied');
-    }
+    this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
+      console.log(data);
+      if (data) this.taoster.success('SignUp Success', 'Success');
+      
+        
+    });
   }
 
   selectimage(event: any) {
@@ -149,29 +163,26 @@ menu:any="";
     formData.append('password', this.dpassword);
     formData.append('mobile', this.dmobile);
     formData.append('category', this.dcategory);
-    formData.append('specialities', this.dspecialities);
     formData.append('clinicName', this.dclinicName);
     formData.append('clinicAddress', this.dclinicAddress);
     formData.append('clinicNo', this.dclinicNo);
     formData.append('clinicTiming', this.dclinicTiming);
-    formData.append('keyword', this.dkeyword);
     formData.append('image', this.dimage);
     formData.append('degree', this.ddegree);
 
     this._doctorService.doctorSingup(formData).subscribe((data) => {
       console.log(data);
-      // console.log(data.result.otp);
       this.dotp = data.otp;
       this.did = data._id;
       console.log(this.did + ' ' + this.dotp);
-      if (data) alert('registretion success' + this.did + ' ' + this.dotp);
+      if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
 
   doctorVerify() {
     this._doctorService.otpcheck(this.did, this.dotp).subscribe((data) => {
       console.log(data);
-      if (data) alert('registretion success' + this.did + ' ' + this.dotp);
+      if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
   doctorSignin() {
@@ -179,7 +190,9 @@ menu:any="";
       .signinDoctor(this.email, this.password)
       .subscribe((data) => {
         console.log(data);
-        if (data) alert('signin success');
+        sessionStorage.setItem('doctoreId', data._id);
+        if(data)
+        this.taoster.success('Login Success', 'Success');
       });
   }
 }

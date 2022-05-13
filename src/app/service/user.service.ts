@@ -7,21 +7,21 @@ import { User } from '../model/user';
   providedIn: 'root',
 })
 export class UserService {
-  private signInApi = 'http://localhost:8800/api/user/signin';
-  private signUpApi = 'http://localhost:8800/api/user/signup';
-  private verifyApi = 'http://localhost:8800/api/user/verify';
+  private signInApi = 'http://localhost:8801/api/user/signin';
+  private signUpApi = 'http://localhost:8801/api/user/signup';
+  private verifyApi = 'http://localhost:8801/api/user/verify';
 
   constructor(private _http: HttpClient) {}
 
-  public signInUser(user: User): Observable<any> {
-    return this._http.post<any>(this.signInApi, user);
+  public signInUser(email:string,password:string): Observable<any> {
+    return this._http.post<any>(this.signInApi,{email:email,password:password});
   }
 
   public signUpUser(formData: FormData): Observable<any> {
     return this._http.post<any>(this.signUpApi, formData);
   }
 
-  signUpByOtp(otp: String, userId: string) {
-    return this._http.post(this.verifyApi, { otp: otp, id: userId });
+  signUpByOtp( userId: string,otp: String,) {
+    return this._http.post(this.verifyApi, {  id: userId,otp: otp, });
   }
 }

@@ -135,18 +135,18 @@
    
   }
   
-.login-form .form {
+.login-form form {
     padding: 1.7rem;
     border: 0.1rem solid #2b734b;
   }
   
-  .login-form .form h3 {
+  .login-form form h3 {
     font-size: 2.2rem;
     padding-bottom: 1rem;
     color: #2b734b;
   }
   
-  .login-form .form .box {
+  .login-form form .box {
     width: 100%;
     text-transform: none;
     font-size: 1.5rem;
@@ -158,35 +158,36 @@
   
  
   
-  .login-form .form .btn {
+  .login-form form .btn {
     margin: 1rem 0;
     width: 100%;
     text-align: center;
   }
   
-  .login-form .form p {
+  .login-form form p {
     padding-top: 1rem;
     font-size: 1.4rem;
     color: #779;
   }
   
-  .login-form .form p a {
+  .login-form form p a {
     color: #2b734b;
   }
   
-  .login-form .form p a:hover {
+  .login-form form p a:hover {
     text-decoration: underline;
   }
-  .form button{
+  form button{
     color: #fff;
     background-color: rgb(75, 118, 226);
     border: none;
     
 }
-.form button:hover{
+           form button:hover{
   background-color: rgb(230, 87, 87);
 
 }
+
 
 
 
@@ -326,5 +327,9 @@
   html{
       font-size: 50%;
   }
+
+
+input.ng-invalid.ng-touched{
+  border-color: red;
 
 }

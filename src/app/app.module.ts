@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
@@ -36,7 +37,9 @@ import { OrderComponent } from './order/order.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
