@@ -198,9 +198,9 @@
 
             <!-- <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box"> -->
             <label>Category Name</label>
-            <select name="categoryId" class="form-control">
+            <select (change)="get($event)" name="categoryId" class="form-control">
               <option>Select Speciality</option>
-              <option (click)="get(cat._id)" *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
+              <option  *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
             </select>
             <!-- <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box"> -->
             <input [(ngModel)]="dclinicName" name="Clinicname" type="text" placeholder=" Clinic name" class="box" required #ClinicName="ngModel">
