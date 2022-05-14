@@ -18,9 +18,9 @@
             <input type="text" name="disease" placeholder="disease" [(ngModel)]="appointMent.disease" class="box">
             <input type="text" name="disease" placeholder="mobile" [(ngModel)]="appointMent.mobile" class="box">
             <input type="text" name="age" placeholder="age" [(ngModel)]="appointMent.age" class="box">
-            <!-- <input type="date" class="box"> -->
+            <input type="date" name="date" placeholder="Select Date" [(ngModel)]="appointMent.date" class="box">
 
-            <input type="submit" value="book now" class="btn">
+            <input (click)="add()" type="submit" value="book now" class="btn">
         </form>
 
     </div>

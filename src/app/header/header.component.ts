@@ -45,8 +45,10 @@ export class HeaderComponent implements OnInit {
       this.catList = data;
     });
   }
-  get(id: any) {
-    this.dcategory = id;
+  get(event:any) {
+    this.dcategory = event.target.value;
+    alert(this.dcategory)
+
   }
   ngOnInit(): void {}
 
