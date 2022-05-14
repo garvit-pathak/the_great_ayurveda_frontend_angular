@@ -4,20 +4,21 @@
 
 <header class="header">
 
-  <a href="#" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg"
+  <a routerLink= "" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg"
       style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
 
-  <nav class="navbar">
-    <a href="medicines">medicines</a>
-    <a href="doctors">doctors</a>
-    <a href="#about">about</a>
-    <a routerLink="cart">
+  <nav class="navbar" id="navbar" >
+ 
+    <a routerLink ="medicines">medicines</a>
+    <a routerLink ="doctors">doctors</a>
+    <a href="#about" class="about-a"  >about</a>
+    <a data-toggle="modal" class="cart-a" data-target="#CartModal" >
       <i class='bx bx-cart-alt'></i>
     </a>
 
     <div class="dropdown">
 
-      <a data-toggle="dropdown">
+      <a data-toggle="dropdown"  >
         <i class='bx bx-user-circle'></i>
       </a>
 
@@ -33,9 +34,13 @@
     </div>
 
   </nav>
-  <div id="menu-btn" class="fas fa-bars"></div>
+  <div *ngIf="value" class="fas fa-bars" id="menu" #menu  (click)="menue(menu)"  ></div>
 
 </header>
+
+
+
+
 
 <!--signin Modal -->
 <div class="modal fade"   id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
@@ -262,8 +267,59 @@
     </div>
   </div>
 </div>
+<!-- cart modal -->
+<div class="modal fade" id="CartModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CartModalLabel" style="color:#2b734b;font-size: large;">My Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login-form">
 
+          <div class="form">
+            <div class="shopping-cart" id="cart" #cart>
 
+              <div class="box" >
+                  <i class="fas fa-times"></i>
+                  <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
+                  <div class="content">
+                      <h3>ashwagandgha</h3>
+                      <span class="price"> </span>
+                  </div>
+              </div>
+              <div class="box" >
+                <i class="fas fa-times"></i>
+                <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
+                <div class="content">
+                    <h3>ashwagandgha</h3>
+                    <span class="price"> </span>
+                </div>
+            </div><div class="box" >
+              <i class="fas fa-times"></i>
+              <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
+              <div class="content">
+                  <h3>ashwagandgha</h3>
+                  <span class="price"> </span>
+              </div>
+          </div>
+              <h3 class="total"> total : <span>$560.00</span> </h3>
+          
+              <a href="#" class="btn1">checkout cart</a>
+          
+          </div>
+          
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- header section ends -->
 <router-outlet></router-outlet>
