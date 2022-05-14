@@ -328,7 +328,7 @@
       font-size: 50%;
   }
 
-
+}
 input.ng-invalid.ng-touched{
   border-color: red;
 

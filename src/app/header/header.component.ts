@@ -49,13 +49,12 @@ export class HeaderComponent implements OnInit {
         else  
           this.value = true;
   }
-  constructor(
-    private _userService: UserService,
-    private _doctorService: DoctorService
-  ) {
-    let id = document.querySelectorAll("#menu");
-    console.log(id);
-  }
+  // constructor(
+  //   private _userService: UserService,
+  //   private _doctorService: DoctorService
+  // ) {
+  
+  // }
 
 
   catList: any = [];
@@ -65,6 +64,8 @@ export class HeaderComponent implements OnInit {
     private _doctorService: DoctorService,
     private taoster: ToastrService
   ) {
+    let id = document.querySelectorAll("#menu");
+    console.log(id);
     this._doctorService.categoryView().subscribe((data) => {
       console.log(data);
       this.catList = data;
