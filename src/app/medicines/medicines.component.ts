@@ -10,6 +10,7 @@ export class MedicinesComponent implements OnInit {
 medicines:any=[];
 keyword:string="";
 medicineList:any=[];
+particulaMed:any="";
   constructor(private medicineSearvice:MedicineService) {
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
         console.log(data);
@@ -23,7 +24,14 @@ medicineList:any=[];
        })
    }
 
-   
+   public viewDetails(pid:string){
+     this.medicineSearvice.viewParticular(pid).subscribe((data:any)=>{
+      console.log(data);
+     this.particulaMed=data;
+
+     }
+     )
+   }
 
   ngOnInit(): void {
   }

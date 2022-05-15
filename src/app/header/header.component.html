@@ -23,13 +23,8 @@
       </a>
 
       <div class="dropdown-menu">
-        <a class="dropdown-item" data-toggle="modal" data-target="#SignInModal">SignIn </a>
-
-
-        <a class="dropdown-item" data-toggle="modal" data-target="#SignUpModal">SignUp</a>
-
-
-        <a class="dropdown-item" data-toggle="modal" data-target="#DrRegistrationModal">Dr. Registration</a>
+        <a class="dropdown-item" data-toggle="modal" data-target="#SignInModal"> User </a>
+        <a class="dropdown-item" data-toggle="modal" data-target="#DrSignInModal">Doctor </a>
       </div>
     </div>
 
@@ -43,12 +38,20 @@
 
 
 <!--signin Modal -->
-<div class="modal fade"   id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+<div class="modal "    id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="SignInModalLabel" style="color: #2b734b; font-size: large;">SignIn form</h5>
+        <!-- box-shadow: 2px 3px 2px rgba(43, 115, 75,0.934) -->
+        <h5 class="modal-title" id="SignInModalLabel" >
+          <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid#2b734b; " >
+         signIn
+        </a> 
+        <a id="onHover" style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#SignUpModal"   data-dismiss="modal" aria-label="Close" >
+          signUp
+        </a>
+        </h5>
         <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -63,15 +66,13 @@
             <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required #Password="ngModel">
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
 
-            <input type="submit" [disabled]="!regform.valid" (click)="signInUser()" value="Sign in as user" class="btn1" data-dismiss="modal"
+            <input type="submit"  style="margin-top: 20px;" [disabled]="!regform.valid" (click)="signInUser()" value="SignIn as user" class="btn1" data-dismiss="modal"
               aria-label="Close">
-            <hr style="border:#2b734b solid">
-            <h4 style="text-align: center;color:#2b734b;">or</h4>
+           
 
-            <input type="submit"  [disabled]="!regform.valid" (click)="doctorSignin()" value="Sign in  as Doctor" class="btn1">
-            <button type="button" class="btn">Google</button>
+            <button type="button" class="btn">SignIn using Google</button>
 
-            <p>forget password? <a href="#">click here</a></p>
+            <p><a href="#">forget password? </a></p>
             <p>don't have an account? <a href="#" data-toggle="modal" data-target="#SignUpModal" data-dismiss="modal"
                 aria-label="Close">SignUp now </a></p>
             <p>Register As Doctor :<a href="#" data-toggle="modal" data-target="#DrRegistrationModal"
@@ -88,12 +89,21 @@
 
 
 <!-- sign up modal  -->
-<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
+<div class="modal " id="SignUpModal"  tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="SignUpModalLabel" style="font-size: large;color:#2b734b;">User SignUp form</h5>
+        <h5 class="modal-title" id="SignUpModalLabel" >
+          <a  style="cursor: pointer; color: #79af91;margin-left: 10px ; margin-right: 10px ; " data-toggle="modal" data-target="#SignInModal"  data-dismiss="modal" aria-label="Close" >
+            signIn
+           </a> 
+           <a style="cursor: pointer; border-bottom:solid #2b734b ; " >
+             signUp
+           </a>
+        
+        </h5>
+        
         <button type="button" class="close" style="font-size: 30px;" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -118,7 +128,7 @@
             <input type="text" name="mobile" placeholder="mobile no." [(ngModel)]="mobile" class="box" required #Mobile="ngModel">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit" value="Send Otp " [disabled]="!regform.valid" (click)="sendOtp()" class="btn1" data-toggle="modal"
+            <input type="submit" value="verify no." [disabled]="!regform.valid" (click)="sendOtp()" class="btn1" data-toggle="modal"
               data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close">
 
           </form>
@@ -133,7 +143,7 @@
 </div>
 
 <!--verify  Modal -->
-<div class="modal fade" id="VerfyOtpModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+<div class="modal fade" id="VerfyOtpModal"  tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -165,17 +175,70 @@
   </div>
 </div>
 
-
-
-
-<!-- doctor sign up modal  -->
-<div class="modal fade" id="DrRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+<!-- dr signin Modal -->
+<div class="modal "   id="DrSignInModal" tabindex="-1" role="dialog" aria-labelledby="DrSignInModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="DrRegistrationModalLabel" style="color:#2b734b;font-size: large;"> Dr. Registration
-          form</h5>
+        <!-- box-shadow: 2px 3px 2px rgba(43, 115, 75,0.934) -->
+        <h5 class="modal-title" id="DrSignInModalLabel" >
+    <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid#2b734b; " >
+         signIn
+        </a> 
+        <a style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#DrRegistrationModal"   data-dismiss="modal" aria-label="Close" >
+          Registration
+        </a>
+        </h5>
+        <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+
+        <div class="login-form">
+
+          <form #regform="ngForm">
+            <input [(ngModel)]="email" type="email" placeholder=" email" class="box" name="email" required #Email="ngModel">
+            <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valide email</span>
+            <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required #Password="ngModel">
+            <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
+          
+            <input type="submit" style="margin-bottom: 30px;"  [disabled]="!regform.valid" (click)="doctorSignin()" value="Sign in  as Doctor" class="btn1">
+            <p> <a href="#"  >forget password?</a></p>
+            
+             <p>Register As Doctor :<a  href="#" data-toggle="modal" data-target="#DrRegistrationModal"
+              data-dismiss="modal" aria-label="Close"> Register</a></p>
+            
+
+            </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- doctor sign up modal  -->
+<div class="modal" id="DrRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SignUpModalLabel" >
+          <a style="cursor: pointer;color: #79af91;  margin-left: 10px ; margin-right: 10px ; " data-toggle="modal" data-target="#DrSignInModal"  data-dismiss="modal" aria-label="Close" >
+            signIn
+           </a> 
+           <a style="cursor: pointer; border-bottom:solid #2b734b ; " >
+             Registration
+           </a>
+        
+        </h5>
+        
         <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -197,9 +260,9 @@
             <span class="help-bpx" *ngIf="Exprience.touched && !Exprience.valid">Please enter valid Mobile</span>
 
             <!-- <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box"> -->
-            <label>Category Name</label>
-            <select name="categoryId" class="form-control">
-              <option>Select Speciality</option>
+            <!-- <label>Category Name</label> -->
+            <select name="categoryId" class="form-control" style="box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834); height: 45px;border: none;font-size: 14px; " >
+              <option  >Select Speciality</option>
               <option (click)="get(cat._id)" *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
             </select>
             <!-- <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box"> -->
@@ -225,7 +288,7 @@
             <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required #Mobile="ngModel">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit" [disabled]="!regform.valid" value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal"
+            <input type="submit" [disabled]="!regform.valid" value="verify no." (click)="doctorSingup()" class="btn1" data-toggle="modal"
               data-target="#VerfyOtpModalDoctor" data-dismiss="modal" aria-label="Close">
           </form>
 
@@ -268,7 +331,7 @@
   </div>
 </div>
 <!-- cart modal -->
-<div class="modal fade" id="CartModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+<div class="modal fade" id="CartModal"  tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
