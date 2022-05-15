@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DiseasesComponent } from './diseases/diseases.component';
 import { OrderComponent } from './order/order.component';
+import { SafePipe } from './safe.pipe';
+import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,11 @@ import { OrderComponent } from './order/order.component';
     HeaderComponent,
     BookAppointmentComponent,
     UserDashboardComponent,
-  
     CartComponent,
        DiseasesComponent,
-       OrderComponent
+       OrderComponent,
+       SafePipe,
+       MedicineDetailsComponent
   ],
   imports: [
     BrowserModule,
