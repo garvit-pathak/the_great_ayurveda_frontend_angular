@@ -5,6 +5,7 @@ export class Appointment {
     public disease: string,
     public mobile: string,
     public userId: string,
-    public doctorId: string
+    public doctorId: string,
+    public date:string
   ) {}
 }
