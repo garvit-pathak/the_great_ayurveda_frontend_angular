@@ -8,8 +8,12 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { HomeComponent } from './home/home.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 import { MedicinesComponent } from './medicines/medicines.component';
+
 import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
 import { SearchMedicineComponent } from './search-medicine/search-medicine.component';
+
+import { AuthService } from './service/auth.service';
+
 
 
 const routes: Routes = [
@@ -17,12 +21,17 @@ const routes: Routes = [
   {path:"doctors",component:DoctorsComponent},
   {path:"medicines",component:MedicinesComponent},
   {path:"cart",component:CartComponent},
+
   {path:"book-appointment/:id",component:BookAppointmentComponent},
   {path:"diseases/:search",component:DiseasesComponent},
   {path:"medicine-details/:pid",component:MedicineDetailsComponent},
   {path:"doctor-details/:did",component:DoctorDetailsComponent},
   {path:"search-medicine/:search",component:SearchMedicineComponent},
   {path:"search-doctor/:search",component:SearchDoctorComponent}
+
+
+  {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
+  {path:"diseases",component:DiseasesComponent}
 
 ];
 
