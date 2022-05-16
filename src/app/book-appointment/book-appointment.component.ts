@@ -15,7 +15,7 @@ export class BookAppointmentComponent implements OnInit {
     private _app: AppointmentService,
     private activateRouter: ActivatedRoute,
     private taoster: ToastrService
-  ) {
+  ){
     let uid = sessionStorage.getItem('userId');
     console.log(uid);
     this.appointMent.userId = <string>uid;

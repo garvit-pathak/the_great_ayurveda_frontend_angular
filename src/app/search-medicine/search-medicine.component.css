@@ -1,0 +1,64 @@
+/* .medicines .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+} */
+
+.medicines .box-container .box-card{
+    margin: 20px 0 0 0;
+}
+.medicines .box-container .box-content{
+    text-align: center;
+    background:#fff;
+    border-radius: .5rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+}
+
+.medicines .box-container .box-card img{
+    height: 20rem;
+    /* border:var(--border); */
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.navbar{
+    background-color:var(--green) !important;
+    /* width: 200rem; */
+}
+.medicines .box-container .box-card h3{
+    color:var(--black);
+    font-size: 2.5rem;
+}
+
+/* .medicines .box-container .box span{
+    color:var(--green);
+    font-size: 1.5rem;
+} */
+.medicines .box-container .box-card .bx{
+    font-size: 25px;
+}
+
+.medicines .box-container .share{
+    padding-top: 2rem;
+}
+
+/* .medicines .box-container .box .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color:var(--green);
+    border-radius: .5rem;
+    border:var(--border);
+    margin:.3rem;
+} */
+
+/* .medicines .box-container .box .share a:hover{
+    background:var(--green);
+    color:#fff;
+    box-shadow: var(--box-shadow);
+} */
+
+  

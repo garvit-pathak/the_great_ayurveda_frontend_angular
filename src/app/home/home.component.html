@@ -15,8 +15,8 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed autem vero? Magnam, est laboriosam!</p>
          
             <form action="" class="search-form" id="search" #search>
-                <input type="search" placeholder="search here..." id="search-box">
-                <label for="search-box" class="fas fa-search"></label>
+                <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
+                <label for="search-box"  class="fas fa-search"></label>
             </form>
     </div>
 

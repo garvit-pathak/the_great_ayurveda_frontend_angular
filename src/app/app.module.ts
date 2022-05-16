@@ -19,6 +19,12 @@ import { DiseasesComponent } from './diseases/diseases.component';
 import { OrderComponent } from './order/order.component';
 import { SafePipe } from './safe.pipe';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { SearchMedicineComponent } from './search-medicine/search-medicine.component';
+import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { MedicineDetailsComponent } from './medicine-details/medicine-details.co
        DiseasesComponent,
        OrderComponent,
        SafePipe,
-       MedicineDetailsComponent
+       MedicineDetailsComponent,
+       DoctorDetailsComponent,
+       SearchMedicineComponent,
+       SearchDoctorComponent,
+       DoctorDashboardComponent,
+       UserProfileComponent,
+       DoctorProfileComponent
   ],
   imports: [
     BrowserModule,

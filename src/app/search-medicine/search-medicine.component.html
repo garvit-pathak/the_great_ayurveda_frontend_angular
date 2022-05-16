@@ -12,25 +12,40 @@
 
     <h1 class="heading"> our <span>medicines</span> </h1>
     <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
-        <form action="" class="search-form" id="search" #search>
-            <input type="search" (change)="navigate($event)"  placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
+       
     </div>
 
     <div class="box-container">
 
-        <div class="box" *ngFor="let medicine of medicines">
+        <!-- <div class="box" *ngFor="let medicine of medicines">
+
             <img src="{{medicine.image}}" alt="">
-            <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{medicine.name}}</h3>
-            <span style="font-size: 2rem;" >₹{{medicine.price}}</span>
+            <h3>{{medicine.name}}</h3>
+            <span style="font-size: 1rem;" >₹{{medicine.price}}</span>
              
             <div class="share" style="display: flex; gap: 8px;" >
                 <a routerLink="/cart" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
-        <a class="btn"  (click)="viewDetails(medicine._id)" >more info <span class="fas fa-chevron-right"></span>
+                <a class="btn"  (click)="viewDetails(medicine._id)" >more info <span class="fas fa-chevron-right"></span>
                 </a>
             </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-4 box-card"  *ngFor="let medicine of medicines">
+                <div class="box-content">
+                    <img src="{{medicine.image}}" alt="">
+                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{medicine.name}}</h3>
+                <span style="font-size: 1rem;" >₹{{medicine.price}}</span>
+                 
+                <div class="share" style="display: flex; gap: 8px;" >
+                    <a routerLink="/cart" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+                    <a class="btn"  (click)="viewDetails(medicine._id)" >more info <span class="fas fa-chevron-right"></span>
+                    </a>
+                </div>
+                </div>
+            </div>
         </div>
+
 
         <!-- <div class="box">
             <img src="../../assets/image/alovera.jpg" alt="">

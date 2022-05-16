@@ -1,30 +1,26 @@
-<p>medicine-details works!</p>
-<p>medicine-details works!</p>
-<p>medicine-details works!</p>
-<p>medicine-details works!</p>
+<p>doctor-details works!</p>
+<p>doctor-details works!</p>
+<p>doctor-details works!</p>
+<p>doctor-details works!</p>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<section class="details"  >
+<section class="details" >
 
     <div class="image" >
         <img src="{{detail.image}}" alt="">
-        <a  style="margin-left: 120px;margin-top:40px;" routerLink="/cart" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
-
+        <a class="btn">book appointment<span class="fas fa-chevron-right"></span>
+</a>
     </div>
 
     <div class="content ">
         <h3>{{detail.name}}</h3>
-        <h4>₹{{detail.price}}</h4>
+        
 
-        <p>{{detail.description}}</p>
-        <h4>indegredients</h4>
-        <p>{{detail.ingredients}}</p>
-        <h4>uses</h4>
-         <p>
-            {{detail.uses}}
-         </p>
-       <h4>precaution</h4>
-           <p>{{detail.precaution}}</p>
+        
+        
+          
     </div>
 
 </section>
@@ -34,7 +30,7 @@
 
 <section class="review" id="review">
     
-    <h1 class="heading" style="font-size: 3.8rem;" > reviews </h1>
+    <h1 class="heading"> review </h1>
 
     <div class="box-container">
 

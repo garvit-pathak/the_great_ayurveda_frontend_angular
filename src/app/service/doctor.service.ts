@@ -28,7 +28,10 @@ export class DoctorService {
     let View = 'http://localhost:8801/api/doctor/viewAllDoctor';
     return this.http.get<any>(View);
   }
-
+public details(doctorId:string):Observable<any>{
+  let viewByID = "http://localhost:8801/api/doctor/viewOneDoctor";
+  return this.http.post<any>(viewByID,{doctorId:doctorId})
+}
   public categoryView(): Observable<any> {
     let cat = 'http://localhost:8801/api/category/view';
     return this.http.get<any>(cat);

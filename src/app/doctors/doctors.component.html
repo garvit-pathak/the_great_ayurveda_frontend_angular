@@ -8,10 +8,12 @@
     <h1 class="heading" style="padding-top: 80px;"> our <span>doctors</span> </h1>
     <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
         <form action="" class="search-form" id="search" #search>
-            <input type="search" placeholder="search here..." id="search-box">
+            <input type="search" (change)="navigate($event)"  placeholder="search here..." id="search-box">
             <label for="search-box" class="fas fa-search"></label>
         </form>
     </div>
+
+
     <div class="box-container">
 
         <div class="box" *ngFor="let list of doctorList">
@@ -25,8 +27,9 @@
                 </div>
                 <h3>{{list.name}}</h3>
                 <p>general doctor</p>
-                <a (click)="appoin(list._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span>
-                </a>
+                <a (click)="appoin(list._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
+            <a class="btn"  (click)="viewDetails(list._id)" >more info <span class="fas fa-chevron-right"></span></a>
+
             </div>
         </div>
         

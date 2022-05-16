@@ -1,0 +1,107 @@
+
+.doctors .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+}
+
+.doctors .box-container .box{
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.doctors .box-container .box .image{
+    height: 20rem;
+    overflow:hidden;
+    border-radius: .5rem;
+}
+
+.doctors .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.doctors .box-container .box:hover .image img{
+    transform:scale(1.2);
+}
+
+.doctors .box-container .box .content{
+    padding-top: 1rem;
+}
+
+.doctors .box-container .box .content .icon{
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doctors .box-container .box .content .icon a{
+    font-size: 1.4rem;
+    color: var(--light-color);
+}
+
+.doctors .box-container .box .content .icon a:hover{
+    color:var(--green);
+}
+
+.doctors .box-container .box .content .icon a i{
+    padding-right: .5rem;
+    color: var(--green);
+}
+
+.doctors .box-container .box .content h3{
+    color:var(--black);
+    font-size: 3rem;
+}
+
+.doctors .box-container .box .content p{
+    color:var(--light-color);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    padding:1rem 0;
+}
+
+.search-form {
+    height: 5rem;
+    width: 30rem;
+    border-radius: 0.6rem;
+    background: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 0.1rem solid var(--green);
+    
+  }
+  
+   .search-form input {
+    height: 100%;
+    width: 100%;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+    color: solid var(--green);
+    text-transform: none;
+    /* text-decoration: none; */
+    outline: none;
+    border: 0;
+  }
+  
+   .search-form label {
+    font-size: 2.2rem;
+    padding-right: 1.7rem;
+    cursor: pointer;
+    color: solid var(--green);
+  }
+  
+  .search-form label:hover {
+    color: solid var(--green);
+  }
+  
+  

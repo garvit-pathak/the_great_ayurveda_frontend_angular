@@ -9,7 +9,7 @@
     background:#fff;
     border-radius: .5rem;
     border:var(--border);
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     padding:2rem;
 }
 

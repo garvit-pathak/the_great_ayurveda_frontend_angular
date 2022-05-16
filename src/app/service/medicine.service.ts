@@ -17,6 +17,6 @@ private viewByproID = "http://localhost:8801/api/medicine/viewbypro" ;
     return this._http.post<any>(this.SearchByKeywordApi,{keyword});
   }
   public viewParticular(pid:string):Observable<any>{
-    return this._http.post<any>(this.viewByproID,{id:pid});
+        return this._http.post<any>(this.viewByproID,{id:pid});
   }
 }
