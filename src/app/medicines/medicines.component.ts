@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MedicineService } from '../service/medicine.service';
 
 @Component({
@@ -9,9 +10,10 @@ import { MedicineService } from '../service/medicine.service';
 export class MedicinesComponent implements OnInit {
 medicines:any=[];
 keyword:string="";
+search:any;
 medicineList:any=[];
 particulaMed:any="";
-  constructor(private medicineSearvice:MedicineService) {
+  constructor(private medicineSearvice:MedicineService ,private router:Router ) {
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
         console.log(data);
         this.medicines=data;
@@ -22,15 +24,15 @@ particulaMed:any="";
          console.log(data);
          this.medicineList=data;
        })
+   } 
+   public navigate(event:any){
+     this.search = event.target.value;
+      this.router.navigate(['search-medicine',this.search])
    }
 
    public viewDetails(pid:string){
-     this.medicineSearvice.viewParticular(pid).subscribe((data:any)=>{
-      console.log(data);
-     this.particulaMed=data;
-
-     }
-     )
+    
+    this.router.navigate(['medicine-details'+'/'+pid]);
    }
 
   ngOnInit(): void {
