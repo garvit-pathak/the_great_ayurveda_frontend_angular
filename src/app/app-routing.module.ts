@@ -6,6 +6,7 @@ import { DiseasesComponent } from './diseases/diseases.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { HomeComponent } from './home/home.component';
 import { MedicinesComponent } from './medicines/medicines.component';
+import { AuthService } from './service/auth.service';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path:"doctors",component:DoctorsComponent},
   {path:"medicines",component:MedicinesComponent},
   {path:"cart",component:CartComponent},
-  {path:"book-appointment/:id",component:BookAppointmentComponent},
+  {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
   {path:"diseases",component:DiseasesComponent}
 ];
 

@@ -290,7 +290,8 @@
             <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required #Mobile="ngModel">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit" [disabled]="!regform.valid" value="verify no." (click)="doctorSingup()" class="btn1" data-toggle="modal"
+            <input type="submit"  value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal"
+
               data-target="#VerfyOtpModalDoctor" data-dismiss="modal" aria-label="Close">
           </form>
 
@@ -319,7 +320,7 @@
             <input type="text" name="dotp" [(ngModel)]="dotp" placeholder="enter otp" class="box">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit"  [disabled]="!regform.valid" (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
+            <input type="submit"   (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
               aria-label="Close">
             <hr style="border:#2b734b solid">
             <h4 style="text-align: center;color:#2b734b;">or</h4>

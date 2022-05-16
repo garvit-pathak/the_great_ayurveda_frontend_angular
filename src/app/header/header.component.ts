@@ -89,6 +89,8 @@ export class HeaderComponent implements OnInit {
         console.log(data);
         // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
+        localStorage.setItem('jwt-token',data.token)
+        alert(data.token)
         if(data)
         this.taoster.success('Login Success', 'Success');
 
@@ -197,5 +199,8 @@ menu:any="";
         if(data)
         this.taoster.success('Login Success', 'Success');
       });
+  }
+  checkToken():boolean{
+    return !!localStorage.getItem('jwt-token')
   }
 }
