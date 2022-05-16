@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from '../model/appointment';
 import { AppointmentService } from '../service/appointment.service';
 import { ToastrService } from 'ngx-toastr';
@@ -14,7 +14,8 @@ export class BookAppointmentComponent implements OnInit {
   constructor(
     private _app: AppointmentService,
     private activateRouter: ActivatedRoute,
-    private taoster: ToastrService
+    private taoster: ToastrService,
+    private router:Router
   ){
     let uid = sessionStorage.getItem('userId');
     console.log(uid);
@@ -32,6 +33,7 @@ export class BookAppointmentComponent implements OnInit {
         console.log(data);
         if (data) {
           this.taoster.success('Appointment Compelete');
+          this.router.navigate(['']);
         }
         // this.taoster.success('Not Complete')
       },
