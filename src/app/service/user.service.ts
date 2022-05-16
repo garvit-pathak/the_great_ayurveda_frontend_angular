@@ -27,4 +27,11 @@ export class UserService {
   checkToken():boolean{
     return !!localStorage.getItem('jwt-token')
   }
+  public checkUser():boolean{
+    return !!sessionStorage.getItem('userId');
+
+  }
+  public userDetail(){
+    return localStorage.getItem('user');
+  }
 }

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { DoctorService } from '../service/doctor.service';
 import { HostListener } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { HostListener } from "@angular/core";
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  userProfile:any;
   
   name: string = '';
   email: string = '';
@@ -62,7 +64,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private _doctorService: DoctorService,
-    private taoster: ToastrService
+    private taoster: ToastrService,
+    private router : Router
   ) {
     let id = document.querySelectorAll("#menu");
     console.log(id);
@@ -79,9 +82,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  check(){
-    
+  userIsLoggedIn(){
+    if(this._userService.checkUser()){
+      this.userProfile = JSON.parse(this._userService.userDetail()|| " ");
+
+      return true;
+    }
+    return false;
   }
+
 
   public signInUser() {
     this._userService.signInUser(this.email, this.password).subscribe(
@@ -90,16 +99,17 @@ export class HeaderComponent implements OnInit {
         // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
         localStorage.setItem('jwt-token',data.token)
-        alert(data.token)
+        
         if(data)
         this.taoster.success('Login Success', 'Success');
 
         sessionStorage.setItem('userId', data.result._id);
-        
+         localStorage.setItem("user",JSON.stringify(data.result));
+
       },
       (err) => {
         console.log(err);
-        this.taoster.success('somethink went wrong');
+        this.taoster.error('somethink went wrong');
       }
     );
   }
@@ -121,7 +131,7 @@ export class HeaderComponent implements OnInit {
       console.log(data);
       console.log(data.result.otp);
       this.uid = data.result._id;
-      alert('singup');
+      
     });
   }
 
@@ -138,12 +148,7 @@ menu:any="";
    this.navbar.classList.toggle('active');
 
  }
-//  window.onscroll = ():any =>{
-//   this.menu = document.querySelector('#menu-btn');
-//    this.navbar = document.querySelector('.navbar');
-//   this.menu.classList.remove('fa-times');
-//   this.navbar.classList.remove('active');
-// }
+
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
       console.log(data);
@@ -190,12 +195,17 @@ menu:any="";
       if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
+
+  
   doctorSignin() {
     this._doctorService
       .signinDoctor(this.email, this.password)
       .subscribe((data) => {
         console.log(data);
-        sessionStorage.setItem('doctoreId', data._id);
+        this.router.navigate(['doctor-dasboard']);
+
+         sessionStorage.setItem('doctorId', data.result._id);
+         localStorage.setItem('doctor',JSON.stringify(data.result));
         if(data)
         this.taoster.success('Login Success', 'Success');
       });

@@ -16,11 +16,13 @@
       <i class='bx bx-cart-alt'></i>
     </a>
 
-    <div class="dropdown">
+    <div class="dropdown" >
 
-      <a data-toggle="dropdown"  >
+      <a data-toggle="dropdown" *ngIf="!userIsLoggedIn()" >
         <i class='bx bx-user-circle'></i>
       </a>
+
+      
 
       <div class="dropdown-menu">
         <a class="dropdown-item" data-toggle="modal" data-target="#SignInModal"> User </a>
@@ -28,9 +30,21 @@
       </div>
     </div>
 
+    <a  routerLink="user-profile" *ngIf="userIsLoggedIn(); " >
+      <i class='bx bx-user-circle'></i>
+    </a>
+
+  
+
   </nav>
   <div *ngIf="value" class="fas fa-bars" id="menu" #menu  (click)="menue(menu)"  ></div>
-
+  
+  <!-- <ng-template #elseBlock >
+    <a routerLink="user-profile">
+      <i class='bx bx-user-circle'></i>
+    </a>
+  </ng-template> -->
+  
 </header>
 
 
@@ -67,7 +81,7 @@
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
 
             <input type="submit"  style="margin-top: 20px;" [disabled]="!regform.valid" (click)="signInUser()" value="SignIn as user" class="btn1" data-dismiss="modal"
-              aria-label="Close">
+              aria-label="Close"  >
            
 
             <button type="button" class="btn">SignIn using Google</button>
@@ -388,4 +402,4 @@
 </div>
 
 <!-- header section ends -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
