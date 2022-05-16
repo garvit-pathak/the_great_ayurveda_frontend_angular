@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { CartComponent } from './cart/cart.component';
 import { DiseasesComponent } from './diseases/diseases.component';
+import { AppointmentsComponent } from './doctor-dashboard/appointments/appointments.component';
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
+import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { DoctorsComponent } from './doctors/doctors.component';
@@ -35,8 +37,14 @@ const routes: Routes = [
     {path:"search-doctor/:search",component:SearchDoctorComponent}
    ]},
     {path:"user-profile",component:UserProfileComponent},
-    {path:"doctor-dasboard",component:DoctorDashboardComponent},
-    {path:"doctor-profile",component:DoctorProfileComponent}
+    {path:"doctor-profile",component:DoctorProfileComponent},
+
+    {path:"doctor-dasboard",component:DoctorDashboardComponent,
+     children:[
+       {path:"appointments",component:AppointmentsComponent},
+       {path:"reviews",component:ReviewsComponent}
+     ]
+     },
 
 
 

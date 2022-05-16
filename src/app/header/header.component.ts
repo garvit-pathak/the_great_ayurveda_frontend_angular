@@ -201,13 +201,17 @@ menu:any="";
     this._doctorService
       .signinDoctor(this.email, this.password)
       .subscribe((data) => {
+        this.router.navigate(['/doctor-dasboard']);
+
         console.log(data);
-        this.router.navigate(['doctor-dasboard']);
 
          sessionStorage.setItem('doctorId', data.result._id);
          localStorage.setItem('doctor',JSON.stringify(data.result));
         if(data)
         this.taoster.success('Login Success', 'Success');
+
+
+
       });
   }
   checkToken():boolean{

@@ -25,6 +25,10 @@ import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { AppointmentsComponent } from './doctor-dashboard/appointments/appointments.component';
+import { HeaderDoctorComponent } from './doctor-dashboard/header-doctor/header-doctor.component';
+import { FooterDoctorComponent } from './doctor-dashboard/footer-doctor/footer-doctor.component';
+import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
        SearchDoctorComponent,
        DoctorDashboardComponent,
        UserProfileComponent,
-       DoctorProfileComponent
+       DoctorProfileComponent,
+       AppointmentsComponent,
+       HeaderDoctorComponent,
+       FooterDoctorComponent,
+       ReviewsComponent
   ],
   imports: [
     BrowserModule,
