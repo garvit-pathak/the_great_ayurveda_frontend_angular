@@ -36,4 +36,11 @@ public details(doctorId:string):Observable<any>{
     let cat = 'http://localhost:8801/api/category/view';
     return this.http.get<any>(cat);
   }
+  public checkDoctor():boolean{
+    return !!sessionStorage.getItem('doctorId');
+
+  }
+  public doctorDetail(){
+    return localStorage.getItem('doctor');
+  }
 }
