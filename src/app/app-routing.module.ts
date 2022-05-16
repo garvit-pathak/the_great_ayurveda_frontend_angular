@@ -30,8 +30,7 @@ const routes: Routes = [
   {path:"search-doctor/:search",component:SearchDoctorComponent}
 
 
-  {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
-  {path:"diseases",component:DiseasesComponent}
+
 
 ];
 
