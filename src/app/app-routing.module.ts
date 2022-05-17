@@ -1,20 +1,20 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
-import { CartComponent } from './cart/cart.component';
-import { DiseasesComponent } from './diseases/diseases.component';
+import { BookAppointmentComponent } from './user-dashboard/book-appointment/book-appointment.component';
+
+import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
 import { AppointmentsComponent } from './doctor-dashboard/appointments/appointments.component';
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { DoctorDetailsComponent } from './user-dashboard/doctor-details/doctor-details.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { HomeComponent } from './home/home.component';
-import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
-import { MedicinesComponent } from './medicines/medicines.component';
+import { DoctorsComponent } from './user-dashboard/doctors/doctors.component';
+import { HomeComponent } from './user-dashboard/home/home.component';
+import { MedicineDetailsComponent } from './user-dashboard/medicine-details/medicine-details.component';
+import { MedicinesComponent } from './user-dashboard/medicines/medicines.component';
 
-import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
-import { SearchMedicineComponent } from './search-medicine/search-medicine.component';
+import { SearchDoctorComponent } from './user-dashboard/search-doctor/search-doctor.component';
+import { SearchMedicineComponent } from './user-dashboard/search-medicine/search-medicine.component';
 
 import { AuthService } from './service/auth.service';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -28,7 +28,6 @@ const routes: Routes = [
     {path:"",component:HomeComponent},
     {path:"doctors",component:DoctorsComponent},
     {path:"medicines",component:MedicinesComponent},
-    {path:"cart",component:CartComponent},
     {path:"book-appointment/:id",component:BookAppointmentComponent},
     {path:"diseases/:search",component:DiseasesComponent},
     {path:"medicine-details/:pid",component:MedicineDetailsComponent},

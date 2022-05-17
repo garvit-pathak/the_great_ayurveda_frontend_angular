@@ -3,25 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MedicinesComponent } from './medicines/medicines.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import { HomeComponent } from './user-dashboard/home/home.component';
+import { MedicinesComponent } from './user-dashboard/medicines/medicines.component';
+import { DoctorsComponent } from './user-dashboard/doctors/doctors.component';
+import { FooterComponent } from './user-dashboard/footer/footer.component';
+import { HeaderComponent } from './user-dashboard/header/header.component';
+import { BookAppointmentComponent } from './user-dashboard/book-appointment/book-appointment.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 
-import { CartComponent } from './cart/cart.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DiseasesComponent } from './diseases/diseases.component';
-import { OrderComponent } from './order/order.component';
+import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
+import { OrderComponent } from './user-dashboard/order/order.component';
 import { SafePipe } from './safe.pipe';
-import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
-import { SearchMedicineComponent } from './search-medicine/search-medicine.component';
-import { SearchDoctorComponent } from './search-doctor/search-doctor.component';
+import { MedicineDetailsComponent } from './user-dashboard/medicine-details/medicine-details.component';
+import { DoctorDetailsComponent } from './user-dashboard/doctor-details/doctor-details.component';
+import { SearchMedicineComponent } from './user-dashboard/search-medicine/search-medicine.component';
+import { SearchDoctorComponent } from './user-dashboard/search-doctor/search-doctor.component';
 import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
@@ -40,7 +40,7 @@ import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
     HeaderComponent,
     BookAppointmentComponent,
     UserDashboardComponent,
-    CartComponent,
+ 
        DiseasesComponent,
        OrderComponent,
        SafePipe,

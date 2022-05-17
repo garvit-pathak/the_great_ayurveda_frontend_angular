@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Appointment } from '../model/appointment';
-import { AppointmentService } from '../service/appointment.service';
+import { Appointment } from '../../model/appointment';
+import { AppointmentService } from '../../service/appointment.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
