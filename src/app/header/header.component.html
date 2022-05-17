@@ -4,25 +4,25 @@
 
 <header class="header">
 
-  <a routerLink= "" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg"
+  <a routerLink="" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg"
       style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
 
-  <nav class="navbar" id="navbar" >
- 
-    <a routerLink ="medicines">medicines</a>
-    <a routerLink ="doctors">doctors</a>
-    <a href="#about" class="about-a"  >about</a>
-    <a data-toggle="modal" class="cart-a" data-target="#CartModal" >
+  <nav class="navbar" id="navbar">
+
+    <a routerLink="medicines">medicines</a>
+    <a routerLink="doctors">doctors</a>
+    <a href="#about" class="about-a">about</a>
+    <a data-toggle="modal" class="cart-a" (click)="view()" data-target="#CartModal">
       <i class='bx bx-cart-alt'></i>
     </a>
 
-    <div class="dropdown" >
+    <div class="dropdown">
 
-      <a data-toggle="dropdown" *ngIf="!userIsLoggedIn()" >
+      <a data-toggle="dropdown" *ngIf="!userIsLoggedIn()">
         <i class='bx bx-user-circle'></i>
       </a>
 
-      
+
 
       <div class="dropdown-menu">
         <a class="dropdown-item" data-toggle="modal" data-target="#SignInModal"> User </a>
@@ -30,21 +30,21 @@
       </div>
     </div>
 
-    <a  routerLink="user-profile" *ngIf="userIsLoggedIn(); " >
+    <a routerLink="user-profile" *ngIf="userIsLoggedIn(); ">
       <i class='bx bx-user-circle'></i>
     </a>
 
-  
+
 
   </nav>
-  <div *ngIf="value" class="fas fa-bars" id="menu" #menu  (click)="menue(menu)"  ></div>
-  
+  <div *ngIf="value" class="fas fa-bars" id="menu" #menu (click)="menue(menu)"></div>
+
   <!-- <ng-template #elseBlock >
     <a routerLink="user-profile">
       <i class='bx bx-user-circle'></i>
     </a>
   </ng-template> -->
-  
+
 </header>
 
 
@@ -52,19 +52,19 @@
 
 
 <!--signin Modal -->
-<div class="modal "    id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
-  aria-hidden="true">
+<div class="modal " id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <!-- box-shadow: 2px 3px 2px rgba(43, 115, 75,0.934) -->
-        <h5 class="modal-title" id="SignInModalLabel" >
-          <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid #2b734b; " >
-         signIn
-        </a> 
-        <a id="onHover" style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#SignUpModal"   data-dismiss="modal" aria-label="Close" >
-          signUp
-        </a>
+        <h5 class="modal-title" id="SignInModalLabel">
+          <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid #2b734b; ">
+            signIn
+          </a>
+          <a id="onHover" style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#SignUpModal"
+            data-dismiss="modal" aria-label="Close">
+            signUp
+          </a>
         </h5>
         <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -75,14 +75,16 @@
         <div class="login-form">
 
           <form #regform="ngForm">
-            <input [(ngModel)]="email" type="email" placeholder=" email" class="box" name="email" required #Email="ngModel">
+            <input [(ngModel)]="email" type="email" placeholder=" email" class="box" name="email" required
+              #Email="ngModel">
             <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valide email</span>
-            <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required #Password="ngModel">
+            <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required
+              #Password="ngModel">
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
 
-            <input type="submit"  style="margin-top: 20px;" [disabled]="!regform.valid" (click)="signInUser()" value="SignIn as user" class="btn1" data-dismiss="modal"
-              aria-label="Close"  >
-           
+            <input type="submit" style="margin-top: 20px;" [disabled]="!regform.valid" (click)="signInUser()"
+              value="SignIn as user" class="btn1" data-dismiss="modal" aria-label="Close">
+
 
             <button type="button" class="btn">SignIn using Google</button>
 
@@ -92,7 +94,7 @@
             <p>Register As Doctor :<a href="#" data-toggle="modal" data-target="#DrRegistrationModal"
                 data-dismiss="modal" aria-label="Close"> Register</a></p>
 
-            </form>
+          </form>
 
         </div>
       </div>
@@ -103,21 +105,21 @@
 
 
 <!-- sign up modal  -->
-<div class="modal " id="SignUpModal"  tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
-  aria-hidden="true">
+<div class="modal " id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="SignUpModalLabel" >
-          <a  style="cursor: pointer; color: #79af91;margin-left: 10px ; margin-right: 10px ; " data-toggle="modal" data-target="#SignInModal"  data-dismiss="modal" aria-label="Close" >
+        <h5 class="modal-title" id="SignUpModalLabel">
+          <a style="cursor: pointer; color: #79af91;margin-left: 10px ; margin-right: 10px ; " data-toggle="modal"
+            data-target="#SignInModal" data-dismiss="modal" aria-label="Close">
             signIn
-           </a> 
-           <a style="cursor: pointer; border-bottom:solid #2b734b ; " >
-             signUp
-           </a>
-        
+          </a>
+          <a style="cursor: pointer; border-bottom:solid #2b734b ; ">
+            signUp
+          </a>
+
         </h5>
-        
+
         <button type="button" class="close" style="font-size: 30px;" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -129,21 +131,24 @@
             <input type="text" name="name" placeholder="name" [(ngModel)]="name" class="box" required #Name="ngModel">
             <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
 
-            <input type="email" name="email" placeholder="email" [(ngModel)]="email" class="box" required #Email="ngModel">
+            <input type="email" name="email" placeholder="email" [(ngModel)]="email" class="box" required
+              #Email="ngModel">
             <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
 
-            <input type="password" name="password" placeholder="password" [(ngModel)]="password" class="box" required #Password="ngModel">
+            <input type="password" name="password" placeholder="password" [(ngModel)]="password" class="box" required
+              #Password="ngModel">
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid name</span>
 
             <label for="" style="font-size: 15px; color: #779;">upload your image</label>
-            <input type="file" name="file" (change)="selectImage($event)" placeholder="" class="box" >
+            <input type="file" name="file" (change)="selectImage($event)" placeholder="" class="box">
             <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
 
-            <input type="text" name="mobile" placeholder="mobile no." [(ngModel)]="mobile" class="box" required #Mobile="ngModel">
+            <input type="text" name="mobile" placeholder="mobile no." [(ngModel)]="mobile" class="box" required
+              #Mobile="ngModel">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit" value="verify no." [disabled]="!regform.valid" (click)="sendOtp()" class="btn1" data-toggle="modal"
-              data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close">
+            <input type="submit" value="verify no." [disabled]="!regform.valid" (click)="sendOtp()" class="btn1"
+              data-toggle="modal" data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close">
 
           </form>
 
@@ -157,7 +162,7 @@
 </div>
 
 <!--verify  Modal -->
-<div class="modal fade" id="VerfyOtpModal"  tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
+<div class="modal fade" id="VerfyOtpModal" tabindex="-1" role="dialog" aria-labelledby="SignInModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -171,15 +176,17 @@
 
         <div class="login-form">
 
-          <form  #regform="ngForm">
-            <input type="text" name="otp" [(ngModel)]="uotp" placeholder="enter otp" class="box" required #Otp="ngModel">
+          <form #regform="ngForm">
+            <input type="text" name="otp" [(ngModel)]="uotp" placeholder="enter otp" class="box" required
+              #Otp="ngModel">
             <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid Mobile</span>
 
-            <input type="submit" [disabled]="!regform.valid" (click)="checkOtp()" value="sign up" class="btn1" data-dismiss="modal"
-              aria-label="Close">
+            <input type="submit" [disabled]="!regform.valid" (click)="checkOtp()" value="sign up" class="btn1"
+              data-dismiss="modal" aria-label="Close">
             <hr style="border:#2b734b solid">
             <h4 style="text-align: center;color:#2b734b;">or</h4>
-            <input type="submit" [disabled]="!regform.valid" value="resend otp" class="btn1" data-dismiss="modal" aria-label="Close">
+            <input type="submit" [disabled]="!regform.valid" value="resend otp" class="btn1" data-dismiss="modal"
+              aria-label="Close">
 
           </form>
 
@@ -190,42 +197,46 @@
 </div>
 
 <!-- dr signin Modal -->
-<div class="modal "   id="DrSignInModal" tabindex="-1" role="dialog" aria-labelledby="DrSignInModalLabel"
+<div class="modal " id="DrSignInModal" tabindex="-1" role="dialog" aria-labelledby="DrSignInModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <!-- box-shadow: 2px 3px 2px rgba(43, 115, 75,0.934) -->
-        <h5 class="modal-title" id="DrSignInModalLabel" >
-    <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid #2b734b; " >
-         signIn
-        </a> 
-        <a style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#DrRegistrationModal"   data-dismiss="modal" aria-label="Close" >
-          Registration
-        </a>
+        <h5 class="modal-title" id="DrSignInModalLabel">
+          <a style="cursor: pointer; margin-left: 10px ; margin-right: 10px ;  border-bottom:  solid #2b734b; ">
+            signIn
+          </a>
+          <a style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#DrRegistrationModal"
+            data-dismiss="modal" aria-label="Close">
+            Registration
+          </a>
         </h5>
         <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" >
+      <div class="modal-body">
 
         <div class="login-form">
 
           <form #regform="ngForm">
-            <input [(ngModel)]="email" type="email" placeholder=" email" class="box" name="email" required #Email="ngModel">
+            <input [(ngModel)]="email" type="email" placeholder=" email" class="box" name="email" required
+              #Email="ngModel">
             <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valide email</span>
-            <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required #Password="ngModel">
+            <input [(ngModel)]="password" type="password" placeholder=" password" class="box" name="password" required
+              #Password="ngModel">
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
-          
-            <input type="submit" style="margin-bottom: 30px;"  [disabled]="!regform.valid" (click)="doctorSignin()" value="Sign in  as Doctor" class="btn1">
-            <p> <a href="#"  >forget password?</a></p>
-            
-             <p>Register As Doctor :<a  href="#" data-toggle="modal" data-target="#DrRegistrationModal"
-              data-dismiss="modal" aria-label="Close"> Register</a></p>
-            
 
-            </form>
+            <input type="submit" style="margin-bottom: 30px;" [disabled]="!regform.valid" (click)="doctorSignin()"
+              value="Sign in  as Doctor" class="btn1">
+            <p> <a href="#">forget password?</a></p>
+
+            <p>Register As Doctor :<a href="#" data-toggle="modal" data-target="#DrRegistrationModal"
+                data-dismiss="modal" aria-label="Close"> Register</a></p>
+
+
+          </form>
 
         </div>
       </div>
@@ -243,16 +254,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="SignUpModalLabel" >
-          <a style="cursor: pointer;color: #79af91;  margin-left: 10px ; margin-right: 10px ; " data-toggle="modal" data-target="#DrSignInModal"  data-dismiss="modal" aria-label="Close" >
+        <h5 class="modal-title" id="SignUpModalLabel">
+          <a style="cursor: pointer;color: #79af91;  margin-left: 10px ; margin-right: 10px ; " data-toggle="modal"
+            data-target="#DrSignInModal" data-dismiss="modal" aria-label="Close">
             signIn
-           </a> 
-           <a style="cursor: pointer; border-bottom:solid #2b734b ; " >
-             Registration
-           </a>
-        
+          </a>
+          <a style="cursor: pointer; border-bottom:solid #2b734b ; ">
+            Registration
+          </a>
+
         </h5>
-        
+
         <button type="button" class="close" data-dismiss="modal" style="font-size: 30px;" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -260,52 +272,62 @@
       <div class="modal-body">
         <div class="login-form">
 
-          <form  #regform="ngForm">
+          <form #regform="ngForm">
             <input [(ngModel)]="dname" name="name" type="text" placeholder="name" class="box" required #Name="ngModel">
             <span class="help-bpx" *ngIf="Name.touched && !Name.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="demail" name="email" type="email" placeholder=" email" class="box" required #Email="ngModel">
+            <input [(ngModel)]="demail" name="email" type="email" placeholder=" email" class="box" required
+              #Email="ngModel">
             <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="ddegree" name="Degree" type="text" placeholder="Degree" class="box" required #Degree="ngModel">
+            <input [(ngModel)]="ddegree" name="Degree" type="text" placeholder="Degree" class="box" required
+              #Degree="ngModel">
             <span class="help-bpx" *ngIf="Degree.touched && !Degree.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="dexprience" name="experience" type="text" placeholder=" experience" class="box" required #Exprience="ngModel">
+            <input [(ngModel)]="dexprience" name="experience" type="text" placeholder=" experience" class="box" required
+              #Exprience="ngModel">
             <span class="help-bpx" *ngIf="Exprience.touched && !Exprience.valid">Please enter valid Mobile</span>
 
             <!-- <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box"> -->
 
             <!-- <label>Category Name</label> -->
-            <select name="categoryId" class="form-control" style="box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834); height: 45px;border: none;font-size: 14px; " >
-              <option  >Select Speciality</option>
+            <select name="categoryId" class="form-control"
+              style="box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834); height: 45px;border: none;font-size: 14px; ">
+              <option>Select Speciality</option>
               <option (click)="get(cat._id)" *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
 
             </select>
             <!-- <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box"> -->
-            <input [(ngModel)]="dclinicName" name="Clinicname" type="text" placeholder=" Clinic name" class="box" required #ClinicName="ngModel">
+            <input [(ngModel)]="dclinicName" name="Clinicname" type="text" placeholder=" Clinic name" class="box"
+              required #ClinicName="ngModel">
             <span class="help-bpx" *ngIf="ClinicName.touched && !ClinicName.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="dclinicNo" name="Phone" type="text" placeholder=" Clinic Phone no." class="box" required #ClinicPhone="ngModel">
+            <input [(ngModel)]="dclinicNo" name="Phone" type="text" placeholder=" Clinic Phone no." class="box" required
+              #ClinicPhone="ngModel">
             <span class="help-bpx" *ngIf="ClinicPhone.touched && !ClinicPhone.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="dclinicAddress" name="Clinic" type="text" placeholder=" Clinic address" class="box" required #ClinicAddress="ngModel">
-            <span class="help-bpx" *ngIf="ClinicAddress.touched && !ClinicAddress.valid">Please enter valid Mobile</span>
+            <input [(ngModel)]="dclinicAddress" name="Clinic" type="text" placeholder=" Clinic address" class="box"
+              required #ClinicAddress="ngModel">
+            <span class="help-bpx" *ngIf="ClinicAddress.touched && !ClinicAddress.valid">Please enter valid
+              Mobile</span>
 
-            <input [(ngModel)]="dclinicTiming" name="clinicTiming" type="text" placeholder=" clinicTiming" class="box" required #ClinicTime="ngModel">
+            <input [(ngModel)]="dclinicTiming" name="clinicTiming" type="text" placeholder=" clinicTiming" class="box"
+              required #ClinicTime="ngModel">
             <span class="help-bpx" *ngIf="ClinicTime.touched && !ClinicTime.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="dpassword" name="password" type="password" placeholder="password" class="box" required #Password="ngModel">
+            <input [(ngModel)]="dpassword" name="password" type="password" placeholder="password" class="box" required
+              #Password="ngModel">
             <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid Mobile</span>
 
             <label for="" style="font-size: 15px; color: #779;">upload your image</label>
-            <input type="file" name="file" (change)="selectimage($event)" placeholder="" class="box" >
+            <input type="file" name="file" (change)="selectimage($event)" placeholder="" class="box">
             <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid Mobile</span>
 
-            <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required #Mobile="ngModel">
+            <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required
+              #Mobile="ngModel">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit"  value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal"
-
+            <input type="submit" value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal"
               data-target="#VerfyOtpModalDoctor" data-dismiss="modal" aria-label="Close">
           </form>
 
@@ -330,15 +352,16 @@
 
         <div class="login-form">
 
-          <form  #regform="ngForm">
+          <form #regform="ngForm">
             <input type="text" name="dotp" [(ngModel)]="dotp" placeholder="enter otp" class="box">
             <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
-            <input type="submit"   (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
+            <input type="submit" (click)="doctorVerify()" value="sign up" class="btn1" data-dismiss="modal"
               aria-label="Close">
             <hr style="border:#2b734b solid">
             <h4 style="text-align: center;color:#2b734b;">or</h4>
-            <input type="submit" [disabled]="!regform.valid" value="resend otp" class="btn1" data-dismiss="modal" aria-label="Close">
+            <input type="submit" [disabled]="!regform.valid" value="resend otp" class="btn1" data-dismiss="modal"
+              aria-label="Close">
 
           </form>
 
@@ -348,7 +371,7 @@
   </div>
 </div>
 <!-- cart modal -->
-<div class="modal fade" id="CartModal"  tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+<div class="modal fade" id="CartModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -361,38 +384,24 @@
       <div class="modal-body">
         <div class="login-form">
 
-          <div class="form">
+          <div class="form" >
             <div class="shopping-cart" id="cart" #cart>
 
-              <div class="box" >
-                  <i class="fas fa-times"></i>
-                  <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
-                  <div class="content">
-                      <h3>ashwagandgha</h3>
-                      <span class="price"> </span>
-                  </div>
-              </div>
-              <div class="box" >
-                <i class="fas fa-times"></i>
-                <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
+              <div class="box" *ngFor="let car of cartList">
+                <i (click)="removeCart(car._id)" class="fas fa-times"></i>
+                <img src="{{car.image}}" alt="">
                 <div class="content">
-                    <h3>ashwagandgha</h3>
-                    <span class="price"> </span>
+                  <h3>{{car.name}}</h3>
+                  <span class="price">{{car.price}} </span>
                 </div>
-            </div><div class="box" >
-              <i class="fas fa-times"></i>
-              <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
-              <div class="content">
-                  <h3>ashwagandgha</h3>
-                  <span class="price"> </span>
               </div>
-          </div>
+              
               <h3 class="total"> total : <span>$560.00</span> </h3>
-          
+
               <a href="#" class="btn1">checkout cart</a>
-          
-          </div>
-          
+
+            </div>
+
           </div>
 
         </div>
