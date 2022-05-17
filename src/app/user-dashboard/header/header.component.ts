@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../service/user.service';
+import { UserService } from '../../service/user.service';
 import { User } from 'src/app/model/user';
 import { ToastrService } from 'ngx-toastr';
 
-import { DoctorService } from '../service/doctor.service';
+import { DoctorService } from '../../service/doctor.service';
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Appointment } from '../model/appointment';
-import { AppointmentService } from '../service/appointment.service';
-import { DoctorService } from '../service/doctor.service';
+import { Appointment } from '../../model/appointment';
+import { AppointmentService } from '../../service/appointment.service';
+import { DoctorService } from '../../service/doctor.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
