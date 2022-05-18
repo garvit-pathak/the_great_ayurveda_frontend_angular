@@ -19,6 +19,7 @@ import { SearchMedicineComponent } from './user-dashboard/search-medicine/search
 import { AuthService } from './service/auth.service';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { OrderComponent } from './user-dashboard/order/order.component';
 
 
 
@@ -33,7 +34,8 @@ const routes: Routes = [
     {path:"medicine-details/:pid",component:MedicineDetailsComponent},
     {path:"doctor-details/:did",component:DoctorDetailsComponent},
     {path:"search-medicine/:search",component:SearchMedicineComponent},
-    {path:"search-doctor/:search",component:SearchDoctorComponent}
+    {path:"search-doctor/:search",component:SearchDoctorComponent},
+    {path:"order",component:OrderComponent}
    ]},
     {path:"user-profile",component:UserProfileComponent},
     {path:"doctor-profile",component:DoctorProfileComponent},

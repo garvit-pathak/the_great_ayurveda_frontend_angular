@@ -12,7 +12,7 @@
     <a routerLink ="medicines">medicines</a>
     <a routerLink ="doctors">doctors</a>
     <a href="#about" class="about-a"  >about</a>
-    <a data-toggle="modal" class="cart-a" data-target="#CartModal" >
+    <a data-toggle="modal" (click)="view()" class="cart-a" data-target="#CartModal" >
       <i class='bx bx-cart-alt'></i>
     </a>
 
@@ -348,7 +348,7 @@
   </div>
 </div>
 <!-- cart modal -->
-<div class="modal fade" id="CartModal"  tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
+<div class="modal fade" id="CartModal" tabindex="-1" role="dialog" aria-labelledby="DrRegistrationModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -361,38 +361,26 @@
       <div class="modal-body">
         <div class="login-form">
 
-          <div class="form">
+          <div class="form" >
             <div class="shopping-cart" id="cart" #cart>
 
-              <div class="box" >
-                  <i class="fas fa-times"></i>
-                  <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
-                  <div class="content">
-                      <h3>ashwagandgha</h3>
-                      <span class="price"> </span>
-                  </div>
-              </div>
-              <div class="box" >
-                <i class="fas fa-times"></i>
-                <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
+              <div class="box" *ngFor="let car of cartList">
+                
+                <i (click)="removeCart(car._id)" class="fas fa-times"></i>
+                
+                <img src="{{car.image}}" alt="">
                 <div class="content">
-                    <h3>ashwagandgha</h3>
-                    <span class="price"> </span>
+                  <h3>{{car.name}}</h3>
+                  <span class="price">{{car.price}} </span>
                 </div>
-            </div><div class="box" >
-              <i class="fas fa-times"></i>
-              <img src="../../assets/image/ashwagandha-60-f.jpg" alt="">
-              <div class="content">
-                  <h3>ashwagandgha</h3>
-                  <span class="price"> </span>
               </div>
-          </div>
+              
               <h3 class="total"> total : <span>$560.00</span> </h3>
-          
-              <a href="#" class="btn1">checkout cart</a>
-          
-          </div>
-          
+
+              <a routerLink="order"class="btn1" data-dismiss="modal" aria-label="Close" >checkout cart</a>
+
+            </div>
+
           </div>
 
         </div>
@@ -400,6 +388,5 @@
     </div>
   </div>
 </div>
-
 <!-- header section ends -->
 <!-- <router-outlet></router-outlet> -->
