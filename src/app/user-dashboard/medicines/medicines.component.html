@@ -15,7 +15,7 @@
         </form>
     </div>
     <div class="box-container">
-        <div class="box" *ngFor="let medicine of medicines">
+        <div class="box" *ngFor="let medicine of medicines; index of i">
             <img src="{{medicine.image}}" alt="">
             <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{medicine.name}}</h3>
             <span style="font-size: 2rem;">₹{{medicine.price}}</span>
@@ -27,5 +27,6 @@
             </div>
         </div>
     </div>
+    
 </section>
 <router-outlet></router-outlet>

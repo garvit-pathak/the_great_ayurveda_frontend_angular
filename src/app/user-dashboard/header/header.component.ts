@@ -4,7 +4,7 @@ import { User } from 'src/app/model/user';
 import { ToastrService } from 'ngx-toastr';
 
 import { DoctorService } from '../../service/doctor.service';
-import { HostListener } from "@angular/core";
+import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -14,8 +14,8 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  userProfile:any;
-  
+  userProfile: any;
+
   name: string = '';
   email: string = '';
   mobile: string = '';
@@ -38,28 +38,25 @@ export class HeaderComponent implements OnInit {
   ddegree = '';
   dotp = '';
   did = '';
-  uid1:any='';
-  cartList:any[]=[];
-  value:any;
-  scrHeight:any;
-  scrWidth:any;
+  uid1: any = '';
+  cartList: any[] = [];
+  value: any;
+  scrHeight: any;
+  scrWidth: any;
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event:any) {
-        this.scrHeight = window.innerHeight;
-        this.scrWidth = window.innerWidth;
-        
-        if(this.scrWidth>=768)
-          this.value=false;
-        else  
-          this.value = true;
+  getScreenSize(event: any) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+
+    if (this.scrWidth >= 768) this.value = false;
+    else this.value = true;
   }
   // constructor(
   //   private _userService: UserService,
   //   private _doctorService: DoctorService
   // ) {
-  
-  // }
 
+  // }
 
   catList: any = [];
 
@@ -67,34 +64,32 @@ export class HeaderComponent implements OnInit {
     private _userService: UserService,
     private _doctorService: DoctorService,
     private taoster: ToastrService,
-    private router : Router,
-    private cart : CartService
+    private router: Router,
+    private cart: CartService
   ) {
     this.uid1 = sessionStorage.getItem('userId');
-    let id = document.querySelectorAll("#menu");
+    let id = document.querySelectorAll('#menu');
     console.log(id);
     this._doctorService.categoryView().subscribe((data) => {
       console.log(data);
       this.catList = data;
     });
   }
-  get(event:any) {
+  get(event: any) {
     this.dcategory = event.target.value;
-    alert(this.dcategory)
-
+    alert(this.dcategory);
   }
 
   ngOnInit(): void {}
 
-  userIsLoggedIn(){
-    if(this._userService.checkUser()){
-      this.userProfile = JSON.parse(this._userService.userDetail()|| " ");
+  userIsLoggedIn() {
+    if (this._userService.checkUser()) {
+      this.userProfile = JSON.parse(this._userService.userDetail() || ' ');
 
       return true;
     }
     return false;
   }
-
 
   public signInUser() {
     this._userService.signInUser(this.email, this.password).subscribe(
@@ -102,14 +97,12 @@ export class HeaderComponent implements OnInit {
         console.log(data);
         // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
-        localStorage.setItem('jwt-token',data.token)
-        
-        if(data)
-        this.taoster.success('Login Success', 'Success');
+        localStorage.setItem('jwt-token', data.token);
+
+        if (data) this.taoster.success('Login Success', 'Success');
 
         sessionStorage.setItem('userId', data.result._id);
-         localStorage.setItem("user",JSON.stringify(data.result));
-
+        localStorage.setItem('user', JSON.stringify(data.result));
       },
       (err) => {
         console.log(err);
@@ -135,30 +128,25 @@ export class HeaderComponent implements OnInit {
       console.log(data);
       console.log(data.result.otp);
       this.uid = data.result._id;
-      
     });
   }
 
-
-   navbar:any="";
-menu:any="";
-  public nav(navbar:any){
+  navbar: any = '';
+  menu: any = '';
+  public nav(navbar: any) {
     navbar.classList.toggle('active');
-  } 
-  public menue(menu:any){
-   this.navbar = document.querySelector('.navbar');
+  }
+  public menue(menu: any) {
+    this.navbar = document.querySelector('.navbar');
 
-   menu.classList.toggle('fa-times');
-   this.navbar.classList.toggle('active');
-
- }
+    menu.classList.toggle('fa-times');
+    this.navbar.classList.toggle('active');
+  }
 
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
       console.log(data);
       if (data) this.taoster.success('SignUp Success', 'Success');
-      
-        
     });
   }
 
@@ -200,7 +188,6 @@ menu:any="";
     });
   }
 
-  
   doctorSignin() {
     this._doctorService
       .signinDoctor(this.email, this.password)
@@ -209,30 +196,30 @@ menu:any="";
 
         console.log(data);
 
-         sessionStorage.setItem('doctorId', data.result._id);
-         localStorage.setItem('doctor',JSON.stringify(data.result));
-        if(data)
-        this.taoster.success('Login Success', 'Success');
-
-
-
+        sessionStorage.setItem('doctorId', data.result._id);
+        localStorage.setItem('doctor', JSON.stringify(data.result));
+        if (data) this.taoster.success('Login Success', 'Success');
       });
   }
-  checkToken():boolean{
-    return !!localStorage.getItem('jwt-token')
+  checkToken(): boolean {
+    return !!localStorage.getItem('jwt-token');
   }
+  totalPrice: number = 0;
   public view() {
     this.cart.cartView(this.uid1).subscribe((data) => {
-      console.log(data.result)
-      this.cartList=data.medicineList;
-      console.log(this.cartList);
+      localStorage.setItem("cart",JSON.stringify(data))
+
+      this.cartList = data.medicineList;
+      this.totalPrice = 0;
+      for (let element of this.cartList) {
+        this.totalPrice+= element.price*1;
+      }
+      console.log(this.totalPrice);
     });
   }
-  public removeCart(mid:string){
-    this.cart.removeCart(this.uid1,mid).subscribe(data=>{
-      //  if(data)
-      //  this.taoster.success('Item Remove');
-       this.view()
-    })
+  public removeCart(mid: string) {
+    this.cart.removeCart(this.uid1, mid).subscribe((data) => {
+      this.view();
+    });
   }
 }
