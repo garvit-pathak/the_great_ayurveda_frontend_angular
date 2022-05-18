@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DoctorService } from '../../service/doctor.service';
 import { HostListener } from "@angular/core";
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -37,7 +38,8 @@ export class HeaderComponent implements OnInit {
   ddegree = '';
   dotp = '';
   did = '';
-
+  uid1:any='';
+  cartList:any[]=[];
   value:any;
   scrHeight:any;
   scrWidth:any;
@@ -65,8 +67,10 @@ export class HeaderComponent implements OnInit {
     private _userService: UserService,
     private _doctorService: DoctorService,
     private taoster: ToastrService,
-    private router : Router
+    private router : Router,
+    private cart : CartService
   ) {
+    this.uid1 = sessionStorage.getItem('userId');
     let id = document.querySelectorAll("#menu");
     console.log(id);
     this._doctorService.categoryView().subscribe((data) => {
@@ -216,5 +220,19 @@ menu:any="";
   }
   checkToken():boolean{
     return !!localStorage.getItem('jwt-token')
+  }
+  public view() {
+    this.cart.cartView(this.uid1).subscribe((data) => {
+      console.log(data.result)
+      this.cartList=data.medicineList;
+      console.log(this.cartList);
+    });
+  }
+  public removeCart(mid:string){
+    this.cart.removeCart(this.uid1,mid).subscribe(data=>{
+      //  if(data)
+      //  this.taoster.success('Item Remove');
+       this.view()
+    })
   }
 }
