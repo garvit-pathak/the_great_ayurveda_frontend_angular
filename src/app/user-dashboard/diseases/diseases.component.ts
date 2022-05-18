@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { DiseasesService } from '../../service/diseases.service';
 
 @Component({
@@ -10,12 +11,29 @@ export class DiseasesComponent implements OnInit {
   keywords = '';
   disList: any = [];
 
-  constructor(private diseasesService: DiseasesService) {
-    this.diseasesService.search(this.keywords).subscribe((data) => {
-      console.log(data);
+link:string='';
+  constructor(private diseasesService: DiseasesService ,private activatedRouter: ActivatedRoute,private router :Router) {
+this.router.events.subscribe(event=>{
+  this.keywords = <string> this.activatedRouter.snapshot.paramMap.get('search');
+  if(event instanceof NavigationEnd){
+    this.diseasesService.search(this.keywords).subscribe(data=>{
       this.disList = data;
-    });
+      console.log(this.disList);
+      this.link = this.disList.yogaLink 
+    })
+  }
+}
+
+
+)
+    // this.diseasesService.search(this.keywords).subscribe((data) => {
+    //   console.log(data);
+    //   this.disList = data;
+    // });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+  }
 }

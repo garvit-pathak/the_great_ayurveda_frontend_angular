@@ -13,7 +13,7 @@ export class DoctorsComponent implements OnInit {
   constructor(private doctorService: DoctorService,private router:Router) {
     this.doctorService.view().subscribe((data) => {
       this.doctorList = data;
-      console.log(data);
+   
     });
   }
 public appoin(id:string){
