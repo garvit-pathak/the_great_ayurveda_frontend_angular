@@ -54,7 +54,6 @@ uid:any="";
       console.log(data)
       if(data)
       this.taoster.success('Medicine Added To The Cart');
-     
     })
   }
 }

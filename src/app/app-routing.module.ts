@@ -26,18 +26,18 @@ import { OrderComponent } from './user-dashboard/order/order.component';
 const routes: Routes = [
   {path:"",component:UserDashboardComponent,
    children:[
-    {path:"",component:HomeComponent},
+    {path:"",component:HomeComponent},  
     {path:"doctors",component:DoctorsComponent},
     {path:"medicines",component:MedicinesComponent},
-    {path:"book-appointment/:id",component:BookAppointmentComponent},
+    {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
     {path:"diseases/:search",component:DiseasesComponent},
     {path:"medicine-details/:pid",component:MedicineDetailsComponent},
     {path:"doctor-details/:did",component:DoctorDetailsComponent},
     {path:"search-medicine/:search",component:SearchMedicineComponent},
     {path:"search-doctor/:search",component:SearchDoctorComponent},
-    {path:"order",component:OrderComponent}
+    {path:"order",component:OrderComponent,canActivate:[AuthService]}
    ]},
-    {path:"user-profile",component:UserProfileComponent},
+    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},
     {path:"doctor-profile",component:DoctorProfileComponent},
 
     {path:"doctor-dasboard",component:DoctorDashboardComponent,
