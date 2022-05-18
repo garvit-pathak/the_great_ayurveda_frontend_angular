@@ -7,8 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+ userDetail : any;
+  constructor(private router :Router) { 
+    
+    
+  }
 
-  constructor(private router :Router) { }
+
   signout() {
     localStorage.removeItem('token');
     localStorage.removeItem("user");
@@ -16,6 +21,8 @@ export class UserProfileComponent implements OnInit {
        this.router.navigate([""]);
   }
   ngOnInit(): void {
+    this.userDetail = JSON.parse(localStorage.getItem("user") || "");
+
   }
 
 }

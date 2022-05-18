@@ -18,7 +18,6 @@ export class SearchMedicineComponent implements OnInit {
             console.log(data);
             this.medicines = data;
         })
-
       }
     })
 

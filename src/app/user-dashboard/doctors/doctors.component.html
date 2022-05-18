@@ -22,13 +22,13 @@
             </div>
             <div class="content">
                 <div class="icon">
-                    <a href="#"> <i class="fas fa-calendar"></i> experience {{list.exprience}} year </a>
-                    <a href="#"> <i class="fas fa-user"></i> verified </a>
+                    <a > <i class="fas fa-calendar"></i> experience {{list.exprience}} year </a>
+                    <a > <i class="fas fa-user"></i> verified </a>
                 </div>
-                <h3>{{list.name}}</h3>
+                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{list.name}}</h3>
                 <p>general doctor</p>
-                <a (click)="appoin(list._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
-            <a class="btn"  (click)="viewDetails(list._id)" >more info <span class="fas fa-chevron-right"></span></a>
+            <h4><a   (click)="viewDetails(list._id)" >more info>> </a> </h4>
+                <a (click)="appoin(list._id)"  class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
 
             </div>
         </div>
