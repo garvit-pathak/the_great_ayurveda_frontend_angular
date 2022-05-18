@@ -63,7 +63,7 @@
             <div class="title">
                 <div class="row">
                     <div class="col"><h4><b> Cart</b></h4></div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
+                    <div class="col align-self-center text-right text-muted">ITEMS {{totalLength}}</div>
                 </div>
             </div>    
             <!-- <div class="row border-top border-bottom">
@@ -91,16 +91,17 @@
                     <div class="col">₹ 44.00 <span class="close">&#10005;</span></div>
                 </div>
             </div> -->
-            <div class="row border-top border-bottom" *ngFor="let cart of cartList" >
+            <div class="row border-top border-bottom" *ngFor="let cart of cartList;index as i" >
                 <div class="row main align-items-center">
                     <div class="col-2"><img class="img-fluid" src="{{cart.image}}"></div>
                     <div class="col">
                         <div class="row">{{cart.name}}</div>
                     </div>
                     <div class="col">
-                        <input type="number" (change)="test()" [(ngModel)]="qty"  name="" min="1" max="6">
+                        <input type="number" #val (change)="updateQuantity(val.value,cart.price,i)" value="1" min="1" max="6">
+                        <!-- <input type="number" (change)="test()" [(ngModel)]="qty"  name="" min="1" max="6"> -->
                     </div>
-                    <div class="col">₹{{cart.price}} <span (click)="removeCart(cart._id)" class="close">&#10005;</span></div>
+                    <div class="col">₹ {{cart.price}} <span (click)="removeCart(cart._id)" class="close">&#10005;</span></div>
                 </div>
             </div>
         </div>
@@ -108,20 +109,20 @@
             <div><h5><b>Order Summary</b></h5></div>
             <hr>
             <div class="row">
-                <div class="col" style="padding-left:0;">ITEMS 3</div>
-                <div class="col text-right">&euro; 132.00</div>
+                <div class="col" style="padding-left:0;">ITEMS {{totalLength}}</div>
+                <div class="col text-right">₹ {{subTotal}}</div>
             </div>
             <form>
                 <p>SHIPPING ADDRESS</p>
-                    <input type="text" placeholder="Enter your address" >
+                    <input [(ngModel)]="address" type="text" placeholder="Enter your address" >
                 <p>Mobile</p>
-                <input  placeholder="Enter your mobile no.">
+                <input [(ngModel)]="mobile" placeholder="Enter your mobile no.">
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">&euro; 137.00</div>
+                <div class="col text-right">₹ {{subTotal}}</div>
             </div>
-            <button class="btn1">pay now</button>
+            <button (click)="payment()" class="btn1">pay now</button>
         </div>
     </div>
     

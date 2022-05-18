@@ -22,4 +22,10 @@ export class CartService {
     let rem='http://localhost:8801/api/cart/remove'
    return this._http.post(rem,{uId:userId,pId:medId})
   }
+
+  public deleteCart(){
+    let api='http://localhost:8801/api/cart/delete'
+    let uid = sessionStorage.getItem('userId');
+    return this._http.post(api,{id:uid})
+  }
 }
