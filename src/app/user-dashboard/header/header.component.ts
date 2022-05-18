@@ -84,7 +84,7 @@ export class HeaderComponent implements OnInit {
 
   userIsLoggedIn() {
     if (this._userService.checkUser()) {
-      this.userProfile = JSON.parse(this._userService.userDetail() || ' ');
+      this.userProfile = JSON.parse(this._userService.userDetail() || '{}');
 
       return true;
     }
@@ -205,9 +205,19 @@ export class HeaderComponent implements OnInit {
     return !!localStorage.getItem('jwt-token');
   }
   totalPrice: number = 0;
+  cart1:any;
   public view() {
     this.cart.cartView(this.uid1).subscribe((data) => {
-      localStorage.setItem("cart",JSON.stringify(data))
+      this.cart1=data;
+      this.cart1=this.cart1.medicineList;
+      for(let i=0; i< this.cart1.length; i++)
+      {
+        this.cart1[i].pPrice=this.cart1[i].price;
+        this.cart1[i].index=i;
+        this.cart1[i].pro_qty = 1;
+      }
+      console.log(this.cart1)
+      localStorage.setItem("cart",JSON.stringify(this.cart1))
 
       this.cartList = data.medicineList;
       this.totalPrice = 0;

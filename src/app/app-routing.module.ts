@@ -35,9 +35,9 @@ const routes: Routes = [
     {path:"doctor-details/:did",component:DoctorDetailsComponent},
     {path:"search-medicine/:search",component:SearchMedicineComponent},
     {path:"search-doctor/:search",component:SearchDoctorComponent},
-    {path:"order",component:OrderComponent,canActivate:[AuthService]}
+    {path:"order",component:OrderComponent}//,canActivate:[AuthService]
    ]},
-    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},
+    {path:"user-profile",component:UserProfileComponent},//canActivate:[AuthService]
     {path:"doctor-profile",component:DoctorProfileComponent},
 
     {path:"doctor-dasboard",component:DoctorDashboardComponent,
