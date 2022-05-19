@@ -29,7 +29,6 @@ const routes: Routes = [
     {path:"",component:HomeComponent},  
     {path:"doctors",component:DoctorsComponent},
     {path:"medicines",component:MedicinesComponent},
-    {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
     {path:"diseases/:search",component:DiseasesComponent},
     {path:"medicine-details/:pid",component:MedicineDetailsComponent},
     {path:"doctor-details/:did",component:DoctorDetailsComponent},
@@ -37,8 +36,9 @@ const routes: Routes = [
     {path:"search-doctor/:search",component:SearchDoctorComponent},
     {path:"order",component:OrderComponent}//,canActivate:[AuthService]
    ]},
-    {path:"user-profile",component:UserProfileComponent},//canActivate:[AuthService]
+    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},//
     {path:"doctor-profile",component:DoctorProfileComponent},
+    {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
 
     {path:"doctor-dasboard",component:DoctorDashboardComponent,
      children:[
