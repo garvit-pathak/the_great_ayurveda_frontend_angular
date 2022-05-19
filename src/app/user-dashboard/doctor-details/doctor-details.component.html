@@ -6,9 +6,9 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<section class="details" >
+<section class="details">
 
-    <div class="image" >
+    <div class="image">
         <img src="{{detail.image}}" alt="">
         <a class="btn" (click)="appoin(detail._id)">book appointment<span class="fas fa-chevron-right"></span>
 </a>
@@ -23,16 +23,16 @@
         <h4>clinic name </h4>
         <p>{{detail.clinicName}}</p>
         <h4>clinic address</h4>
-         <p>
+        <p>
             {{detail.clinicAddress}}
-         </p>
-       <h4>clinic number</h4>
-           <p>{{detail.clinicNo}}</p>
-           <h4>clinic number</h4>
+        </p>
+        <h4>clinic number</h4>
+        <p>{{detail.clinicNo}}</p>
+        <h4>clinic number</h4>
 
-           <p>{{detail.clinicTiming}}</p>
+        <p>{{detail.clinicTiming}}</p>
 
-           
+
     </div>
 
 </section>
@@ -41,7 +41,7 @@
 <!-- review section starts  -->
 
 <section class="review" id="review">
-    
+
     <h1 class="heading"> review </h1>
 
     <div class="box-container">
@@ -100,9 +100,9 @@
             <h2>Review!</h2>
             <p>Your valueable review can help others.share your review if we help you through our multiple health care solutions. </p>
         </div>
-        <form action="" >
-            <input type="text" name="" id="" placeholder="review.." reuired>
-            <input type="submit" value="send" class="btn">
+        <form action="">
+            <input type="text" [(ngModel)]='revie' name="" id="" placeholder="review.." reuired>
+            <input type="submit" (click)="review()" value="send" class="btn">
         </form>
     </div>
-   </section>
+</section>

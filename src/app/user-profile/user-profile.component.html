@@ -1,5 +1,6 @@
 <section class="vh-100" style="background-color: #eee;">
     <div class="container py-5 h-100">
+
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-12 col-xl-4">
   
@@ -14,19 +15,20 @@
               
               <p style="margin-top:40px;margin-left:45px" ><a style="color: rgb(37, 112, 49); cursor:pointer" data-toggle="modal" data-target="#SignUpModal" >Edit Profile</a></p>
               <p style="margin-left:45px"><a href="#">Order history</a></p>
-              <p style="margin-left:45px" ><a href="#">Remove account</a></p>
+              <p style="margin-left:45px" (click)='remove()' ><a href="#">Remove account</a></p>
               <p style="margin-left:45px" ><a href="#">Help</a></p>
             
                <button type="button"  style="margin-top: 28px;" class="btn1  btn-rounded btn-lg" (click)="signout()" >
                 Sign out 
               </button>
-              
+
+                    </div>
+                </div>
+
             </div>
-          </div>
-  
         </div>
-      </div>
     </div>
+
   </section>
 
 
@@ -77,3 +79,5 @@
     </div>
   </div>
 </div>
+
+</section>
