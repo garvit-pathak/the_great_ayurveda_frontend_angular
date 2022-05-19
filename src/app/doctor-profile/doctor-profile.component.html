@@ -12,12 +12,12 @@
               </div>
               <h4 style="font-size: 25px;" class="mb-2">{{profile.name}}</h4>
               
-              <p style="margin-top:40px;margin-left:45px" ><a href="#">Edit Profile</a></p>
+              <p style="margin-top:40px;margin-left:45px" ><a style="color: rgb(37, 112, 49); cursor:pointer" data-toggle="modal" data-target="#SignUpModal" >Edit Profile</a></p>
               <p style="margin-left:30px"><a href="#">Appointment history</a></p>
               <p style="margin-left:45px" ><a href="#">Remove account</a></p>
               <p style="margin-left:45px" ><a href="#">Help</a></p>
             
-               <button type="button"  style="margin-top: 28px;" class="btn1  btn-rounded btn-lg">
+               <button type="button"  (click)="signOut()" style="margin-top: 28px;" class="btn1  btn-rounded btn-lg">
                 Sign out
               </button>
               
@@ -28,3 +28,51 @@
       </div>
     </div>
   </section>
+  
+  <div class="modal " id="SignUpModal"  tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="SignUpModalLabel" >
+        edit profile
+        
+        </h5>
+        
+        <button type="button" class="close" style="font-size: 30px;" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login-form">
+
+          <form #regform="ngForm">
+            <input type="text" name="name" placeholder="name" class="box" required >
+            <!-- <span class="help-bpx" >Please enter valid name</span> -->
+
+            <input type="email" name="email" placeholder="email"  class="box" required>
+            <!-- <span class="help-bpx" >Please enter valid name</span> -->
+
+            <input type="password" name="password" placeholder="password"  class="box" required >
+            <!-- <span class="help-bpx">Please enter valid name</span> -->
+
+            <label for="" style="font-size: 15px; color: #779;">upload your image</label>
+            <input type="file" name="file"  placeholder="" class="box" >
+            <!-- <span class="help-bpx">Please enter valid name</span> -->
+
+            <input type="text" name="mobile" placeholder="mobile no."  class="box" required >
+            <!-- <span class="help-bpx" >Please enter valid Mobile</span> -->
+
+            <input type="submit" value="update profile "  class="btn1" 
+               data-dismiss="modal" aria-label="Close">
+
+          </form>
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

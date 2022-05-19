@@ -14,7 +14,7 @@
 }
 
 .medicines .box-container .box img{
-    height: 20rem;
+    height: 15rem;
     /* border:var(--border); */
     border-radius: .5rem;
     margin-top: 1rem;
@@ -108,4 +108,8 @@
   }
   .box-container h4:hover {
       color: rgb(54, 193, 121);
+  }
+  .pagination{
+      margin-top: 20px;
+      font-size: 20px;
   }

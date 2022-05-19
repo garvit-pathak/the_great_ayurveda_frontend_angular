@@ -32,7 +32,7 @@ section:nth-child(even){
     text-shadow: var(--text-shadow);
     text-transform: uppercase;
     color:var(--black);
-    font-size: 5rem;
+    font-size: 4rem;
     letter-spacing: .4rem;
 }
 
@@ -259,6 +259,10 @@ section:nth-child(even){
 
     #menu-btn{
         display: initial;
+    }
+    .about img{
+        height: 350px;
+        width: 350px;
     }
 
     .header .navbar{

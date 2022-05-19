@@ -11,7 +11,7 @@ import { DiseasesService } from '../../service/diseases.service';
 export class DiseasesComponent implements OnInit {
   keywords = '';
   disList: any = [];
-  doctor: any = [];
+  doctor: any[] = [];
   show : boolean = false;
 link:string='';
   constructor(private diseasesService: DiseasesService ,private activatedRouter: ActivatedRoute,private router :Router,private drService : DoctorService) {

@@ -110,5 +110,9 @@
   }
   .content h4:hover{
     color: rgb(54, 193, 121);
+  }
 
+  .pagination{
+    margin-top: 20px;
+    font-size: 20px;
   }

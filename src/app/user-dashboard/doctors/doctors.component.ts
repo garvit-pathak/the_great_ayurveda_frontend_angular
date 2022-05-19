@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../service/doctor.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-doctors',
@@ -10,8 +11,15 @@ import { DoctorService } from '../../service/doctor.service';
 export class DoctorsComponent implements OnInit {
   doctorList: any = [];
   search:any;
-  constructor(private doctorService: DoctorService,private router:Router) {
+  uid:any="";
+
+page: number = 1;
+  count: number = 0;
+  cardSize: number = 9
+  constructor( private spinner: NgxSpinnerService, private doctorService: DoctorService,private router:Router) {
     this.doctorService.view().subscribe((data) => {
+      this.spinner.hide();
+
       this.doctorList = data;
    
     });
@@ -27,5 +35,11 @@ public navigate(event:any){
 public viewDetails(did:string){
  this.router.navigate(['doctor-details'+'/'+did])
 }
-  ngOnInit(): void {}
+onCardDataChange(event: any) {
+  this.page = event;
+}
+  ngOnInit(): void {
+    this.spinner.show();
+    
+  }
 }

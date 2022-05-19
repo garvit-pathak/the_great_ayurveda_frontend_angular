@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { User } from 'src/app/model/user';
 import { ToastrService } from 'ngx-toastr';
-
+import {
+  SocialAuthService,
+  SocialUser,
+  GoogleLoginProvider,
+} from 'angularx-social-login';
 import { DoctorService } from '../../service/doctor.service';
 import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +19,7 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class HeaderComponent implements OnInit {
   userProfile: any;
-
+  user!: SocialUser;
   name: string = '';
   email: string = '';
   mobile: string = '';
@@ -65,7 +69,8 @@ export class HeaderComponent implements OnInit {
     private _doctorService: DoctorService,
     private taoster: ToastrService,
     private router: Router,
-    private cart: CartService
+    private cart: CartService,
+    private authService: SocialAuthService
   ) {
     this.uid1 = sessionStorage.getItem('userId');
     let id = document.querySelectorAll('#menu');
@@ -80,12 +85,31 @@ export class HeaderComponent implements OnInit {
     alert(this.dcategory);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
+socialLogin() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    .then(()=>{
+      this.authService.authState.subscribe((data: any) => {
+        this.user = data;
+        this._userService.socialLogin(this.user).subscribe(data => {
+          this.userProfile = data;
+          console.log(this.userProfile);
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+          sessionStorage.setItem("userId",data.user._id);
+
+          
+        });
+      });
+    })
+  }
 
   userIsLoggedIn() {
     if (this._userService.checkUser()) {
       this.userProfile = JSON.parse(this._userService.userDetail() || '{}');
-
+        console.log(this.userProfile);
       return true;
     }
     return false;

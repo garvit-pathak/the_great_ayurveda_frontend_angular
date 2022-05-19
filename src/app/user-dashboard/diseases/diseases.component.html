@@ -138,7 +138,7 @@
 
     <div class="box-container">
 
-        <div class="box" *ngFor="let doc of doctor;" >
+        <div class="box" *ngFor="let doc of doctor | slice:0:3" >
             <div class="image">
                 <img src="{{doc.image}}" alt="">
             </div>
