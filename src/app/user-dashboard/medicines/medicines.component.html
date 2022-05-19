@@ -15,7 +15,12 @@
         </form>
     </div>
     <div class="box-container">
-        <div class="box" *ngFor="let medicine of medicines; index of i">
+        <div class="box" *ngFor="let medicine of medicines | paginate
+          : {
+              itemsPerPage: cardSize,
+              currentPage: page,
+              totalItems: count
+            } ">
             <img src="{{medicine.image}}" alt="">
             <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{medicine.name}}</h3>
             <span style="font-size: 2rem; ">₹{{medicine.price}}</span>
@@ -27,6 +32,12 @@
             </div>
         </div>
     </div>
+    <div class=" justify-content-center pagination">
+        <pagination-controls previousLabel="Prev"  nextLabel="Next" (pageChange)="onCardDataChange($event)">
+        </pagination-controls>
+      </div>
     
 </section>
+
 <router-outlet></router-outlet>
+<ngx-spinner ><img src="../../../assets/image/loader.gif" alt=""></ngx-spinner>

@@ -17,7 +17,7 @@
 }
 
 .medicines .box-container .box-card img{
-    height: 20rem;
+    height: 15rem;
     /* border:var(--border); */
     border-radius: .5rem;
     margin-top: 1rem;
@@ -61,4 +61,12 @@
     box-shadow: var(--box-shadow);
 } */
 
-  
+.box-container h4{
+    margin-top: 15px;
+    
+  cursor: pointer;font-size:20px ;
+  color: var(--green);
+}
+.box-container h4:hover {
+    color: rgb(54, 193, 121);
+}

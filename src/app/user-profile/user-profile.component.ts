@@ -21,8 +21,8 @@ export class UserProfileComponent implements OnInit {
        this.router.navigate([""]);
   }
   ngOnInit(): void {
-    this.userDetail = JSON.parse(localStorage.getItem("user") || "");
-
+    this.userDetail = JSON.parse(localStorage.getItem("user") || "{}");
+  console.log(this.userDetail);
   }
 
 }
