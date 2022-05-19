@@ -43,4 +43,8 @@ public details(doctorId:string):Observable<any>{
   public doctorDetail(){
     return localStorage.getItem('doctor');
   }
+  public reviewDoctor(uid:string,did:string,review:string): Observable<any>{
+    let api='http://localhost:8801/api/doctor/review'
+    return this.http.post<any>(api,{uId:uid,dId:did,reviewText:review})
+  }
 }
