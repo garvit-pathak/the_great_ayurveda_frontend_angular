@@ -12,7 +12,7 @@ export class UserProfileComponent implements OnInit {
  userDetail : any;
  uid:any;
   constructor(private router :Router,private user:UserService,private taoster: ToastrService,) { 
-    this.uid=localStorage.getItem("userId")
+    this.uid=sessionStorage.getItem("userId")
   }
 
 
@@ -31,12 +31,13 @@ export class UserProfileComponent implements OnInit {
     this.user.removeUser(this.uid).subscribe(data=>{
       console.log(data)
       if(data)
-       this.taoster.success('remove success full');
-       localStorage.removeItem('token');
+      this.taoster.success("Remove Your Account")
+    })
+
+    localStorage.removeItem('token');
     localStorage.removeItem("user");
     sessionStorage.removeItem('userId');
        this.router.navigate([""]);
-    })
   }
 
 }
