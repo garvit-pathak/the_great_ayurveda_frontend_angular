@@ -1,97 +1,15 @@
-<!-- <p>order works!</p>
-<p>order works!</p>
-<p>order works!</p>
-<p>order works!</p>
-<div class="container">
-    <div class="title">
-        <h2 class="heading" >place <span>order</span> </h2>
-    </div>
-    <div class="row">
-        <div class="col-md-9 left">
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-address">
-                        <h3 class="address-title">Shipping Address</h3>
-                        <div class="address-form">
-                            <input  type="text" name="local-address" id="local-address" placeholder="address" />
-                            
-                            <input  type="text" name="mobile" id="mobile" placeholder="mobile" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 ">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 right">
-            <div class="order-pay ">
-
-                
-                <a  style="font-size:20px ;" > Order Summary</a>
-
-                <div class="order-summary">
-                    <span id="summary" style="font-size:20px ;" >
-                        
-                        <p>
-                            Items -
-                            <span> 2</span>
-                    </p>
-                    <p>
-                        Total -
-                        <span> ₹ 100 </span>
-                    </p>
-                    </span>
-                    <hr>
-                    <span class="order-total">
-                        <p id="total">
-                            Total -
-                            <span>₹ 100 </span>
-                    </p>
-                    </span>
-                </div>
-                <a  class=" btn1" style="color: white;">  pay now </a>
-
-            </div>
-        </div>
-    </div>
-</div>
-
- -->
- <div class="card"  style="font-size: 1.8rem; width: 1000px;  " >
+<div class="card" style="font-size: 1.8rem; width: 1000px;  ">
     <div class="row">
         <div class="col-md-8 cart">
             <div class="title">
                 <div class="row">
-                    <div class="col"><h4><b> Cart</b></h4></div>
+                    <div class="col">
+                        <h4><b> Cart</b></h4>
+                    </div>
                     <div class="col align-self-center text-right text-muted">ITEMS {{totalLength}}</div>
                 </div>
-            </div>    
-            <!-- <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://newassets.apollo247.com/pub/media/catalog/product/p/a/pat0227.jpg"></div>
-                    <div class="col">
-                        <div class="row">Aleovera </div>
-                    </div>
-                    <div class="col">
-                        <input type="number" value="1" name="" id="">
-                    </div>
-                    <div class="col">₹ 44.00 <span class="close">&#10005;</span></div>
-                </div>
-            </div> -->
-            <!-- <div class="row">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://newassets.apollo247.com/pub/media/catalog/product/p/a/pat0227.jpg"></div>
-                    <div class="col">
-                        <div class="row">gilohai</div>
-                    </div>
-                    <div class="col">
-                        <input type="number" value="1" name="" id="">
-                        
-                    </div>
-                    <div class="col">₹ 44.00 <span class="close">&#10005;</span></div>
-                </div>
-            </div> -->
-            <div class="row border-top border-bottom" *ngFor="let cart of cartList;index as i" >
+            </div>
+            <div class="row border-top border-bottom" *ngFor="let cart of cartList;index as i">
                 <div class="row main align-items-center">
                     <div class="col-2"><img class="img-fluid" src="{{cart.image}}"></div>
                     <div class="col">
@@ -99,14 +17,15 @@
                     </div>
                     <div class="col">
                         <input type="number" #val (change)="updateQuantity(val.value,cart.price,i)" value="1" min="1" max="6">
-                        <!-- <input type="number" (change)="test()" [(ngModel)]="qty"  name="" min="1" max="6"> -->
                     </div>
                     <div class="col">₹ {{cart.price}} <span (click)="removeCart(cart._id)" class="close">&#10005;</span></div>
                 </div>
             </div>
         </div>
         <div class="col-md-4 summary">
-            <div><h5><b>Order Summary</b></h5></div>
+            <div>
+                <h5><b>Order Summary</b></h5>
+            </div>
             <hr>
             <div class="row">
                 <div class="col" style="padding-left:0;">ITEMS {{totalLength}}</div>
@@ -114,9 +33,9 @@
             </div>
             <form>
                 <p>SHIPPING ADDRESS</p>
-                    <input [(ngModel)]="address" type="text" placeholder="Enter your address" >
+                <input [(ngModel)]="address" name="address" type="text" placeholder="Enter your address">
                 <p>Mobile</p>
-                <input [(ngModel)]="mobile" placeholder="Enter your mobile no.">
+                <input [(ngModel)]="mobile" name='mobile' placeholder="Enter your mobile no.">
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL PRICE</div>
@@ -125,5 +44,5 @@
             <button (click)="payment()" class="btn1">pay now</button>
         </div>
     </div>
-    
+
 </div>

@@ -34,4 +34,9 @@ export class UserService {
   public userDetail(){
     return localStorage.getItem('user');
   }
+  
+  public removeUser(uid:string): Observable<any>{
+   let api='http://localhost:8801/api/user/remove'
+   return this._http.post<any>(api,{id:uid});
+  }
 }
