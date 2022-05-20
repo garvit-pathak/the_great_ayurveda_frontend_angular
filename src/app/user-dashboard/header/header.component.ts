@@ -79,6 +79,7 @@ export class HeaderComponent implements OnInit {
     this.dcategory = event.target.value;
     alert(this.dcategory);
   }
+  
 
   ngOnInit(): void {}
 

@@ -10,6 +10,8 @@ import { MedicineService } from '../../service/medicine.service';
 export class MedicineDetailsComponent implements OnInit {
    pid:string="";
    detail:any ;
+   uid:any;
+   revie='';
   constructor(private _med:MedicineService,private acitvateRouter :ActivatedRoute ,private router:Router ) { 
     this.router.events.subscribe(event=>{
       this.pid =<string> this.acitvateRouter.snapshot.paramMap.get('pid')
@@ -20,12 +22,20 @@ export class MedicineDetailsComponent implements OnInit {
               })
             }
     })
+    this.uid = sessionStorage.getItem('userId');
 
   }
  
   ngOnInit(): void {
   }
-
+  public review(){
+    this._med.medicineReview(this.uid,this.pid,this.revie).subscribe(data=>{
+      console.log(data)
+      if(data){
+        alert("review send")
+      }
+    })
+  }
 
   // constructor() {
   //   this.router.events.subscribe(event=>{

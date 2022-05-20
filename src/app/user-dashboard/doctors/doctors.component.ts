@@ -11,7 +11,7 @@ export class DoctorsComponent implements OnInit {
   doctorList: any = [];
   search:any;
   constructor(private doctorService: DoctorService,private router:Router) {
-    this.doctorService.view().subscribe((data) => {
+    this.doctorService.view().subscribe((data:any) => {
       this.doctorList = data;
    
     });
