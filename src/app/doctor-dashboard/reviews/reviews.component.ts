@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewsService } from 'src/app/service/reviews.service';
 
 @Component({
   selector: 'app-reviews',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-
-  constructor() { }
+   userReview:any;
+  constructor(private reviewservice:ReviewsService) { 
+     let did = sessionStorage.getItem("doctorId")
+      reviewservice.viewreviewbyid(did).subscribe(data=>{
+        this.userReview=data.reviewerDetail
+        console.log(this.userReview);
+      })
+  }
 
   ngOnInit(): void {
   }
