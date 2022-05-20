@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../service/doctor.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-doctors',
@@ -16,7 +17,8 @@ export class DoctorsComponent implements OnInit {
 page: number = 1;
   count: number = 0;
   cardSize: number = 9
-  constructor( private spinner: NgxSpinnerService, private doctorService: DoctorService,private router:Router) {
+  constructor( private spinner: NgxSpinnerService,private taoster: ToastrService,
+    private doctorService: DoctorService,private router:Router) {
     this.doctorService.view().subscribe((data) => {
       this.spinner.hide();
 
@@ -25,7 +27,11 @@ page: number = 1;
     });
   }
 public appoin(id:string){
+  if(sessionStorage.getItem("userId")){
   this.router.navigate(['book-appointment'+'/'+id])
+  }
+  else 
+  this.taoster.warning('Login First Please');
 }
 public navigate(event:any){
   this.search = event.target.value;
@@ -33,7 +39,11 @@ public navigate(event:any){
 }
 
 public viewDetails(did:string){
+  if(sessionStorage.getItem("userId")){
  this.router.navigate(['doctor-details'+'/'+did])
+  }
+  else 
+  this.taoster.warning('Login First Please');
 }
 onCardDataChange(event: any) {
   this.page = event;

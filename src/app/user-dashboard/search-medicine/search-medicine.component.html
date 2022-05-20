@@ -5,14 +5,14 @@
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
 <div class="containe" style="padding-top:22px ;">
-    
-    
+
+
 </div>
 <section class="medicines" id="medicines">
 
     <h1 class="heading"> our <span>medicines</span> </h1>
     <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
-       
+
     </div>
 
     <div class="box-container">
@@ -31,18 +31,18 @@
         </div> -->
 
         <div class="row">
-            <div class="col-md-4 box-card"  *ngFor="let medicine of medicines">
+            <div class="col-md-4 box-card" *ngFor="let medicine of medicines">
                 <div class="box-content">
                     <img src="{{medicine.image}}" alt="">
-                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{medicine.name}}</h3>
-                <span style="font-size: 2rem;" >₹{{medicine.price}}</span>
-                 
-                <div class="share"  >
-            <h4><a   (click)="viewDetails(medicine._id)">more info >></a></h4>
+                    <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{medicine.name}}</h3>
+                    <span style="font-size: 2rem;">₹{{medicine.price}}</span>
 
-                    <a routerLink="/cart" style="margin-left:5px ;"   class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
-                    
-                </div>
+                    <div class="share">
+                        <h4><a (click)="viewDetails(medicine._id)">more info >></a></h4>
+
+                        <a routerLink="/cart" (click)='add(medicine._id)' style="margin-left:5px ;" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
 </section>
 
 
-  
-  
+
+
 
 <router-outlet></router-outlet>

@@ -51,6 +51,7 @@ page: number = 1;
     this.spinner.show();
   }
   public add(mid:string){
+    if(sessionStorage.getItem('userId')){
     // let mId = <HTMLButtonElement>document.getElementById(mid);
     // console.log(mId)
     // this.aElement.nativeElement.innerHTML="hello <i class='bx bxs-cart-add'></i>";
@@ -65,6 +66,10 @@ page: number = 1;
       this.taoster.success('Medicine Added To The Cart');
     })
   }
+  else
+  this.taoster.warning('Login First Please');
+}
+
   onCardDataChange(event: any) {
     this.page = event;
   }
