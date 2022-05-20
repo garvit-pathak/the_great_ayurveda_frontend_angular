@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { DoctorService } from 'src/app/service/doctor.service';
 import { DiseasesService } from '../../service/diseases.service';
+
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/service/cart.service';
+
 import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-diseases',
@@ -13,10 +18,13 @@ export class DiseasesComponent implements OnInit {
   keywords = '';
   disList: any = [];
   doctor: any[] = [];
+
+   uid: any;
   medicines: any[] = [];
   show: boolean = false;
   link: string = '';
-  constructor(private spinner: NgxSpinnerService, private diseasesService: DiseasesService, private activatedRouter: ActivatedRoute, private router: Router, private drService: DoctorService) {
+  constructor(private spinner: NgxSpinnerService,private taoster: ToastrService,
+    private cart: CartService private diseasesService: DiseasesService, private activatedRouter: ActivatedRoute, private router: Router, private drService: DoctorService) {
     this.router.events.subscribe(event => {
       this.keywords = <string>this.activatedRouter.snapshot.paramMap.get('search');
       if (event instanceof NavigationEnd) {
@@ -53,5 +61,11 @@ export class DiseasesComponent implements OnInit {
       console.log(err);
     })
 
+
+      this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
+        console.log(data);
+        if (data) this.taoster.success('Medicine Added To The Cart');
+      });
+    } else this.taoster.warning('Login First Please');
   }
 }

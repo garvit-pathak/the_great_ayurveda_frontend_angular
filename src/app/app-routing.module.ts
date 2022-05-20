@@ -31,12 +31,12 @@ const routes: Routes = [
     {path:"medicines",component:MedicinesComponent},
     {path:"diseases/:search",component:DiseasesComponent},
     {path:"medicine-details/:pid",component:MedicineDetailsComponent},
-    {path:"doctor-details/:did",component:DoctorDetailsComponent},
+    {path:"doctor-details/:did",component:DoctorDetailsComponent,canActivate:[AuthService]},
     {path:"search-medicine/:search",component:SearchMedicineComponent},
     {path:"search-doctor/:search",component:SearchDoctorComponent},
-    {path:"order",component:OrderComponent}//,canActivate:[AuthService]
+    {path:"order",component:OrderComponent,canActivate:[AuthService]}
    ]},
-    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},//
+    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},
     {path:"doctor-profile",component:DoctorProfileComponent},
     {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
 
@@ -46,12 +46,7 @@ const routes: Routes = [
        {path:"reviews",component:ReviewsComponent}
      ]
      },
-
-
-
-
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

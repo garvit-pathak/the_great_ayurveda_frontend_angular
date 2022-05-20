@@ -11,14 +11,19 @@ import { ToastrService } from 'ngx-toastr';
 export class UserProfileComponent implements OnInit {
  userDetail : any;
  uid:any;
+ name:any;
+ image:any;
+ email:any;
+ mobile:any;
   constructor(private router :Router,private user:UserService,private taoster: ToastrService,) { 
     this.uid=sessionStorage.getItem("userId")
   }
 
 
   signout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt-token');
     localStorage.removeItem("user");
+    localStorage.removeItem("cart")
     sessionStorage.removeItem('userId');
        this.router.navigate([""]);
   }
@@ -40,4 +45,11 @@ export class UserProfileComponent implements OnInit {
        this.router.navigate([""]);
   }
 
+   userUpdate(){
+   this.name= this.userDetail.name;
+   this.image=this.userDetail.image;
+   this.email=this.userDetail.email;
+   this.mobile=this.userDetail.mobile;
+   
+   }
 }
