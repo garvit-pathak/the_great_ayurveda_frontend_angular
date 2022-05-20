@@ -18,11 +18,12 @@ export class DiseasesComponent implements OnInit {
   keywords = '';
   disList: any = [];
   doctor: any[] = [];
-
+diseaseId:any ;
    uid: any;
   medicines: any[] = [];
   show: boolean = false;
   link: string = '';
+  reviewText:any;
   constructor(private spinner: NgxSpinnerService,private taoster: ToastrService,
     private cart: CartService, private diseasesService: DiseasesService, private activatedRouter: ActivatedRoute, private router: Router, private drService: DoctorService) {
     this.router.events.subscribe(event => {
@@ -32,6 +33,8 @@ export class DiseasesComponent implements OnInit {
           this.spinner.hide();
 
           this.disList = data;
+          this.diseaseId=this.disList._id;
+          console.log(this.diseaseId)
           this.medicines = data.medicines;
           console.log(this.medicines);
           if (data.yogaLink) {
@@ -42,10 +45,9 @@ export class DiseasesComponent implements OnInit {
           }
         })
       }
-    }
-
-
-    )
+    })
+    this.uid=sessionStorage.getItem('userId')
+   
     // this.diseasesService.search(this.keywords).subscribe((data) => {
     //   console.log(data);
     //   this.disList = data;
@@ -68,19 +70,19 @@ export class DiseasesComponent implements OnInit {
     }
     public add(mid: string) {
       if (sessionStorage.getItem('userId')) {
-        // let mId = <HTMLButtonElement>document.getElementById(mid);
-        // console.log(mId)
-        // this.aElement.nativeElement.innerHTML="hello <i class='bx bxs-cart-add'></i>";
-        // let but = mId.innerHTML.split("<")[0];
-        // console.log(but);
-        // let appliedClass = mId?.classList;
-        // console.log(appliedClass.value)
-  
-        this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
+      this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
           console.log(data);
           if (data) this.taoster.success('Medicine Added To The Cart');
         });
       } else this.taoster.warning('Login First Please');
+    }
+
+    public review(){
+      this.diseasesService.reviewDiseases(this.diseaseId,this.uid,this.reviewText).subscribe(data=>{
+       console.log(data)
+       if(data)
+       this.taoster.success("Review Success Full Send ")
+      })
     }
 }
 

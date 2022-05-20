@@ -10,6 +10,7 @@
     <div class="image">
         <img src="{{disList.image}}" alt="">
         <h3>{{disList.name}}</h3>
+        <h3>{{disList._id}}</h3>
 
     </div>
 
@@ -72,29 +73,29 @@
     <h1 class="heading"> medicines </h1>
 
 
-    <div class="container" style="padding-bottom: 50px; padding-left: 35rem;"> 
-   
-</div>
-    <div class="box-container"   >
+    <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
+
+    </div>
+    <div class="box-container">
 
 
-        <div class="box" *ngFor ="let med of medicines| slice:0:3" >
+        <div class="box" *ngFor="let med of medicines| slice:0:3">
             <img src="{{med.mId.image}}" alt="">
             <h3>{{med.mId.name}}</h3>
             <span>₹{{med.mId.price}}</span>
             <div class="share">
 
-                <a routerLink="/cart" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+                <a (click)='add(med.mId._id)' class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
 
             </div>
         </div>
-<!-- 
+        <!-- 
         <div class="box">
             <img src="../../assets/image/" alt="">
             <h3>alovera juice</h3>
             <span>₹100</span>
             <div class="share">
-                <a href="#" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+                <a href="#" class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
 
             </div>
         </div> -->
@@ -103,13 +104,13 @@
             <h3>gilohe ghan vati</h3>
             <span>₹100</span>
             <div class="share">
-                <a class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+                <a class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
 
             </div>
 
         </div> -->
-    <h1 class="title"> <a href="medicines">view all >></a> </h1>
-        
+        <h1 class="title"> <a href="medicines">view all >></a> </h1>
+
 
 
     </div>
@@ -153,7 +154,7 @@
                 </div>
                 <h3>{{doc.name}}</h3>
                 <p>{{doc.speciality}}</p>
-                <a routerLink="/book-appointment" (click)="appoin(doc._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span> </a>
+                <a (click)="appoin(doc._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span> </a>
             </div>
         </div>
         <!-- <div class="box">
@@ -197,8 +198,8 @@
             <p>Your valueable review can help others.share your review if we help you through our multiple health care solutions. </p>
         </div>
         <form action="">
-            <input type="text" name="" id="" placeholder="review.." reuired>
-            <input type="submit" value="send" class="btn">
+            <input type="text" [(ngModel)]='reviewText' name="text" id="" placeholder="review.." reuired>
+            <input type="submit" (click)='review()' value="send" class="btn">
         </form>
     </div>
 </section>
@@ -207,19 +208,6 @@
 
 <router-outlet></router-outlet>
 
-<ngx-spinner  bdColor="white" template="<img style = height:70px;
-src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />" ><ngx-spinner>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<ngx-spinner bdColor="white" template="<img style = height:70px;
+src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif ' />">
+    <ngx-spinner>
