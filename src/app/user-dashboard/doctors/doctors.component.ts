@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class DoctorsComponent implements OnInit {
   doctorList: any = [];
   search:any;
+
   uid:any="";
 
 page: number = 1;

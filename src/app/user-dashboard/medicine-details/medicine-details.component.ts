@@ -13,7 +13,10 @@ export class MedicineDetailsComponent implements OnInit {
    pid:string="";
    detail:any ;
    uid:any;
+    revie='';
+
   constructor(private _med:MedicineService,private acitvateRouter :ActivatedRoute ,private router:Router,private taoster : ToastrService,private cart: CartService ) { 
+
     this.router.events.subscribe(event=>{
       this.pid =<string> this.acitvateRouter.snapshot.paramMap.get('pid')
       if(event instanceof NavigationEnd){
@@ -24,11 +27,19 @@ export class MedicineDetailsComponent implements OnInit {
             }
     })
     this.uid = sessionStorage.getItem('userId');
+
   }
  
   ngOnInit(): void {
   }
-
+  public review(){
+    this._med.medicineReview(this.uid,this.pid,this.revie).subscribe(data=>{
+      console.log(data)
+      if(data){
+        alert("review send")
+      }
+    })
+  }
 
   // constructor() {
   //   this.router.events.subscribe(event=>{

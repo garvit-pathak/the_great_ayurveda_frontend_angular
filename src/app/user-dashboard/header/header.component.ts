@@ -85,6 +85,7 @@ export class HeaderComponent implements OnInit {
     this.dcategory=id;
     alert(this.dcategory);
   }
+  
 
   ngOnInit(): void {}
   socialLogin() {

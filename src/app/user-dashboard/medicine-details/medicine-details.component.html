@@ -7,8 +7,10 @@
 <section class="details">
 
     <div class="image">
+
         <img src="{{detail.image}}" />
         <a style="margin-left: 120px;margin-top:40px;" (click)='add(detail._id)' routerLink="/cart" class="btn"> add to cart <i class='bx bxs-cart-add'></i> </a>
+
 
     </div>
 
@@ -93,8 +95,10 @@
             <p>Your valueable review can help others.share your review if we help you through our multiple health care solutions. </p>
         </div>
         <form action="">
-            <input type="text" name="" id="" placeholder="review.." reuired>
-            <input type="submit" value="send" class="btn">
+
+            <input type="text" [(ngModel)]='revie' name=" " id=" " placeholder="review.. " reuired>
+            <input type="submit" (click)="review()" value="send " class="btn ">
+
         </form>
     </div>
 </section>
