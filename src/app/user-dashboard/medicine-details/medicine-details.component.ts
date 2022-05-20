@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router ,NavigationEnd} from '@angular/router';
 import { MedicineService } from '../../service/medicine.service';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-medicine-details',
@@ -11,8 +13,10 @@ export class MedicineDetailsComponent implements OnInit {
    pid:string="";
    detail:any ;
    uid:any;
-   revie='';
-  constructor(private _med:MedicineService,private acitvateRouter :ActivatedRoute ,private router:Router ) { 
+    revie='';
+
+  constructor(private _med:MedicineService,private acitvateRouter :ActivatedRoute ,private router:Router,private taoster : ToastrService,private cart: CartService ) { 
+
     this.router.events.subscribe(event=>{
       this.pid =<string> this.acitvateRouter.snapshot.paramMap.get('pid')
       if(event instanceof NavigationEnd){
@@ -47,5 +51,11 @@ export class MedicineDetailsComponent implements OnInit {
   //     }
   //   });
   //  }
-
+  public add(mid:string){  
+    this.cart.addToCart(this.uid,mid).subscribe(data=>{
+      console.log(data)
+      if(data)
+      this.taoster.success('Medicine Added To The Cart');
+    })
+  }
 }

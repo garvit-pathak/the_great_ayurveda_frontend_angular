@@ -13,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class DoctorDetailsComponent implements OnInit {
 detail:any;
 doctorId:any;
+uid:any;
+revie:any;
   constructor(private activateRouter:ActivatedRoute, private taoster: ToastrService,private router:Router,private _drService:DoctorService,private _app: AppointmentService,) {
          this.router.events.subscribe(event=>{
            this.doctorId =<string> this.activateRouter.snapshot.paramMap.get('did');
@@ -23,6 +25,8 @@ doctorId:any;
              })
            }
          })
+         this.uid = sessionStorage.getItem('userId');
+
    }
 
   ngOnInit(): void {
@@ -30,5 +34,14 @@ doctorId:any;
   
   public appoin(id:string){
     this.router.navigate(['book-appointment'+'/'+id])
+  }
+
+  public review(){
+    this._drService.reviewDoctor(this.uid,this.doctorId,this.revie).subscribe(data=>{
+      console.log(data)
+      if(data){
+        this.taoster.success('Review Send');
+      }
+    })
   }
 }

@@ -19,4 +19,54 @@ p {
   a:hover {
     text-decoration: underline;
   }
+  .login-form {
+    top: 0;
+      background: #fff;
+    padding: 0.8rem;
+   
+  }
   
+  .login-form form {
+    padding: 1.7rem;
+    /* border: 0.1rem solid #2b734b; */
+  }
+  
+  .login-form form h3 {
+    font-size: 2.2rem;
+    padding-bottom: 1rem;
+    color: #2b734b;
+  }
+  
+  .login-form form .box {
+    width: 100%;
+    text-transform: none;
+    font-size: 1.5rem;
+    color: #2b734b;
+    padding: 1rem 1.2rem;
+    /* border: 0.1rem solid #2b734b; */
+    box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834);
+  
+    margin: 1rem 0;
+  }
+  
+  
+  
+  .login-form form .btn {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-form form p {
+    /* padding-top: 0.5rem; */
+    font-size: 1.4rem;
+    color: #779;
+  }
+  
+  .login-form form p a {
+    color: #2b734b;
+  }
+  
+  .login-form form p a:hover {
+    text-decoration: underline;
+  }

@@ -16,7 +16,12 @@
 
     <div class="box-container">
 
-        <div class="box" *ngFor="let list of doctorList">
+        <div class="box" *ngFor="let list of doctorList| paginate
+        : {
+            itemsPerPage: cardSize,
+            currentPage: page,
+            totalItems: count
+          }">
             <div class="image">
                 <img src={{list.image}} alt="">
             </div>
@@ -32,10 +37,17 @@
 
             </div>
         </div>
-        
-
+   
 
     </div>
-
+    <div class=" justify-content-center pagination">
+        <pagination-controls previousLabel="Prev"  nextLabel="Next" (pageChange)="onCardDataChange($event)">
+        </pagination-controls>
+      </div>
 </section>
 <router-outlet></router-outlet>
+<!-- <ngx-spinner  bdColor="white" template="<img src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />" ><ngx-spinner>
+     -->
+    <!-- <ngx-spinner ></ngx-spinner> -->
+    <ngx-spinner  bdColor="white" template="<img style = height:70px;
+src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />" ><ngx-spinner>

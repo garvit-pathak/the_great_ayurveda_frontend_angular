@@ -9,14 +9,17 @@ export class OrderService {
 
   constructor(private _http:HttpClient) { }
 
-  public addorder(order:any):Observable<any>{
+  // public addorder(order:any):Observable<any>{
+  //   let api='http://localhost:8801/api/order/place'
+  //   return this._http.post<any>(api,{order})
+  // }
+
+  public placeOrder(order:any):Observable<any>{
     let api='http://localhost:8801/api/order/create'
     return this._http.post<any>(api,{order})
   }
-
-  // public placeOrder(order:any):Observable<any>{
-  //   let api='http://localhost:8801/api/order/razorpayorder'
-  //   return this._http.post<any>(api,{})
-  // }
-  
+  onlinePay(payment:any){
+    let api='http://localhost:8801/api/order/payment'
+    return this._http.post<any>(api,{payment:payment})
+  }
 }

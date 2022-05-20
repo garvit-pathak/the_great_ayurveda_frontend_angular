@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { User } from 'src/app/model/user';
 import { ToastrService } from 'ngx-toastr';
-
+import {
+  SocialAuthService,
+  SocialUser,
+  GoogleLoginProvider,
+} from 'angularx-social-login';
 import { DoctorService } from '../../service/doctor.service';
 import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +19,7 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class HeaderComponent implements OnInit {
   userProfile: any;
-
+  user!: SocialUser;
   name: string = '';
   email: string = '';
   mobile: string = '';
@@ -27,7 +31,7 @@ export class HeaderComponent implements OnInit {
   dname = '';
   demail = '';
   dpassword = '';
-  dexprience = '';
+  dexperience = '';
   dcategory = '';
   dclinicName = '';
   dclinicAddress = '';
@@ -65,7 +69,8 @@ export class HeaderComponent implements OnInit {
     private _doctorService: DoctorService,
     private taoster: ToastrService,
     private router: Router,
-    private cart: CartService
+    private cart: CartService,
+    private authService: SocialAuthService
   ) {
     this.uid1 = sessionStorage.getItem('userId');
     let id = document.querySelectorAll('#menu');
@@ -75,18 +80,33 @@ export class HeaderComponent implements OnInit {
       this.catList = data;
     });
   }
-  get(event: any) {
-    this.dcategory = event.target.value;
+  get(id:string) {
+    // this.dcategory = event.target.value;
+    this.dcategory=id;
     alert(this.dcategory);
   }
   
 
   ngOnInit(): void {}
+  socialLogin() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
+      this.authService.authState.subscribe((data: any) => {
+        this.user = data;
+        this._userService.socialLogin(this.user).subscribe((data) => {
+          this.userProfile = data;
+          console.log(this.userProfile);
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          sessionStorage.setItem('userId', data.user._id);
+        });
+      });
+    });
+  }
 
   userIsLoggedIn() {
     if (this._userService.checkUser()) {
       this.userProfile = JSON.parse(this._userService.userDetail() || '{}');
-
+      console.log(this.userProfile);
       return true;
     }
     return false;
@@ -99,15 +119,13 @@ export class HeaderComponent implements OnInit {
         // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
         localStorage.setItem('jwt-token', data.token);
-
-        if (data) this.taoster.success('Login Success', 'Success');
-
         sessionStorage.setItem('userId', data.result._id);
         localStorage.setItem('user', JSON.stringify(data.result));
+        if (data) this.taoster.success('Login Success', 'Success');
       },
       (err) => {
         console.log(err);
-        this.taoster.error('somethink went wrong');
+        this.taoster.error('Invalid User Please Sing Up First');
       }
     );
   }
@@ -147,7 +165,8 @@ export class HeaderComponent implements OnInit {
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
       console.log(data);
-      if (data) this.taoster.success('SignUp Success', 'Success');
+      
+      if (data) this.taoster.success('SignUp Success now Log In ', 'Success');
     });
   }
 
@@ -160,7 +179,7 @@ export class HeaderComponent implements OnInit {
 
   doctorSingup() {
     let formData = new FormData();
-    formData.append('exprience', this.dexprience);
+    formData.append('experience', this.dexperience);
     formData.append('name', this.dname);
     formData.append('email', this.demail);
     formData.append('password', this.dpassword);
@@ -200,30 +219,32 @@ export class HeaderComponent implements OnInit {
         sessionStorage.setItem('doctorId', data.result._id);
         localStorage.setItem('doctor', JSON.stringify(data.result));
         if (data) this.taoster.success('Login Success', 'Success');
+      },err=>{
+        console.log(err)
+        this.taoster.error('Invalid Doctor Please Sing Up First')
       });
   }
   checkToken(): boolean {
     return !!localStorage.getItem('jwt-token');
   }
   totalPrice: number = 0;
-  cart1:any;
+  cart1: any;
   public view() {
     this.cart.cartView(this.uid1).subscribe((data) => {
-      this.cart1=data;
-      this.cart1=this.cart1.medicineList;
-      for(let i=0; i< this.cart1.length; i++)
-      {
-        this.cart1[i].pPrice=this.cart1[i].price;
-        this.cart1[i].index=i;
+      this.cart1 = data;
+      this.cart1 = this.cart1.medicineList;
+      for (let i = 0; i < this.cart1.length; i++) {
+        this.cart1[i].pPrice = this.cart1[i].price;
+        this.cart1[i].index = i;
         this.cart1[i].pro_qty = 1;
       }
-      console.log(this.cart1)
-      localStorage.setItem("cart",JSON.stringify(this.cart1))
+      console.log(this.cart1);
+      localStorage.setItem('cart', JSON.stringify(this.cart1));
 
       this.cartList = data.medicineList;
       this.totalPrice = 0;
       for (let element of this.cartList) {
-        this.totalPrice+= element.price*1;
+        this.totalPrice += element.price * 1;
       }
       console.log(this.totalPrice);
     });

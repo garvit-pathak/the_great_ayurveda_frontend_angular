@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
+import { SocialUser } from 'angularx-social-login';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,12 @@ export class UserService {
   private verifyApi = 'http://localhost:8801/api/user/verify';
 
   constructor(private _http: HttpClient) {}
+
+
+  socialLogin(user:SocialUser):Observable<any>{
+    let socialApi = "http://localhost:8801/api/user/login-by-social-media";
+    return this._http.post(socialApi,{name : user.name,email : user.email,image : user.photoUrl})
+  }
 
   public signInUser(email:string,password:string): Observable<any> {
     return this._http.post<any>(this.signInApi,{email:email,password:password});
@@ -33,5 +40,10 @@ export class UserService {
   }
   public userDetail(){
     return localStorage.getItem('user');
+  }
+  
+  public removeUser(uid:string): Observable<any>{
+   let api='http://localhost:8801/api/user/remove'
+   return this._http.post<any>(api,{id:uid});
   }
 }

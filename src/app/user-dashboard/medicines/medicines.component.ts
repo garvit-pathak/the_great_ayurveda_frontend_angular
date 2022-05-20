@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { MedicineService } from '../../service/medicine.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-medicines',
@@ -16,11 +17,18 @@ search:any;
 medicineList:any=[];
 particulaMed:any="";
 uid:any="";
-  constructor(private medicineSearvice:MedicineService ,private router:Router ,private cart: CartService ,private taoster : ToastrService ) {
+
+page: number = 1;
+  count: number = 0;
+  cardSize: number = 9
+  constructor(private medicineSearvice:MedicineService ,private spinner: NgxSpinnerService,private router:Router ,private cart: CartService ,private taoster : ToastrService ) {
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
+      this.spinner.hide();
+
         console.log(data);
         this.medicines=data;
         this.uid = sessionStorage.getItem('userId');
+
     })
    }
    public searchMedicine(keyword:string){
@@ -40,8 +48,10 @@ uid:any="";
    }
 
   ngOnInit(): void {
+    this.spinner.show();
   }
   public add(mid:string){
+    if(sessionStorage.getItem('userId')){
     // let mId = <HTMLButtonElement>document.getElementById(mid);
     // console.log(mId)
     // this.aElement.nativeElement.innerHTML="hello <i class='bx bxs-cart-add'></i>";
@@ -55,5 +65,12 @@ uid:any="";
       if(data)
       this.taoster.success('Medicine Added To The Cart');
     })
+  }
+  else
+  this.taoster.warning('Login First Please');
+}
+
+  onCardDataChange(event: any) {
+    this.page = event;
   }
 }
