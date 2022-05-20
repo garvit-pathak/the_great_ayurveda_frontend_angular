@@ -24,7 +24,7 @@ export class DiseasesComponent implements OnInit {
   show: boolean = false;
   link: string = '';
   constructor(private spinner: NgxSpinnerService,private taoster: ToastrService,
-    private cart: CartService private diseasesService: DiseasesService, private activatedRouter: ActivatedRoute, private router: Router, private drService: DoctorService) {
+    private cart: CartService, private diseasesService: DiseasesService, private activatedRouter: ActivatedRoute, private router: Router, private drService: DoctorService) {
     this.router.events.subscribe(event => {
       this.keywords = <string>this.activatedRouter.snapshot.paramMap.get('search');
       if (event instanceof NavigationEnd) {
@@ -60,12 +60,27 @@ export class DiseasesComponent implements OnInit {
     }, err => {
       console.log(err);
     })
-
-
-      this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
-        console.log(data);
-        if (data) this.taoster.success('Medicine Added To The Cart');
-      });
-    } else this.taoster.warning('Login First Please');
   }
+    public appoin(id: string) {
+      if (sessionStorage.getItem('userId')) {
+        this.router.navigate(['book-appointment' + '/' + id]);
+      } else this.taoster.warning('Please LogIn First');
+    }
+    public add(mid: string) {
+      if (sessionStorage.getItem('userId')) {
+        // let mId = <HTMLButtonElement>document.getElementById(mid);
+        // console.log(mId)
+        // this.aElement.nativeElement.innerHTML="hello <i class='bx bxs-cart-add'></i>";
+        // let but = mId.innerHTML.split("<")[0];
+        // console.log(but);
+        // let appliedClass = mId?.classList;
+        // console.log(appliedClass.value)
+  
+        this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
+          console.log(data);
+          if (data) this.taoster.success('Medicine Added To The Cart');
+        });
+      } else this.taoster.warning('Login First Please');
+    }
 }
+
