@@ -21,7 +21,7 @@ export class MedicineDetailsComponent implements OnInit {
       this.pid =<string> this.acitvateRouter.snapshot.paramMap.get('pid')
       if(event instanceof NavigationEnd){
               this._med.viewParticular(this.pid).subscribe(data=>{
-                console.log(data);
+                // console.log(data);
                 this.detail = data;  
               })
             }
@@ -34,7 +34,7 @@ export class MedicineDetailsComponent implements OnInit {
   }
   public review(){
     this._med.medicineReview(this.uid,this.pid,this.revie).subscribe(data=>{
-      console.log(data)
+      // console.log(data)
       if(data){
         alert("review send")
       }
@@ -53,7 +53,7 @@ export class MedicineDetailsComponent implements OnInit {
   //  }
   public add(mid:string){  
     this.cart.addToCart(this.uid,mid).subscribe(data=>{
-      console.log(data)
+      // console.log(data)
       if(data)
       this.taoster.success('Medicine Added To The Cart');
     })

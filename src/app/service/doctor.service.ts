@@ -62,4 +62,9 @@ public details(doctorId:string):Observable<any>{
     let updateDoctorApi="http://localhost:8801/api/doctor/updateDoctor";
     return this.http.post<any>(updateDoctorApi,formData);
   }
+
+  public viewReview(id:string):Observable<any>{
+    let api='http://localhost:8801/api/doctor/viewReviewbyDid'
+   return this.http.post<any>(api,{dId:id});
+  }
 }
