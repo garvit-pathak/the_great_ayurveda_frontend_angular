@@ -40,7 +40,7 @@ diseaseId:any ;
           if (data.yogaLink) {
             this.link = this.disList.yogaLink
             this.show = true;
-            console.log(this.link);
+            // console.log(this.link);
 
           }
         })
@@ -71,7 +71,7 @@ diseaseId:any ;
     public add(mid: string) {
       if (sessionStorage.getItem('userId')) {
       this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
-          console.log(data);
+          // console.log(data);
           if (data) this.taoster.success('Medicine Added To The Cart');
         });
       } else this.taoster.warning('Login First Please');
@@ -79,7 +79,7 @@ diseaseId:any ;
 
     public review(){
       this.diseasesService.reviewDiseases(this.diseaseId,this.uid,this.reviewText).subscribe(data=>{
-       console.log(data)
+      //  console.log(data)
        if(data)
        this.taoster.success("Review Success Full Send ")
       })

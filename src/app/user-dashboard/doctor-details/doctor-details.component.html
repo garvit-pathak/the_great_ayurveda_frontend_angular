@@ -46,43 +46,17 @@
 
     <div class="box-container">
 
-        <div class="box">
-            <img src="../assets/image/pic-1.png" alt="">
-            <h3>priyanshu</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+        <div class="box" *ngFor='let rlist of reviewList '>
+            <img src='{{rlist.uId.image}}' alt=" ">
+            <h3>{{rlist.uId.name}}</h3>
+            <div class="stars ">
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star "></i>
+                <i class="fas fa-star-half-alt "></i>
             </div>
-            <p class="text">yeh davai ne meri jindgi badal di hai me kabse pareshan tha</p>
-        </div>
-
-        <div class="box">
-            <img src="../assets/image/pic-2.png" alt="">
-            <h3>mitanshi</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text">me aaj jinda hu keval is davai kai karan bahut jldi asar krti hai</p>
-        </div>
-
-        <div class="box">
-            <img src="../../assets/image/PicsArt_10-17-09.50.22.jpg" alt="">
-            <h3>garvit</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text">thanks for selling great medicine and guidance</p>
+            <p class="text ">{{rlist.reviewText}}</p>
         </div>
 
     </div>
@@ -94,15 +68,15 @@
 
 
 
-<section class="livechat">
-    <div class="livechat-content container">
-        <div class="livechat-text">
+<section class="livechat ">
+    <div class="livechat-content container ">
+        <div class="livechat-text ">
             <h2>Review!</h2>
             <p>Your valueable review can help others.share your review if we help you through our multiple health care solutions. </p>
         </div>
-        <form action="">
-            <input type="text" [(ngModel)]='revie' name="" id="" placeholder="review.." reuired>
-            <input type="submit" (click)="review()" value="send" class="btn">
+        <form action=" ">
+            <input type="text " [(ngModel)]='review1 ' name="review " id=" " placeholder="review.. " reuired>
+            <input type="submit " (click)="review() " value="send " class="btn ">
         </form>
     </div>
 </section>
