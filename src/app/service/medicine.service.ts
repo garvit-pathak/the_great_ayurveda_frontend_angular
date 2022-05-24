@@ -23,4 +23,8 @@ private viewByproID = "http://localhost:8801/api/medicine/viewbypro" ;
     let api='http://localhost:8801/api/medicine/review'
     return this._http.post<any>(api,{uId:uid,pId:pid,reviewText:review})
   }
+  public reviewView(mid:string){
+    let api='http://localhost:8801/api/medicine/viewbypro'
+    return this._http.post<any>(api,{id:mid})
+  }
 }

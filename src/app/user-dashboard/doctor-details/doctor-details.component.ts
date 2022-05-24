@@ -16,7 +16,6 @@ detail:any;
 doctorId:any;
 uid:any;
 review1:any;
-revList:any[]=[];
 reviewList:any[]=[];
   constructor(private activateRouter:ActivatedRoute,private _review:ReviewsService, private taoster: ToastrService,private router:Router,private _drService:DoctorService,private _app: AppointmentService,) {
     this.doctorId = this.activateRouter.snapshot.paramMap.get('did');     
@@ -30,12 +29,8 @@ reviewList:any[]=[];
            }
          })
          this.uid = sessionStorage.getItem('userId');
-         console.log("hello"+this.doctorId+"hello");
          this._review.viewreviewbyid(this.doctorId).subscribe(data=>{
-            console.log('fchnbj'+ data)
-          // this.revList = data ;
                  this.reviewList = data.reviewerDetail;
-                // console.log(this.reviewList);
          })
    }
 
