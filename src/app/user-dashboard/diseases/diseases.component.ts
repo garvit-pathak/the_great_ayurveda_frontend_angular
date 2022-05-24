@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { DoctorService } from 'src/app/service/doctor.service';
 import { DiseasesService } from '../../service/diseases.service';
-
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
-
 import { NgxSpinnerService } from 'ngx-spinner';
-
 @Component({
   selector: 'app-diseases',
   templateUrl: './diseases.component.html',
@@ -23,8 +20,8 @@ export class DiseasesComponent implements OnInit {
   show: boolean = false;
   link: string = '';
   reviewText: any;
-  diseaseID:any;
-  diseasList:any;
+  diseaseID: any;
+  diseasList: any;
   constructor(
     private spinner: NgxSpinnerService,
     private taoster: ToastrService,
@@ -44,7 +41,7 @@ export class DiseasesComponent implements OnInit {
 
           this.disList = data;
           this.diseaseId = this.disList._id;
-          sessionStorage.setItem("diseaseID",this.disList._id)
+          sessionStorage.setItem('diseaseID', this.disList._id);
           this.medicines = data.medicines;
           console.log(this.medicines);
           if (data.yogaLink) {
@@ -56,7 +53,7 @@ export class DiseasesComponent implements OnInit {
       }
     });
     this.uid = sessionStorage.getItem('userId');
-    this.diseaseID=sessionStorage.getItem("diseaseID")
+    this.diseaseID = sessionStorage.getItem('diseaseID');
     this.diseasesService.reviewRevie(this.diseaseID).subscribe((data) => {
       console.log('fchdrtfrd' + data);
       this.diseasList = data.reviewerDetail;
