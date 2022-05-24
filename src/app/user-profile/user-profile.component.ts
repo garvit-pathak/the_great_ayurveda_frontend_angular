@@ -34,6 +34,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userDetail = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.userDetail);
+    this.name = this.userDetail.name;
+    this.image = this.userDetail.image;
+    this.email = this.userDetail.email;
+    this.mobile = this.userDetail.mobile;
   }
   remove() {
     confirm('confirm');
@@ -48,12 +52,12 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  userUpdate() {
-    this.name = this.userDetail.name;
-    this.image = this.userDetail.image;
-    this.email = this.userDetail.email;
-    this.mobile = this.userDetail.mobile;
-  }
+  // userUpdate() {
+  //   this.name = this.userDetail.name;
+  //   this.image = this.userDetail.image;
+  //   this.email = this.userDetail.email;
+  //   this.mobile = this.userDetail.mobile;
+  // }
 
   selectImage(event: any) {
     if (event.target.files.length > 0) {
