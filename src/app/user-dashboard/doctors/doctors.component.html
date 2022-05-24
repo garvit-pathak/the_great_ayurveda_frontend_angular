@@ -1,6 +1,3 @@
-<p>doctors works!</p>
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 <section class="doctors" id="doctors">
@@ -8,14 +5,11 @@
     <h1 class="heading" style="padding-top: 80px;"> our <span>doctors</span> </h1>
     <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
         <form action="" class="search-form" id="search" #search>
-            <input type="search" (change)="navigate($event)"  placeholder="search here..." id="search-box">
+            <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
             <label for="search-box" class="fas fa-search"></label>
         </form>
     </div>
-
-
     <div class="box-container">
-
         <div class="box" *ngFor="let list of doctorList| paginate
         : {
             itemsPerPage: cardSize,
@@ -27,27 +21,25 @@
             </div>
             <div class="content">
                 <div class="icon">
-                    <a > <i class="fas fa-calendar"></i> experience {{list.exprience}} year </a>
-                    <a > <i class="fas fa-user"></i> verified </a>
+                    <a> <i class="fas fa-calendar"></i> experience {{list.exprience}} year </a>
+                    <a> <i class="fas fa-user"></i> verified </a>
                 </div>
-                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{list.name}}</h3>
+                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{list.name}}</h3>
                 <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{list.speciality}}</p>
-            <h4><a   (click)="viewDetails(list._id)" >more info>> </a> </h4>
-                <a (click)="appoin(list._id)"  class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
-
+                <h4><a (click)="viewDetails(list._id)">more info>> </a> </h4>
+                <a (click)="appoin(list._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
             </div>
         </div>
-   
-
     </div>
     <div class=" justify-content-center pagination">
-        <pagination-controls previousLabel="Prev"  nextLabel="Next" (pageChange)="onCardDataChange($event)">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onCardDataChange($event)">
         </pagination-controls>
-      </div>
+    </div>
 </section>
 <router-outlet></router-outlet>
 <!-- <ngx-spinner  bdColor="white" template="<img src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />" ><ngx-spinner>
      -->
-    <!-- <ngx-spinner ></ngx-spinner> -->
-    <ngx-spinner  bdColor="white" template="<img style = height:70px;
-src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />" ><ngx-spinner>
+<!-- <ngx-spinner ></ngx-spinner> -->
+<ngx-spinner bdColor="white" template="<img style = height:70px;
+src='https://c.tenor.com/HT-Xm8vgUysAAAAC/load.gif' />">
+    <ngx-spinner>
