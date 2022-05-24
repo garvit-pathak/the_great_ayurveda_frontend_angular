@@ -59,13 +59,13 @@
                         <!-- <span class="help-bpx">Please enter valid name</span> -->
 
                         <label for="" style="font-size: 15px; color: #779;">upload your image</label>
-                        <input type="file" name="file" placeholder="" class="box">
+                        <input type="file" (change)='selectImage($event)' name="file" placeholder="" class="box">
                         <!-- <span class="help-bpx">Please enter valid name</span> -->
 
-                        <input type="text" [(ngModel)]='mobile' name="mobile" placeholder="mobile no." class="box" required>
+                        <!-- <input type="text" [(ngModel)]='mobile' name="mobile" placeholder="mobile no." class="box" required> -->
                         <!-- <span class="help-bpx" >Please enter valid Mobile</span> -->
 
-                        <input type="submit" value="update profile " class="btn1" data-dismiss="modal" aria-label="Close">
+                        <input type="submit" (click)='update() ' alue="update profile " class="btn1" data-dismiss="modal" aria-label="Close">
 
                     </form>
 

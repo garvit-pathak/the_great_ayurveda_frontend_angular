@@ -76,7 +76,7 @@ export class HeaderComponent implements OnInit {
     let id = document.querySelectorAll('#menu');
     console.log(id);
     this._doctorService.categoryView().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.catList = data;
     });
   }
@@ -106,7 +106,7 @@ export class HeaderComponent implements OnInit {
   userIsLoggedIn() {
     if (this._userService.checkUser()) {
       this.userProfile = JSON.parse(this._userService.userDetail() || '{}');
-      console.log(this.userProfile);
+      // console.log(this.userProfile);
       return true;
     }
     return false;
@@ -115,8 +115,6 @@ export class HeaderComponent implements OnInit {
   public signInUser() {
     this._userService.signInUser(this.email, this.password).subscribe(
       (data) => {
-        console.log(data);
-        // alert('successfull logined');
         // sessionStorage.setItem('token',data.token);
         localStorage.setItem('jwt-token', data.token);
         sessionStorage.setItem('userId', data.result._id);
@@ -144,8 +142,8 @@ export class HeaderComponent implements OnInit {
     formData.append('mobile', this.mobile);
     formData.append('image', this.image);
     this._userService.signUpUser(formData).subscribe((data) => {
-      console.log(data);
-      console.log(data.result.otp);
+      // console.log(data);
+      // console.log(data.result.otp);
       this.uid = data.result._id;
     });
   }
@@ -164,7 +162,7 @@ export class HeaderComponent implements OnInit {
 
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       
       if (data) this.taoster.success('SignUp Success now Log In ', 'Success');
     });
@@ -173,7 +171,7 @@ export class HeaderComponent implements OnInit {
   selectimage(event: any) {
     if (event.target.files.length > 0) {
       this.dimage = event.target.files[0];
-      console.log(this.image);
+      // console.log(this.image);
     }
   }
 
@@ -193,7 +191,7 @@ export class HeaderComponent implements OnInit {
     formData.append('degree', this.ddegree);
 
     this._doctorService.doctorSingup(formData).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.dotp = data.otp;
       this.did = data._id;
       console.log(this.did + ' ' + this.dotp);
@@ -203,7 +201,7 @@ export class HeaderComponent implements OnInit {
 
   doctorVerify() {
     this._doctorService.otpcheck(this.did, this.dotp).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
@@ -214,7 +212,7 @@ export class HeaderComponent implements OnInit {
       .subscribe((data) => {
         this.router.navigate(['/doctor-dasboard']);
 
-        console.log(data);
+        // console.log(data);
 
         sessionStorage.setItem('doctorId', data.result._id);
         localStorage.setItem('doctor', JSON.stringify(data.result));
@@ -238,7 +236,7 @@ export class HeaderComponent implements OnInit {
         this.cart1[i].index = i;
         this.cart1[i].pro_qty = 1;
       }
-      console.log(this.cart1);
+      // console.log(this.cart1);
       localStorage.setItem('cart', JSON.stringify(this.cart1));
 
       this.cartList = data.medicineList;
@@ -246,7 +244,7 @@ export class HeaderComponent implements OnInit {
       for (let element of this.cartList) {
         this.totalPrice += element.price * 1;
       }
-      console.log(this.totalPrice);
+      // console.log(this.totalPrice);
     });
   }
   public removeCart(mid: string) {

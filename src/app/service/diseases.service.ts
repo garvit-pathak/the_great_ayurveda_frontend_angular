@@ -18,4 +18,9 @@ export class DiseasesService {
     let Search='http://localhost:8801/api/disease/search-disease'
    return this.http.post<any>(Search,{keyword})
   }
+
+  public reviewDiseases(did:string,uid:string,text:string): Observable<any>{
+    let api='http://localhost:8801/api/disease/review'
+    return this.http.post<any>(api,{dId:did,uId:uid,reviewText:text})
+  }
 }
