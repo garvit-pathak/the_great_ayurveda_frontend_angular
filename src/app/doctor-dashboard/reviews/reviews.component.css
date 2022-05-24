@@ -1,0 +1,17 @@
+.tab {
+    /* background-color: #2b734b; */
+    padding-top: 20px;
+}
+
+.tab input {
+    padding: 10px;
+}
+
+.tbody {
+    background-color: rgb(230, 252, 213);
+}
+
+.thead {
+    border-style: solid;
+    border-color: #2b734b;
+}
