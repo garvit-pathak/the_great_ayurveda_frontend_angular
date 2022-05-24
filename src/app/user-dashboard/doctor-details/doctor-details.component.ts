@@ -4,6 +4,7 @@ import { Appointment } from '../../model/appointment';
 import { AppointmentService } from '../../service/appointment.service';
 import { DoctorService } from '../../service/doctor.service';
 import { ToastrService } from 'ngx-toastr';
+import { ReviewsService } from 'src/app/service/reviews.service';
 
 @Component({
   selector: 'app-doctor-details',
@@ -14,10 +15,13 @@ export class DoctorDetailsComponent implements OnInit {
 detail:any;
 doctorId:any;
 uid:any;
-revie:any;
-  constructor(private activateRouter:ActivatedRoute, private taoster: ToastrService,private router:Router,private _drService:DoctorService,private _app: AppointmentService,) {
-         this.router.events.subscribe(event=>{
-           this.doctorId =<string> this.activateRouter.snapshot.paramMap.get('did');
+review1:any;
+revList:any[]=[];
+reviewList:any[]=[];
+  constructor(private activateRouter:ActivatedRoute,private _review:ReviewsService, private taoster: ToastrService,private router:Router,private _drService:DoctorService,private _app: AppointmentService,) {
+    this.doctorId = this.activateRouter.snapshot.paramMap.get('did');     
+    this.router.events.subscribe(event=>{
+           this.doctorId = this.activateRouter.snapshot.paramMap.get('did');
            if(event instanceof NavigationEnd){
              this._drService.details(this.doctorId).subscribe(data=>{
                console.log(data);
@@ -26,7 +30,13 @@ revie:any;
            }
          })
          this.uid = sessionStorage.getItem('userId');
-
+         console.log("hello"+this.doctorId+"hello");
+         this._review.viewreviewbyid(this.doctorId).subscribe(data=>{
+            console.log('fchnbj'+ data)
+          // this.revList = data ;
+                 this.reviewList = data.reviewerDetail;
+                // console.log(this.reviewList);
+         })
    }
 
   ngOnInit(): void {
@@ -37,8 +47,9 @@ revie:any;
   }
 
   public review(){
-    this._drService.reviewDoctor(this.uid,this.doctorId,this.revie).subscribe(data=>{
-      console.log(data)
+    alert(this.review1)
+    this._drService.reviewDoctor(this.uid,this.doctorId,this.review1).subscribe(data=>{
+      // console.log(data)
       if(data){
         this.taoster.success('Review Send');
       }

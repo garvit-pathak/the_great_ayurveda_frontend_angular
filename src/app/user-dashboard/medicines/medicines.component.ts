@@ -25,7 +25,7 @@ page: number = 1;
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
       this.spinner.hide();
 
-        console.log(data);
+        // console.log(data);
         this.medicines=data;
         this.uid = sessionStorage.getItem('userId');
 
@@ -33,7 +33,7 @@ page: number = 1;
    }
    public searchMedicine(keyword:string){
        this.medicineSearvice.searchMedicine(keyword).subscribe((data:any)=>{
-         console.log(data);
+        //  console.log(data);
          this.medicineList=data;
        })
    } 
