@@ -4,7 +4,7 @@
 
 <header class="header">
 
-    <a routerLink="" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg" style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
+    <a routerLink="" style="color: #2b734b;" class="logo"><img src="../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg" style="width:50px;height:min-content;" alt=""> The Great Ayurveda</a>
 
     <nav class="navbar" id="navbar">
 
@@ -29,9 +29,24 @@
             </div>
         </div>
 
-        <a routerLink="user-profile" *ngIf="userIsLoggedIn(); ">
+        
+        <div class="dropdown">
+
+             <a *ngIf="userIsLoggedIn(); ">
             <i class='bx bx-user-circle'></i>
         </a>
+
+
+
+            <div  class="dropdown-menu">
+                <a class="dropdown-item"  routerLink="user-profile" data-toggle="modal" data-target="#SignInModal">Profile</a>
+                <a class="dropdown-item">Order history</a>
+                <a style="padding-right: 50px;" class="dropdown-item" >Appointments </a>
+                <a class="dropdown-item" (click)="signout()" >Sign out  </a>
+            </div>
+        </div>
+
+      
 
 
 

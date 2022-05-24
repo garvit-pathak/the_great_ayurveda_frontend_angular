@@ -28,7 +28,10 @@
     color:var(--black);
     font-size: 2.5rem;
 }
-
+.container{
+    padding-bottom: 50px;
+    padding-left: 35rem;
+}
 /* .medicines .box-container .box span{
     color:var(--green);
     font-size: 1.5rem;
@@ -113,3 +116,20 @@
       margin-top: 20px;
       font-size: 20px;
   }
+
+   @media (max-width:768px) {
+       .container{
+             padding-left: 80px;
+      }
+  }
+  
+  /* @media (max-width:414px) {
+    .container{
+          padding-left: 20px;
+   }
+} */
+  /* @media (max-width:  820px) {
+    .container{
+          padding-left: 220px;
+   }
+} */

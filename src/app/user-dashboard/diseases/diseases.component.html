@@ -116,8 +116,10 @@
         </div> -->
         <div class="box">
 
-            <div class="image" style="margin-left: 200px;">
-                <iframe width="560" height="315" [src]="link | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="image" >
+                <iframe  [src]="link | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             </div>
 
         </div>
@@ -140,9 +142,10 @@
 
 
         <div class="box" *ngFor="let med of medicines| slice:0:3">
-            <img src="{{med.mId.image}}" alt="">
-            <h3>{{med.mId.name}}</h3>
+            <img  src="{{med.mId.image}}" alt="">
+            <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.name}}</h3>
             <span>₹{{med.mId.price}}</span>
+            <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.description}}</p>
             <div class="share">
 
                 <a (click)='add(med.mId._id)' class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
