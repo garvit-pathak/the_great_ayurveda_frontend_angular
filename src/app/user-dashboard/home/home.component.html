@@ -4,15 +4,17 @@
 
 <!-- home section starts  -->
 
-<section class="home" id="home">
+<section class="home" style="background: rgb(230, 252, 213) ;"  id="home">
 
     <div class="image">
-        <img src="../../../assets/image/health-professional-team-animate2.svg" alt="">
+        <img  src="../../../assets/image/health-professional-team-animate2.svg" alt="">
+        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgbEmQEF8puGuGqFASZ4iq1aIUBqrOCfWvGA&usqp=CAU" alt=""> -->
+
     </div>
 
     <div class="content">
         <h3>stay safe, stay healthy</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed autem vero? Magnam, est laboriosam!</p>
+        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions   treatment of your disease.</p>
          
             <form action="" class="search-form" id="search" #search>
                 <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
@@ -58,39 +60,39 @@
 
 <!-- services section starts  -->
 
-<section class="services" id="services">
+<section class="services" style="margin-top:50px" id="services">
 
-    <h1 class="heading"> our <span>services</span> </h1>
+    <h1 style="margin-bottom:20px ;" class="heading"> our <span>services</span> </h1>
 
     <div class="box-container">
 
         <div class="box">
-            <i class="fas fa-notes-medical"></i>
+            <i ><img src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
             
-            <h3>free checkups</h3>
+            <h3>causes</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
       
 
         <div class="box">
-            <i class="fas fa-user-md"></i>
+            <i ><img src="../../../assets/image/doctor.png" alt=""></i>
             <h3>expert doctors</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
         <div class="box">
-            <i class="fas fa-pills"></i>
-            <h3>medicines</h3>
+            <i ><img src="../../../assets/image/ayurvedic.png" alt=""></i>
+            <h3>ayurvedic  medicines</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
-        <!-- <div class="box">
-            <i class="fas fa-procedures"></i>
-            <h3>bed facility</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
+        <div class="box">
+            <i ><img   src="../../../assets/image/meditation (2).png" alt=""></i>
+            <h3>yoga videos</h3>
+            <p>we will provide you yoga related your disease to cure your disease permanently</p>
             <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
-        </div> -->
+        </div>
 
         <!-- <div class="box">
             <i class="fas fa-heartbeat"></i>
@@ -105,11 +107,64 @@
 
 <!-- services section ends -->
 
+<section class="disease"  style="margin-top:90px;background-color: #fff; " id="review">
+    
+    <h1 class="heading" style="margin-bottom:30px ;"  > <span>diseases </span>we treat  </h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="../../../assets/image/digestive-white-icon.png" alt="">
+            <h3 style="margin-top: 50px;">digestive</h3>
+        </div>
+      
+        <div class="box">
+            <img src="../../../assets/image/endocrine-white-icon.png" alt="">
+            <h3 style="margin-top: 55px;" >endocrine</h3>
+        </div>
+
+        <div class="box">
+            <img src="../../../assets/image/hairandskin-white-icon.png" alt="">
+            <h3 style="margin-top: 50px;" >hair and skin</h3>
+        </div>
+        <div class="box">
+            <img src="../../../assets/image/jointpain-white-icon.png" alt="">
+            <h3 style="margin-top: 45px;" >joint pain</h3>
+        </div>
+        <div class="box">
+            <img src="../../../assets/image/gynae-white-icon.png" alt="">
+            <h3 style="margin-top: 55px;" >Gynae</h3>
+        </div>
+        <!-- <div class="box">
+            <img src="../../../assets/image/respiratory-white-icon.png" alt="">
+            <h3 style="margin-top: 50px;" >Breathing</h3>
+        </div>
+        <div class="box">
+            <img style="height: 100px;" src="../../../assets/image/brain.png" alt="">
+            <h3 style="margin-top: 50px;" >Brain</h3>
+        </div>
+        <div class="box">
+            <img style="height: 100px;" src="../../../assets/image/blood.png" alt="">
+            <h3 style="margin-top: 50px;" >blood</h3>
+        </div>
+        <div class="box">
+            <img style="height: 100px;" src="../../../assets/image/heart-attack.png" alt="">
+            <h3 style="margin-top: 50px;" >heart</h3>
+        </div>
+        
+        <div class="box">
+            <img style="height: 100px;" src="../../../assets/image/cry.png" alt="">
+            <h3 style="margin-top: 50px;" >eye</h3>
+        </div> -->
+        
+    </div>
+   <!-- <a href="#search"> <button class="btn1" >many more</button></a> -->
+
+</section>
 <!-- about section starts  -->
 
-<section class="about" id="about">
+<section class="about" style="margin-top:90px" id="about">
 
-    <h1 class="heading"> <span>about</span> us </h1>
+    <h1 class="heading" style="margin-bottom:10px ;"  > <span>about</span> us </h1>
 
     <div class="row">
 
@@ -217,26 +272,70 @@
 
 
 <!-- review section starts  -->
+<!-- <section class="review" id="review" >
+    <div class="box-contianer">
+<owl-carousel-o [options]="customOptions">
 
-<section class="review" id="review">
+ <ng-template carouselSlide>
+    <div class="box">
+        <img src="../assets/image/pic-1.png" alt="">
+        <h3>priyanshu</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+    </div>
+
+  </ng-template>  
+
+
+  <ng-template carouselSlide>
+    <div class="box">
+        <img src="../assets/image/pic-1.png" alt="">
+        <h3>priyanshu</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+    </div>
+
+  </ng-template> 
+
+
+
+  <ng-template carouselSlide>
+    <div class="box">
+        <img src="../assets/image/pic-1.png" alt="">
+        <h3>priyanshu</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+    </div>
+
+  </ng-template> 
+
+</owl-carousel-o>
+</div>
+</section> -->
+
+<section class="review"  style="margin-top:90px; background: rgb(230, 252, 213) ;" id="review">
     
-    <h1 class="heading"> client's <span>review</span> </h1>
+    <h1 class="heading" style="margin-bottom:30px ;"  > client's <span>review</span> </h1>
 
     <div class="box-container">
-
-        <div class="box">
-            <img src="../assets/image/pic-1.png" alt="">
-            <h3>priyanshu</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
-        </div>
-
         <div class="box">
             <img src="../assets/image/pic-2.png" alt="">
             <h3>mitanshi</h3>
@@ -247,7 +346,20 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text"> perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+        </div>
+      
+        <div class="box">
+            <img src="../assets/image/pic-2.png" alt="">
+            <h3>mitanshi</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text"> sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
         </div>
 
         <div class="box">
@@ -260,12 +372,22 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sapiente nihil aperiam? Repellat sequi nisi aliquid perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text"> sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
         </div>
 
     </div>
 
 </section>
+<owl-carousel-o [options]="customOptions">
+
+    <ng-container >
+      <ng-template carouselSlide >
+
+        
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
 
 <!-- review section ends -->
 

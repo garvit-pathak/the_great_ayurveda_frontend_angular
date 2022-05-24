@@ -14,7 +14,7 @@ import { BookAppointmentComponent } from './user-dashboard/book-appointment/book
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
@@ -63,7 +63,7 @@ const social= {
     HeaderComponent,
     BookAppointmentComponent,
     UserDashboardComponent,
- 
+    
        DiseasesComponent,
        OrderComponent,
        SafePipe,
@@ -77,12 +77,14 @@ const social= {
        AppointmentsComponent,
        HeaderDoctorComponent,
        FooterDoctorComponent,
-       ReviewsComponent
+       ReviewsComponent,
+       
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CarouselModule,
     SocialLoginModule,
     NgxPaginationModule,
     BrowserAnimationsModule,

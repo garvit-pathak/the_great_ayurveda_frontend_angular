@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
-
+/* @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel'; */
+/* @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'; */
 :root{
     --green:#2b734b ;
     --black:#444;
@@ -39,11 +40,11 @@ section:nth-child(even){
 .heading{
     text-align: center;
     padding-bottom: 2rem;
-    text-shadow: var(--text-shadow);
+    /* text-shadow: var(--text-shadow); */
     text-transform: uppercase;
     color:var(--black);
-    font-size: 5rem;
-    letter-spacing: .4rem;
+    font-size: 4rem;
+    letter-spacing: .0rem;
 }
 
 .heading span{
