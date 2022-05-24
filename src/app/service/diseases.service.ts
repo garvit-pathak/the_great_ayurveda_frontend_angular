@@ -23,4 +23,8 @@ export class DiseasesService {
     let api='http://localhost:8801/api/disease/review'
     return this.http.post<any>(api,{dId:did,uId:uid,reviewText:text})
   }
+  public reviewRevie(id:string):Observable<any>{
+    let api='http://localhost:8801/api/disease/view-particularDisease'
+    return this.http.post<any>(api,{dId:id})
+  }
 }
