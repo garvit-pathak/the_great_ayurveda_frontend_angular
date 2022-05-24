@@ -33,7 +33,7 @@ section:nth-child(even){
     text-transform: uppercase;
     color:var(--black);
     font-size: 4rem;
-    letter-spacing: .4rem;
+    letter-spacing: .1rem;
 }
 
 .heading span{
@@ -92,6 +92,7 @@ section:nth-child(even){
 
 .home .image img{
     width: 100%;
+    /* height: 40%; */
 }
 
 .home .content{
@@ -115,7 +116,7 @@ section:nth-child(even){
 
 .services .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap:2rem;
 }
 
@@ -178,7 +179,38 @@ section:nth-child(even){
     line-height: 1.8;
 }
 
+.disease{
+    background-color: #fff;
+}
 
+.disease .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap:2rem;
+}
+
+.disease .box-container .box{
+    /* border:var(--border); */
+    /* box-shadow: var(--box-shadow); */
+    border-radius: .5rem;
+    padding:2.5rem;
+    color: #fff;
+    background: #439c6b;
+    
+     /* background: rgb(157, 242, 92); */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.disease .box-container .box img{
+    /* height: 10rem; */
+    /* width: 10rem; */
+    /* border-radius: 50%; */
+    object-fit: cover;
+    /* border:.5rem solid #fff; */
+}
 
 
 .review .box-container{
