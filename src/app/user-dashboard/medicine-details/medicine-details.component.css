@@ -11,10 +11,13 @@
     flex:1 1 40rem;
     
 }
+.details .image a{
+    margin-left: 120px;margin-top:40px;
+}
 
 .details .image img{
-    width: 450px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     padding-top: 100px;
 }
 
@@ -138,4 +141,11 @@
     height: 25rem;
     width: 120%;
     z-index: -1;
+}
+@media (max-width:768px) {
+     .image img{
+        /* width: 4px;\
+         */
+         margin-left: 1px;
+    }
 }

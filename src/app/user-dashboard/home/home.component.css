@@ -246,7 +246,7 @@ section:nth-child(even){
 }
 
 .review .box-container .box .stars i{
-    color:#fff;
+    color:rgb(220, 246, 18);
     font-size: 1.5rem;
 }
 

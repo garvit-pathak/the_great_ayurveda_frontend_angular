@@ -116,3 +116,11 @@
     margin-top: 20px;
     font-size: 20px;
   }
+.container{
+    padding-bottom: 50px; padding-left: 35rem;
+}
+  @media (max-width:768px) {
+      .doctors .container{
+             padding-left: 80px;
+      }
+  }

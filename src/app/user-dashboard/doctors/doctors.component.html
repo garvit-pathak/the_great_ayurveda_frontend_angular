@@ -6,7 +6,7 @@
 <section class="doctors" id="doctors">
 
     <h1 class="heading" style="padding-top: 80px;"> our <span>doctors</span> </h1>
-    <div class="container" style="padding-bottom: 50px; padding-left: 35rem;">
+    <div class="container" >
         <form action="" class="search-form" id="search" #search>
             <input type="search" (change)="navigate($event)"  placeholder="search here..." id="search-box">
             <label for="search-box" class="fas fa-search"></label>
@@ -27,7 +27,7 @@
             </div>
             <div class="content">
                 <div class="icon">
-                    <a > <i class="fas fa-calendar"></i> experience {{list.exprience}} year </a>
+                    <a > <i class="fas fa-calendar"></i> experience {{list.experience}}  </a>
                     <a > <i class="fas fa-user"></i> verified </a>
                 </div>
                 <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{list.name}}</h3>

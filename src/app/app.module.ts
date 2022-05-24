@@ -37,6 +37,8 @@ import {
   SocialAuthServiceConfig,
 } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { OrderHistoryComponent } from './user-dashboard/order-history/order-history.component';
+import { AppointmentHistoryComponent } from './user-dashboard/appointment-history/appointment-history.component';
 
 const social= {
   provide: 'SocialAuthServiceConfig',
@@ -78,6 +80,8 @@ const social= {
        HeaderDoctorComponent,
        FooterDoctorComponent,
        ReviewsComponent,
+       OrderHistoryComponent,
+       AppointmentHistoryComponent,
        
   ],
   imports: [

@@ -46,7 +46,25 @@
 .footer .credit span{
     color:#2b734b;
 }
-
+.footer .box-container .box form input[type="email"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #2b734b;
+    text-transform: none;
+    margin: .7rem 0;
+    border: 0.1rem solid #2b734b;
+  }
+  .footer .box-container .box form input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #2b734b;
+    text-transform: none;
+    margin: .7rem 0;
+    border: 0.1rem solid #2b734b;
+  }
+  
 
 
 

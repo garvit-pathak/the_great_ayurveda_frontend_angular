@@ -40,7 +40,7 @@ section:nth-child(even){
 .heading{
     text-align: center;
     padding-bottom: 2rem;
-    /* text-shadow: var(--text-shadow); */
+    /* text-shadow: var(--tex t-shadow); */
     text-transform: uppercase;
     color:var(--black);
     font-size: 4rem;
