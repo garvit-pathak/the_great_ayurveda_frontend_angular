@@ -3,63 +3,63 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-<section class="intro"  style="margin-top:30px ;" id="intro">
+<section class="intro" style="margin-top:30px ;" id="intro">
 
     <div class="image">
-        <img  src="{{disList.image}}" alt="">
+        <img src="{{disList.image}}" alt="">
         <h3>{{disList.name}}</h3>
 
     </div>
 
-    <div class="content " >
-        
+    <div class="content ">
+
         <div class="box-container">
-        <a href="diseases/{{disList.name}}/#causes">
-            <div class="box" style="background-color: rgb(230, 252, 213) " >
-                <i ><img style="margin-left: 22px;" src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
-                
-                <h4 style="margin-left: 25px;padding-top: 10px;" >  causes</h4>
-            </div>
-        </a>
-        <a href="diseases/{{disList.name}}/#remedies">
-            <div class="box">
-                <i ><img  style="margin-left: 22px;" src="../../../assets/image/ayurvedic.png" alt=""></i>
-                <h4 style="margin-left: 28px;padding-top: 10px;" >home remdies</h4>
-            </div>
-        </a>
+            <a href="diseases/{{disList.name}}/#causes">
+                <div class="box" style="background-color: rgb(230, 252, 213) ">
+                    <i><img style="margin-left: 22px;" src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
 
-        <a href="diseases/{{disList.name}}/#yoga">
-            <div class="box" style="background-color: rgb(230, 252, 213) " >
-                <i ><img  style="margin-left: 22px;"  src="../../../assets/image/meditation (2).png" alt=""></i>
-                <h4 style="margin-left: 15px;padding-top: 10px;" >yoga videos</h4>
-            </div>
-        </a>
-        <a href="diseases/{{disList.name}}/#medicines">
-            <div class="box"  >
-                <i ><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/herbal-treatment.png" alt=""></i>
-                <h4 style="margin-left: 19px;padding-top: 10px;" >ayurvedic  medicines</h4>
-            </div>
-        </a>
+                    <h4 style="margin-left: 25px;padding-top: 10px;"> causes</h4>
+                </div>
+            </a>
+            <a href="diseases/{{disList.name}}/#remedies">
+                <div class="box">
+                    <i><img  style="margin-left: 22px;" src="../../../assets/image/ayurvedic.png" alt=""></i>
+                    <h4 style="margin-left: 28px;padding-top: 10px;">home remdies</h4>
+                </div>
+            </a>
 
-        <a href="diseases/{{disList.name}}/#precaution">
-            <div class="box"style="background-color: rgb(230, 252, 213) " >
-                <i ><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/precaution.png" alt=""></i>
-                <h4 style="margin-left: 20px;padding-top: 10px;" >precaution</h4>
-            </div>
-        </a>
-         <a href="diseases/{{disList.name}}/#doctors">
-            <div class="box">
-                <i ><img  style="margin-left: 22px;" src="../../../assets/image/doctor.png" alt=""></i>
-                <h4 style="margin-left: 28px;padding-top: 10px;" >expert doctors</h4>
-            </div>
-         </a>
+            <a href="diseases/{{disList.name}}/#yoga">
+                <div class="box" style="background-color: rgb(230, 252, 213) ">
+                    <i><img  style="margin-left: 22px;"  src="../../../assets/image/meditation (2).png" alt=""></i>
+                    <h4 style="margin-left: 15px;padding-top: 10px;">yoga videos</h4>
+                </div>
+            </a>
+            <a href="diseases/{{disList.name}}/#medicines">
+                <div class="box">
+                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/herbal-treatment.png" alt=""></i>
+                    <h4 style="margin-left: 19px;padding-top: 10px;">ayurvedic medicines</h4>
+                </div>
+            </a>
 
-        
-       
-        
-        
+            <a href="diseases/{{disList.name}}/#precaution">
+                <div class="box" style="background-color: rgb(230, 252, 213) ">
+                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/precaution.png" alt=""></i>
+                    <h4 style="margin-left: 20px;padding-top: 10px;">precaution</h4>
+                </div>
+            </a>
+            <a href="diseases/{{disList.name}}/#doctors">
+                <div class="box">
+                    <i><img  style="margin-left: 22px;" src="../../../assets/image/doctor.png" alt=""></i>
+                    <h4 style="margin-left: 28px;padding-top: 10px;">expert doctors</h4>
+                </div>
+            </a>
+
+
+
+
+
         </div>
-        
+
     </div>
 
 </section>
@@ -91,7 +91,7 @@
 
     <h1 class="heading"> home remedies </h1>
 
-    <div class="box-container"  >
+    <div class="box-container">
 
         <div class="box">
             <p>{{disList.homeRemedies}}</p>
@@ -105,7 +105,7 @@
 
 
 
-<section class="videos" id="yoga" style="background-color: #fff;" *ngIf="show" #yoga >
+<section class="videos" id="yoga" style="background-color: #fff;" *ngIf="show" #yoga>
     <h1 class="heading"> yoga </h1>
 
     <div class="box-container">
@@ -116,8 +116,10 @@
         </div> -->
         <div class="box">
 
-            <div class="image" style="margin-left: 200px;" >
-                <iframe width="560" height="315" [src]="link | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="image" >
+                <iframe  [src]="link | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             </div>
 
         </div>
@@ -140,35 +142,16 @@
 
 
         <div class="box" *ngFor="let med of medicines| slice:0:3">
-            <img src="{{med.mId.image}}" alt="">
-            <h3>{{med.mId.name}}</h3>
+            <img  src="{{med.mId.image}}" alt="">
+            <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.name}}</h3>
             <span>₹{{med.mId.price}}</span>
+            <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.description}}</p>
             <div class="share">
 
                 <a (click)='add(med.mId._id)' class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
 
             </div>
         </div>
-        <!-- 
-        <div class="box">
-            <img src="../../assets/image/" alt="">
-            <h3>alovera juice</h3>
-            <span>₹100</span>
-            <div class="share">
-                <a href="#" class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
-
-            </div>
-        </div> -->
-        <!-- <div class="box">
-            <img src="../../assets/image/" alt="">
-            <h3>gilohe ghan vati</h3>
-            <span>₹100</span>
-            <div class="share">
-                <a class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
-
-            </div>
-
-        </div> -->
         <h1 class="title"> <a href="medicines">view all >></a> </h1>
 
 
@@ -179,7 +162,7 @@
 
 <section class="remedies" style="background-color: #fff;" id="precaution">
 
-    <h1 class="heading">  precaution</h1>
+    <h1 class="heading"> precaution</h1>
 
     <div class="box-container">
 
@@ -187,19 +170,14 @@
             <p>{{disList.precaution}}</p>
 
         </div>
-
-
     </div>
-
 </section>
 
 <!-- doctors section starts  -->
 
-
-
 <section class="doctors" id="doctors">
 
-    <h1 class="heading">  doctors </h1>
+    <h1 class="heading"> doctors </h1>
 
     <div class="box-container">
 
@@ -213,47 +191,19 @@
                     <a> <i class="fas fa-user"></i> verified </a>
                 </div>
 
-                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{doc.name}}</h3>
-                <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{doc.speciality}}</p>
-                <a  (click)="appoin(doc._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span> </a>
+                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{doc.name}}</h3>
+                <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{doc.speciality}}</p>
+                <a (click)="appoin(doc._id)" class="btn">book appointment<span class="fas fa-chevron-right"></span> </a>
 
             </div>
         </div>
-        <!-- <div class="box">
-            <div class="image">
-                <img src="../assets/image/blog-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icon">
-                    <a href="#"> <i class="fas fa-calendar"></i> experience 5 year </a>
-                    <a href="#"> <i class="fas fa-user"></i> verified </a>
-                </div>
-                <h3>Dr. jaya darwade</h3>
-                <p>general doctor</p>
-                <a  routerLink="/book-appointment" class="btn">book appointment<span class="fas fa-chevron-right"></span></a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="../assets/image/blog-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="icon">
-                    <a href="#"> <i class="fas fa-calendar"></i> experience 5 year </a>
-                    <a href="#"> <i class="fas fa-user"></i> verified </a>
-                </div>
-                <h3>Dr. jaya darwade</h3>
-                <p>general doctor</p>
-                <a routerLink="/book-appointment" class="btn">book appointment<span class="fas fa-chevron-right"></span> </a>
-            </div>
-        </div>
-         -->
+
         <h1 class="title"> <a href="doctors">view all >></a> </h1>
 
     </div>
 
 </section>
-<section class="livechat" style="background-color: rgb(230, 252, 213) " >
+<section class="livechat" style="background-color: rgb(230, 252, 213) ">
     <div class="livechat-content container">
         <div class="livechat-text">
             <h2>Review!</h2>

@@ -252,4 +252,12 @@ export class HeaderComponent implements OnInit {
       this.view();
     });
   }
+
+  signout() {
+    localStorage.removeItem('jwt-token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('cart');
+    sessionStorage.removeItem('userId');
+    this.router.navigate(['']);
+  }
 }

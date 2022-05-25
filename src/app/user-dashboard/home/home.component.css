@@ -238,8 +238,10 @@ section:nth-child(even) {
     padding: .5rem 0;
 }
 
-.review .box-container .box .stars i {
-    color: #fff;
+
+.review .box-container .box .stars i{
+    color:rgb(220, 246, 18);
+
     font-size: 1.5rem;
 }
 

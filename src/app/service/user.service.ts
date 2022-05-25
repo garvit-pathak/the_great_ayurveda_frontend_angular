@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../model/user';
 import { SocialUser } from 'angularx-social-login';
 
 @Injectable({
@@ -53,6 +52,6 @@ export class UserService {
   }
   public updateUser(formData: FormData): Observable<any> {
     let api = 'http://localhost:8801/api/user/updateUser';
-    return this._http.post<any>(api,formData);
+    return this._http.post<any>(api, formData);
   }
 }
