@@ -54,4 +54,12 @@ export class UserService {
     let api = 'http://localhost:8801/api/user/updateUser';
     return this._http.post<any>(api, formData);
   }
+  public orderHistory(id:string){
+    let api='http://localhost:8801/api/order/viewOrderByUserId'
+    return this._http.post<any>(api,{id});
+  }
+  public viewAppointmentByUid(uId:string):Observable<any>{
+    let appointmentApi="http://localhost:8801/api/appointment/viewAppoimentByUid";
+    return this._http.post<any>(appointmentApi,{uId:uId});
+  }
 }
