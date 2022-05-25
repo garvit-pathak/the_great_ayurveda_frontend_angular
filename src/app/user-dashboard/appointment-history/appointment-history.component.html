@@ -1,37 +1,34 @@
 <p>appointment-history works!</p>
 <p>appointment-history works!</p>
 <p>appointment-history works!</p>
-<section class="order-history" style="padding-top: 30px;font-size: 2rem; " >
+<section class="order-history" style="padding-top: 30px;font-size: 2rem; ">
 
-    <table class="table" style="color:#444;"   >
+    <table class="table" style="color:#444;">
         <thead style="border: solid #2b734b; ">
-          <tr style="background-color: rgb(230, 252, 213) ;" >
-            <th scope="col">S.no.</th>
-            <th scope="col">Patient Name</th>
-            <th scope="col">Disease</th>
-            <th scope="col">Date</th>
-    
-            <th scope="col">status</th>
-            <th scope="col">Doctor</th>
-          </tr>
+            <tr style="background-color: rgb(230, 252, 213) ;">
+
+                <th scope="col">S.no.</th>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Disease</th>
+                <th scope="col">Date</th>
+                <th scope="col">status</th>
+                <th scope="col">Doctor</th>
+
+            </tr>
         </thead>
-        <tbody  style=" border: solid #2b734b; box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);">
-          <tr>
-            <th scope="row">1</th>
-            <td  >
-                 jaya         
-               
-                  
-            </td>
-            <td>bhokna</td>
-            <td>Tuesday, 24 May 2022</td>
-            <td>pending</td>
-            <td>dr.garvit</td>
-    
-          </tr>
-        
-          
-         
+        <tbody style=" border: solid #2b734b; box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);">
+            <tr *ngFor='let appoint of appiontment; index as i'>
+
+                <td>{{i+1}}</td>
+                <td>{{appoint.patientName}}</td>
+                <td>{{appoint.disease}}</td>
+                <td>{{appoint.date}}</td>
+                <td>{{appoint.apointmentStatus}}</td>
+                <td>{{appoint.doctor.name}}</td>
+            </tr>
+
+
+
         </tbody>
-      </table>
-    </section>
+    </table>
+</section>

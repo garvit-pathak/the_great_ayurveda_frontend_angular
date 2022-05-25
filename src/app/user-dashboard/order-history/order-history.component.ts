@@ -17,9 +17,10 @@ orderList:any[]=[];
   ngOnInit(): void {
     this._user.orderHistory(this.userId).subscribe(data=>{
       console.log(data)
-      this.medList=data.medicineList;
-      console.log("MEDLIST"+this.medList)
+      this.medList=data[0].medicineList;
+      console.log(this.medList)
       this.orderList=data;
+      console.log(this.orderList)
     })
   }
     
