@@ -39,9 +39,9 @@
 
 
             <div  class="dropdown-menu">
-                <a class="dropdown-item"  routerLink="user-profile" data-toggle="modal" data-target="#SignInModal">Profile</a>
-                <a class="dropdown-item">Order history</a>
-                <a style="padding-right: 50px;" class="dropdown-item" >Appointments </a>
+                <a class="dropdown-item"  routerLink="user-profile" >Profile</a>
+                <a  routerLink="order-history" class="dropdown-item">Order history</a>
+                <a routerLink="appointment-history" class="dropdown-item" >Appointments </a>
                 <a class="dropdown-item" (click)="signout()" >Sign out  </a>
             </div>
         </div>

@@ -20,6 +20,8 @@ import { AuthService } from './service/auth.service';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { OrderComponent } from './user-dashboard/order/order.component';
+import { OrderHistoryComponent } from './user-dashboard/order-history/order-history.component';
+import { AppointmentHistoryComponent } from './user-dashboard/appointment-history/appointment-history.component';
 
 
 
@@ -34,9 +36,12 @@ const routes: Routes = [
     {path:"doctor-details/:did",component:DoctorDetailsComponent,canActivate:[AuthService]},
     {path:"search-medicine/:search",component:SearchMedicineComponent},
     {path:"search-doctor/:search",component:SearchDoctorComponent},
-    {path:"order",component:OrderComponent,canActivate:[AuthService]}
+    {path:"order",component:OrderComponent,canActivate:[AuthService]},
+    {path:"appointment-history",component:AppointmentHistoryComponent,canActivate:[AuthService]},
+    {path:"user-profile",component:UserProfileComponent},
+
+    {path:"order-history",component:OrderHistoryComponent,canActivate:[AuthService]}
    ]},
-    {path:"user-profile",component:UserProfileComponent,canActivate:[AuthService]},
     {path:"doctor-profile",component:DoctorProfileComponent},
     {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
 
