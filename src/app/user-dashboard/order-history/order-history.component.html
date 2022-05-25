@@ -3,58 +3,61 @@
 <p>order-history works!</p>
 <section class="order-history" style="padding-top: 30px;" >
 
-<table class="table" style="color:#444;"   >
-    <thead style="border: solid #2b734b; ">
-      <tr style="background-color: rgb(230, 252, 213) ;" >
-        <th scope="col">S.no.</th>
-        <th scope="col">medicine list</th>
-        <th scope="col">date</th>
-        <th scope="col">Order Id</th>
 
-        <th scope="col">Order status</th>
-        <th scope="col">total</th>
-      </tr>
-    </thead>
-    <tbody  style=" border: solid #2b734b; box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);">
-      <tr>
-        <th scope="row">1</th>
-        <td  >
-            <span class=" medicine-list" style="margin-bottom: 15px ; display: flex;" >  
+    <table class="table" style="color:#444;">
+        <thead>
+            <tr style="background-color: rgb(230, 252, 213) ;">
+                <th scope="col">S.no.</th>
+                <th scope="col">medicine list</th>
+                <th scope="col">date</th>
+                <th scope="col">Order Id</th>
+
+                <th scope="col">Order status</th>
+                <th scope="col">total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>
+                    <span *ngFor='let List of medList' class=" medicine-list" style="margin-bottom: 15px ; display: flex;">  
+                <img style="width:80px ;height:80px ;" src="{{List.medicineList.image}}" alt="">
+
+                  <span style="padding-left: 10px ;width: 40px;" >
+                    {{List.name}}  {{List.product.qty}}Qty
+                    {{List.product.totalPrice}}rs
+                   </span>
+
+                    </span>
+
+                    <!-- <span class=" medicine-list" style="margin-bottom: 15px; display: flex;">  
                 <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
                   <span style="padding-left: 10px ;width: 40px;" >
                     gilovati  1Qty
                     150rs
-                   </span>
-                          
-             </span>
+                   </span> -->
 
-             <span class=" medicine-list" style="margin-bottom: 15px; display: flex;" >  
-                <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
-                  <span style="padding-left: 10px ;width: 40px;" >
-                    gilovati  1Qty
-                    150rs
-                   </span>
-                          
-             </span>
-             <span class=" medicine-list" style="margin-bottom: 15px; display: flex;" >  
+                    <!-- </span> -->
+                    <!-- <span class=" medicine-list" style="margin-bottom: 15px; display: flex;">  
                 <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
                    <span style="padding-left: 10px ;width: 90px;" >
                       gilovati  1Qty
                       150rs
-                   </span>
-                        
-                  </span>
-              
-        </td>
-        <td>Tuesday, 24 May 2022</td>
-        <td>62847be0c03c1e236bee2ace</td>
-        <td>pending</td>
-        <td>200</td>
+                   </span> -->
 
-      </tr>
-    
-      
-     
-    </tbody>
-  </table>
+                    <!-- </span> -->
+
+                </td>
+                <span *ngFor='let orderlist of orderList'>
+                <td>{{orderlist.date}}</td>
+                <td>{{orderlist._id}}</td>
+                <td>{{orderlist.orderStatus}}</td>
+                <td>{{orderlist.amount}}</td>
+              </span>
+            </tr>
+
+
+
+        </tbody>
+    </table>
 </section>
