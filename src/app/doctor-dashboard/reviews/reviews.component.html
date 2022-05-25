@@ -1,20 +1,28 @@
-<h1>reviews work</h1>
+<!-- <h1>reviews work</h1> -->
 
-    <table class="table">
-        <thead>
-            <th>S.no</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Review</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let review of userReview index as i">
-                <td>{{i+1}}</td>
-               <td>{{review.uId.name}}</td>
-               <td><img src="{{review.uId.image}}" height="100px" width="100px" style="border-radius: 8px;"></td>
-               <td>{{review.reviewText}}</td>
+<table class="table tab">
+    <thead class="thead">
+        <th>
+            <h3>S.no</h3>
+        </th>
+        <th>
+            <h3>Name</h3>
+        </th>
+        <th>
+            <h3>Image</h3>
+        </th>
+        <th>
+            <h3>Review</h3>
+        </th>
+    </thead>
+    <tbody class="tbody">
+        <tr *ngFor="let review of userReview index as i">
+            <td>{{i+1}}</td>
+            <td>{{review.uId.name}}</td>
+            <td><img src="{{review.uId.image}}" height="100px" width="100px" style="border-radius: 8px;"></td>
+            <td>{{review.reviewText}}</td>
 
-            </tr>
-        </tbody>
+        </tr>
+    </tbody>
 
-    </table>
+</table>

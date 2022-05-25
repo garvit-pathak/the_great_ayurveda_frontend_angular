@@ -1,4 +1,4 @@
-<p>appointments works!</p>
+<!-- <p>appointments works!</p>
 <p>appointments works!</p>
 <p>appointments works!</p>
 <p>appointments works!</p>
@@ -33,19 +33,37 @@
 </table> -->
 
 <table class="table tab">
-    <thead class="thead-dark">
+    <thead class="thead">
         <tr>
-            <th scope="col">S.no</th>
-            <th scope="col">Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">Disease</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Date</th>
-            <th scope="col">Approve</th>
-            <th scope="col">Cancle</th>
+
+            <th scope="col">
+                <h3>S.no</h3>
+            </th>
+            <th scope="col">
+                <h3>Name</h3>
+            </th>
+            <th scope="col">
+                <h3>Age</h3>
+            </th>
+            <th scope="col">
+                <h3>Disease</h3>
+            </th>
+            <th scope="col">
+                <h3>Mobile</h3>
+            </th>
+            <th scope="col">
+                <h3>Date</h3>
+            </th>
+            <th scope="col">
+                <h3>Approve/Cancel</h3>
+            </th>
+            <!-- <th scope="col">
+                <h3>Cancle</h3>
+            </th> -->
+
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
         <tr *ngFor="let appoint of viewAppoinments; index as i">
             <td>{{i+1}}</td>
             <td>{{appoint.patientName}}</td>
@@ -54,8 +72,8 @@
             <td>{{appoint.mobile}}</td>
             <td>{{appoint.date}}</td>
 
-            <button class="btn btn-primary" (click)="approveAppoint(appoint._id,appoint.userId,appoint.mobile)" data-toggle="modal" data-target="#exampleModal">Accept</button>
-            <button class="btn btn-danger " (click)="cancleAppointment(appoint.userId,appoint._id,appoint.mobile)">Reject</button>
+            <button class="btn" (click)="approveAppoint(appoint._id,appoint.userId,appoint.mobile)" data-toggle="modal" data-target="#exampleModal">Accept</button>
+            <button class="btn" (click)="cancleAppointment(appoint.userId,appoint._id,appoint.mobile)">Reject</button>
         </tr>
     </tbody>
 </table>
