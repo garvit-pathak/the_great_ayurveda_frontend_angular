@@ -1,7 +1,8 @@
 <p>order-history works!</p>
 <p>order-history works!</p>
 <p>order-history works!</p>
-<section class="order-history">
+<section class="order-history" style="padding-top: 30px;" >
+
 
     <table class="table" style="color:#444;">
         <thead>
@@ -21,6 +22,7 @@
                 <td>
                     <span *ngFor='let List of medList' class=" medicine-list" style="margin-bottom: 15px ; display: flex;">  
                 <img style="width:80px ;height:80px ;" src="{{List.medicineList.image}}" alt="">
+
                   <span style="padding-left: 10px ;width: 40px;" >
                     {{List.name}}  {{List.product.qty}}Qty
                     {{List.product.totalPrice}}rs
