@@ -93,4 +93,8 @@ export class DiseasesComponent implements OnInit {
         if (data) this.taoster.success('Review Success Full Send');
       });
   }
+  public viewDetails(pid:string){
+    
+    this.router.navigate(['medicine-details'+'/'+pid]);
+   }
 }

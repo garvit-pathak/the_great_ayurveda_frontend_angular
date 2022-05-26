@@ -1,7 +1,7 @@
 <p>order-history works!</p>
 <p>order-history works!</p>
 <p>order-history works!</p>
-<section class="order-history" style="padding-top: 30px;" >
+<section class="order-history" style="padding-top: 30px;">
 
 
     <table class="table" style="color:#444;">
@@ -11,24 +11,23 @@
                 <th scope="col">medicine list</th>
                 <th scope="col">date</th>
                 <th scope="col">Order Id</th>
-
                 <th scope="col">Order status</th>
                 <th scope="col">total</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1</th>
+                <td scope="row">1</td>
                 <td>
-                    <span *ngFor='let List of medList' class=" medicine-list" style="margin-bottom: 15px ; display: flex;">  
-                <img style="width:80px ;height:80px ;" src="{{List.medicineList.image}}" alt="">
+                    <tr *ngFor='let List of medList index as i' class=" medicine-list" style="margin-bottom: 15px ; display: flex;">
+                        <img style="width:80px ;height:80px ;" src="{{List.product.image}}" alt="">
 
-                  <span style="padding-left: 10px ;width: 40px;" >
-                    {{List.name}}  {{List.product.qty}}Qty
-                    {{List.product.totalPrice}}rs
+                        <span style="padding-left: 10px ;width: 40px;">
+                    {{List.product.name}}  {{List.qty}}Qty
+                    {{List.totalPrice}}rs
                    </span>
 
-                    </span>
+                    </tr>
 
                     <!-- <span class=" medicine-list" style="margin-bottom: 15px; display: flex;">  
                 <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
@@ -48,16 +47,13 @@
                     <!-- </span> -->
 
                 </td>
-                <span *ngFor='let orderlist of orderList'>
+                <span *ngFor='let orderlist of orderList | slice:0:1'>
                 <td>{{orderlist.date}}</td>
                 <td>{{orderlist._id}}</td>
                 <td>{{orderlist.orderStatus}}</td>
                 <td>{{orderlist.amount}}</td>
               </span>
             </tr>
-
-
-
         </tbody>
     </table>
 </section>
