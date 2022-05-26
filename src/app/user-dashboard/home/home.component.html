@@ -1,25 +1,24 @@
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
 <!-- home section starts  -->
 
-<section class="home" style="background: rgb(202, 242, 171) ;"  id="home">
+<section class="home" style="background: rgb(202, 242, 171) ;" id="home">
 
     <div class="image">
-        <img  src="../../../assets/image/health-professional-team-animate2.svg" alt="">
+        <img src="../../../assets/image/health-professional-team-animate2.svg" alt="">
         <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgbEmQEF8puGuGqFASZ4iq1aIUBqrOCfWvGA&usqp=CAU" alt=""> -->
 
     </div>
 
     <div class="content">
         <h3>stay safe, stay healthy</h3>
-        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions   treatment of your disease.</p>
-         
-            <form action="" class="search-form" id="search" #search>
-                <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
-                <label for="search-box"  class="fas fa-search"></label>
-            </form>
+        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions treatment of your disease.</p>
+
+        <form action="" class="search-form" id="search" #search>
+            <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
     </div>
 
 </section>
@@ -36,28 +35,28 @@
     <div class="box-container">
 
         <div class="box">
-            <i ><img src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
-            
+            <i><img src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
+
             <h3>causes</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
-      
+
 
         <div class="box">
-            <i ><img src="../../../assets/image/doctor.png" alt=""></i>
+            <i><img src="../../../assets/image/doctor.png" alt=""></i>
             <h3>expert doctors</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
         <div class="box">
-            <i ><img src="../../../assets/image/ayurvedic.png" alt=""></i>
-            <h3>ayurvedic  medicines</h3>
+            <i><img src="../../../assets/image/ayurvedic.png" alt=""></i>
+            <h3>ayurvedic medicines</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
         <div class="box">
-            <i ><img   src="../../../assets/image/meditation (2).png" alt=""></i>
+            <i><img   src="../../../assets/image/meditation (2).png" alt=""></i>
             <h3>yoga videos</h3>
             <p>we will provide you yoga related your disease to cure your disease permanently</p>
             <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a>
@@ -76,32 +75,32 @@
 
 <!-- services section ends -->
 
-<section class="disease"  style="margin-top:90px;background-color: #fff; " id="review">
-    
-    <h1 class="heading" style="margin-bottom:30px ;"  > <span>diseases </span>we treat  </h1>
+<section class="disease" style="margin-top:90px;background-color: #fff; " id="review">
+
+    <h1 class="heading" style="margin-bottom:30px ;"> <span>diseases </span>we treat </h1>
 
     <div class="box-container">
         <div class="box">
             <img src="../../../assets/image/digestive-white-icon.png" alt="">
             <h3 style="margin-top: 50px;">digestive</h3>
         </div>
-      
+
         <div class="box">
             <img src="../../../assets/image/endocrine-white-icon.png" alt="">
-            <h3 style="margin-top: 55px;" >endocrine</h3>
+            <h3 style="margin-top: 55px;">endocrine</h3>
         </div>
 
         <div class="box">
             <img src="../../../assets/image/hairandskin-white-icon.png" alt="">
-            <h3 style="margin-top: 50px;" >hair and skin</h3>
+            <h3 style="margin-top: 50px;">hair and skin</h3>
         </div>
         <div class="box">
             <img src="../../../assets/image/jointpain-white-icon.png" alt="">
-            <h3 style="margin-top: 45px;" >joint pain</h3>
+            <h3 style="margin-top: 45px;">joint pain</h3>
         </div>
         <div class="box">
             <img src="../../../assets/image/gynae-white-icon.png" alt="">
-            <h3 style="margin-top: 55px;" >Gynae</h3>
+            <h3 style="margin-top: 55px;">Gynae</h3>
         </div>
         <!-- <div class="box">
             <img src="../../../assets/image/respiratory-white-icon.png" alt="">
@@ -124,16 +123,16 @@
             <img style="height: 100px;" src="../../../assets/image/cry.png" alt="">
             <h3 style="margin-top: 50px;" >eye</h3>
         </div> -->
-        
+
     </div>
-   <!-- <a href="#search"> <button class="btn1" >many more</button></a> -->
+    <!-- <a href="#search"> <button class="btn1" >many more</button></a> -->
 
 </section>
 <!-- about section starts  -->
 
 <section class="about" style="margin-top:90px" id="about">
 
-    <h1 class="heading" style="margin-bottom:10px ;"  > <span>about</span> us </h1>
+    <h1 class="heading" style="margin-bottom:10px ;"> <span>about</span> us </h1>
 
     <div class="row">
 
@@ -302,29 +301,29 @@
 
 <!-- icons section starts  -->
 
-<section class="icons-container" style="background: #fff ;" >
+<section class="icons-container" style="background: #fff ;">
 
     <div class="icons">
         <i style="padding-top: 15px;" class="fas fa-user-md"></i>
-        <h3>140+</h3>
+        <h3>{{doctorList}}+</h3>
         <p>doctors at work</p>
     </div>
 
     <div class="icons">
         <i style="padding-top: 15px;" class="fas fa-users"></i>
-        <h3>1040+</h3>
+        <h3>{{userList}}+</h3>
         <p>satisfied patients</p>
     </div>
 
     <div class="icons">
-        <i ><img  style="width: 50px ;" src="../../../assets/image/ayurvedic.png" alt=""></i>
-        <h3>500+</h3>
+        <i><img  style="width: 50px ;" src="../../../assets/image/ayurvedic.png" alt=""></i>
+        <h3>{{total}}+</h3>
         <p>medicines</p>
     </div>
 
     <div class="icons">
-        <i ><img src="../../../assets/image/covid.png" alt=""></i>
-        <h3>80+</h3>
+        <i><img src="../../../assets/image/covid.png" alt=""></i>
+        <h3>{{diseas}}+</h3>
         <p>diseases we treat</p>
     </div>
 
@@ -332,9 +331,9 @@
 
 <!-- icons section ends -->
 
-<section class="review"  style="margin-top:90px; background: rgb(202, 242, 171) ;" id="review">
-    
-    <h1 class="heading" style="margin-bottom:30px ;"  > client's <span>review</span> </h1>
+<section class="review" style="margin-top:90px; background: rgb(202, 242, 171) ;" id="review">
+
+    <h1 class="heading" style="margin-bottom:30px ;"> client's <span>review</span> </h1>
 
     <div class="box-container">
         <div class="box">
@@ -349,7 +348,7 @@
             </div>
             <p class="text"> perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
         </div>
-      
+
         <div class="box">
             <img src="../assets/image/pic-2.png" alt="">
             <h3>mitanshi</h3>
@@ -386,14 +385,14 @@
 
 <owl-carousel-o [options]="customOptions">
 
-    <ng-container >
-      <ng-template carouselSlide >
+    <ng-container>
+        <ng-template carouselSlide>
 
-        
-      </ng-template>
+
+        </ng-template>
     </ng-container>
 
-  </owl-carousel-o>
+</owl-carousel-o>
 
 <!-- review section ends -->
 
@@ -413,4 +412,3 @@
 
 <!-- custom js file link  -->
 <!-- <script src="js/script.js"></script> -->
-

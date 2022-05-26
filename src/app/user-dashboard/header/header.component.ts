@@ -79,6 +79,28 @@ export class HeaderComponent implements OnInit {
       // console.log(data);
       this.catList = data;
     });
+
+    this.cart.cartView(this.uid1).subscribe((data) => {
+      this.cart1 = data;
+      this.tota = data.medicineList.length;
+      this.cart1 = this.cart1.medicineList;
+      for (let i = 0; i < this.cart1.length; i++) {
+        this.cart1[i].pPrice = this.cart1[i].price;
+        this.cart1[i].index = i;
+        this.cart1[i].pro_qty = 1;
+      }
+      // console.log(this.cart1);
+      localStorage.setItem('cart', JSON.stringify(this.cart1));
+
+      this.cartList = data.medicineList;
+      this.totalPrice = 0;
+      for (let element of this.cartList) {
+        this.totalPrice += element.price * 1;
+      }
+      // console.log(this.totalPrice);
+      // this.view()
+    });
+
   }
   get(id:string) {
     // this.dcategory = event.target.value;
@@ -226,17 +248,19 @@ export class HeaderComponent implements OnInit {
     return !!localStorage.getItem('jwt-token');
   }
   totalPrice: number = 0;
+  tota:any;
   cart1: any;
   public view() {
     this.cart.cartView(this.uid1).subscribe((data) => {
       this.cart1 = data;
+      this.tota = data.medicineList.length;
       this.cart1 = this.cart1.medicineList;
       for (let i = 0; i < this.cart1.length; i++) {
         this.cart1[i].pPrice = this.cart1[i].price;
         this.cart1[i].index = i;
         this.cart1[i].pro_qty = 1;
       }
-      // console.log(this.cart1);
+      console.log(this.cart1);
       localStorage.setItem('cart', JSON.stringify(this.cart1));
 
       this.cartList = data.medicineList;
@@ -244,7 +268,7 @@ export class HeaderComponent implements OnInit {
       for (let element of this.cartList) {
         this.totalPrice += element.price * 1;
       }
-      // console.log(this.totalPrice);
+      console.log(this.totalPrice);
     });
   }
   public removeCart(mid: string) {

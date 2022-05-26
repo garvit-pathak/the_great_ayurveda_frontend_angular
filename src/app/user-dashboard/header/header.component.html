@@ -12,6 +12,8 @@
         <a routerLink="doctors">doctors</a>
         <a href="#about" class="about-a">about</a>
         <a data-toggle="modal" (click)="view()" class="cart-a" data-target="#CartModal" *ngIf="userIsLoggedIn()">
+            <span>{{tota}}</span>
+
             <i class='bx bx-cart-alt'></i>
         </a>
 
@@ -29,24 +31,24 @@
             </div>
         </div>
 
-        
+
         <div class="dropdown">
 
-             <a *ngIf="userIsLoggedIn(); ">
-            <i class='bx bx-user-circle'></i>
-        </a>
+            <a *ngIf="userIsLoggedIn(); ">
+                <i class='bx bx-user-circle'></i>
+            </a>
 
 
 
-            <div  class="dropdown-menu">
-                <a class="dropdown-item"  routerLink="user-profile" >Profile</a>
-                <a  routerLink="order-history" class="dropdown-item">Order history</a>
-                <a routerLink="appointment-history" class="dropdown-item" >Appointments </a>
-                <a class="dropdown-item" (click)="signout()" >Sign out  </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="user-profile">Profile</a>
+                <a routerLink="order-history" class="dropdown-item">Order history</a>
+                <a routerLink="appointment-history" class="dropdown-item">Appointments </a>
+                <a class="dropdown-item" (click)="signout()">Sign out  </a>
             </div>
         </div>
 
-      
+
 
 
 
@@ -81,7 +83,7 @@
                 </h5>
                 <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+            </button>
             </div>
             <div class="modal-body">
 

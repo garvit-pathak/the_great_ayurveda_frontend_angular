@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CartService } from 'src/app/service/cart.service';
+import { DiseasesService } from 'src/app/service/diseases.service';
+import { DoctorService } from 'src/app/service/doctor.service';
+import { MedicineService } from 'src/app/service/medicine.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +14,26 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit {
 search: any;
-  constructor(private router:Router) { }
+total:any;
+doctorList:any;
+diseas:any;
+userList:any;
+  constructor(private router:Router,private cart: CartService
+    ,private medicineSearvice:MedicineService,private user:UserService,private doctorService: DoctorService,private disease:DiseasesService
+    ) { 
+    this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
+      this.total=data.length;
+    })
+    this.doctorService.view().subscribe((data) => {
+      this.doctorList = data.length;
+    });
+    this.disease.View().subscribe(data=>{
+      this.diseas=data.length;
+    })
+    this.user.view().subscribe(data=>{
+      this.userList=data.length;
+    })
+  }
 
   ngOnInit(): void {
   }

@@ -62,8 +62,11 @@ page: number = 1;
   
     this.cart.addToCart(this.uid,mid).subscribe(data=>{
       console.log(data)
-      if(data)
+      if(data){
       this.taoster.success('Medicine Added To The Cart');
+
+      }
+      
     })
   }
   else

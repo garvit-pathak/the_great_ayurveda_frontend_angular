@@ -62,4 +62,8 @@ export class UserService {
     let appointmentApi="http://localhost:8801/api/appointment/viewAppoimentByUid";
     return this._http.post<any>(appointmentApi,{uId:uId});
   }
+  public view():Observable<any>{
+    let api='http://localhost:8801/api/user/view'
+    return this._http.get<any>(api)
+  }
 }
