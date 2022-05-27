@@ -27,4 +27,9 @@ export class DiseasesService {
     let api='http://localhost:8801/api/disease/view-particularDisease'
     return this.http.post<any>(api,{dId:id})
   }
+  public reviewRevie1():Observable<any>{
+    let api='http://localhost:8801/api/disease/view-particularDisease'
+    let id='62852825f6e463bf76ef5bee'
+    return this.http.post<any>(api,{dId:id})
+  }
 }

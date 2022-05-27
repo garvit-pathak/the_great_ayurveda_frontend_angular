@@ -4,10 +4,10 @@
 <!-- home section starts  -->
 
 
-<section class="home" style="background: rgb(217, 246, 194) ;"  id="home">
+<section class="home" style="background: rgb(217, 246, 194) ;" id="home">
 
     <div class="image">
-        <img  src="../../../assets/image/Indian-Ayurveda-Centers-Welcome-removebg-preview.png" alt="">
+        <img src="../../../assets/image/Indian-Ayurveda-Centers-Welcome-removebg-preview.png" alt="">
 
 
     </div>
@@ -15,12 +15,12 @@
     <div class="content">
 
         <h3>True health care reforms from ayurveda</h3>
-        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions   treatment of your disease.</p>
-         
-            <form action="" class="search-form" id="search" #search>
-                <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
-                <label for="search-box"  class="fas fa-search"></label>
-            </form>
+        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions treatment of your disease.</p>
+
+        <form action="" class="search-form" id="search" #search>
+            <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
 
     </div>
 
@@ -39,8 +39,8 @@
 
         <div class="box">
 
-            <i ><img src="../../../assets/image/causes.png" alt=""></i>
-            
+            <i><img src="../../../assets/image/causes.png" alt=""></i>
+
 
             <h3>causes</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
@@ -50,7 +50,7 @@
 
         <div class="box">
 
-            <i ><img src="../../../assets/image/patient.png" alt=""></i>
+            <i><img src="../../../assets/image/patient.png" alt=""></i>
 
             <h3>expert doctors</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
@@ -58,22 +58,22 @@
 
         <div class="box">
 
-            <i ><img src="../../../assets/image/ayurvedic-medicine.png" alt=""></i>
-            <h3>ayurvedic  medicines</h3>
+            <i><img src="../../../assets/image/ayurvedic-medicine.png" alt=""></i>
+            <h3>ayurvedic medicines</h3>
 
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
         </div>
 
         <div class="box">
 
-            <i ><img   src="../../../assets/image/hinduist-yoga-position.png" alt=""></i>
+            <i><img   src="../../../assets/image/hinduist-yoga-position.png" alt=""></i>
 
             <h3>yoga videos</h3>
             <p>we will provide you yoga related your disease to cure your disease permanently</p>
             <!-- <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a> -->
         </div>
 
-        
+
 
     </div>
 
@@ -107,29 +107,29 @@
         <div class="box">
 
             <img style="width: 100px;" src="../../../assets/image/brain.png" alt="">
-            <h3 style="margin-top: 55px;" >Mental</h3>
+            <h3 style="margin-top: 55px;">Mental</h3>
         </div>
- 
+
         <div class="box">
 
             <img style="width: 100px;" src="../../../assets/image/respiratory-white-icon.png" alt="">
-            <h3 style="margin-top: 55px;" >Breathing</h3>
+            <h3 style="margin-top: 55px;">Breathing</h3>
         </div>
-        </div>
-       
+    </div>
+
     <!-- <a href="#search"> <button class="btn1" >many more</button></a> -->
 
 </section>
 <!-- about section starts  -->
 
-<section class="about" style="margin-top:90px;background: rgb(217, 246, 194) ;"  id="about">
+<section class="about" style="margin-top:90px;background: rgb(217, 246, 194) ;" id="about">
 
     <h1 class="heading" style="margin-bottom:10px ;"> <span>about</span> us </h1>
 
-    <div class="row"  >
+    <div class="row">
 
         <div class="image">
-            <img  src="../../../assets/image/main.jpg" alt="">
+            <img src="../../../assets/image/main.jpg" alt="">
         </div>
 
         <div class="content">
@@ -245,15 +245,15 @@
 <!-- icons section ends -->
 
 
-<section class="review"  style="margin-top:50px; " id="review">
-    
-    <h1 class="heading" style="margin-bottom:30px ;"  > client's <span>review</span> </h1>
+<section class="review" style="margin-top:50px; " id="review">
+
+    <h1 class="heading" style="margin-bottom:30px ;"> client's <span>review</span> </h1>
 
 
     <div class="box-container">
-        <div class="box">
-            <img src="../assets/image/pic-2.png" alt="">
-            <h3>mitanshi</h3>
+        <div class="box" *ngFor="let list of review">
+            <img src="{{list.uId.image}}" alt="">
+            <h3>{{list.uId.name}}</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -261,10 +261,10 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text"> perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text">{{list.reviewText}}</p>
         </div>
 
-        <div class="box">
+        <!-- <div class="box">
             <img src="../assets/image/pic-2.png" alt="">
             <h3>mitanshi</h3>
             <div class="stars">
@@ -288,7 +288,7 @@
                 <i class="fas fa-star-half-alt"></i>
             </div>
             <p class="text"> sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
-        </div>
+        </div> -->
 
     </div>
 
