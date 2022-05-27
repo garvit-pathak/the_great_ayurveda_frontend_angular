@@ -11,10 +11,11 @@
         <a routerLink="medicines">medicines</a>
         <a routerLink="doctors">doctors</a>
         <a href="#about" class="about-a">about</a>
-        <a data-toggle="modal" (click)="view()" class="cart-a" data-target="#CartModal" *ngIf="userIsLoggedIn()">
-            <span>{{tota}}</span>
 
-            <i class='bx bx-cart-alt'></i>
+        <a data-toggle="modal" class="cart-a" data-target="#CartModal" *ngIf="userIsLoggedIn()">
+            <i  class='bx bx-cart-alt'></i>
+            <!-- <h1 style="position: relative;top:0" >{{total_cart}}</h1> -->
+
         </a>
 
         <div class="dropdown">
@@ -38,13 +39,12 @@
                 <i class='bx bx-user-circle'></i>
             </a>
 
+            <div  class="dropdown-menu">
+                <a class="dropdown-item"  routerLink="user-profile" >Profile</a>
+                <a  routerLink="order-history" class="dropdown-item">Order history</a>
+                <a routerLink="appointment-history" class="dropdown-item" >Appointments </a>
+                <a class="dropdown-item" (click)="signout()" >Sign out  </a>
 
-
-            <div class="dropdown-menu">
-                <a class="dropdown-item" routerLink="user-profile">Profile</a>
-                <a routerLink="order-history" class="dropdown-item">Order history</a>
-                <a routerLink="appointment-history" class="dropdown-item">Appointments </a>
-                <a class="dropdown-item" (click)="signout()">Sign out  </a>
             </div>
         </div>
 
@@ -364,10 +364,9 @@
                     <div class="form">
                         <div class="shopping-cart" id="cart" #cart>
 
-                            <div class="box" *ngFor="let car of cartList">
+                            <div class="box" *ngFor="let car of cartList; index as i">
 
                                 <i (click)="removeCart(car._id)" class="fas fa-times"></i>
-
                                 <img src="{{car.image}}" alt="">
                                 <div class="content">
                                     <h3>{{car.name}}</h3>

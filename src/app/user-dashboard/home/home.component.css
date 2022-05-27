@@ -96,7 +96,7 @@ section:nth-child(even) {
 }
 
 .home .content h3 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     color: var(--black);
     line-height: 1.8;
     text-shadow: var(--text-shadow);
@@ -126,6 +126,7 @@ section:nth-child(even) {
 .services .box-container .box i {
     color: #2b734b;
     font-size: 5rem;
+    
     padding-bottom: .5rem;
 }
 
@@ -153,7 +154,8 @@ section:nth-child(even) {
 }
 
 .about .row .image img {
-    width: 100%;
+    width: 90%;
+    height: 350px;
 }
 
 .about .row .content {
@@ -220,7 +222,7 @@ section:nth-child(even) {
 
 .disease .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 2rem;
 }
 
