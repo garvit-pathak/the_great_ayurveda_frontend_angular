@@ -143,9 +143,9 @@
     z-index: -1;
 }
 @media (max-width:768px) {
-     .image img{
-        /* width: 4px;\
-         */
+    .details .image {
+        width: 4px;
+        
          margin-left: 1px;
     }
 }

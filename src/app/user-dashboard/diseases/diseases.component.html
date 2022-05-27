@@ -15,41 +15,41 @@
 
         <div class="box-container">
             <a href="diseases/{{disList.name}}/#causes">
-                <div class="box" style="background-color: rgb(202, 242, 171) ">
-                    <i><img style="margin-left: 22px;" src="../../../assets/image/human-head-with-a-question-mark-inside.png" alt=""></i>
+                <div class="box" style="background-color: rgb(217, 246, 194) ">
+                    <i><img style="margin-left: 22px;" src="../../../assets/image/causes.png" alt=""></i>
 
                     <h4 style="margin-left: 25px;padding-top: 10px;"> causes</h4>
                 </div>
             </a>
             <a href="diseases/{{disList.name}}/#remedies">
                 <div class="box">
-                    <i><img  style="margin-left: 22px;" src="../../../assets/image/ayurvedic.png" alt=""></i>
+                    <i><img  style="margin-left: 22px;" src="../../../assets/image/ayurvedic-medicine.png" alt=""></i>
                     <h4 style="margin-left: 28px;padding-top: 10px;">home remdies</h4>
                 </div>
             </a>
 
             <a href="diseases/{{disList.name}}/#yoga">
-                <div class="box" style="background-color: rgb(202, 242, 171) ">
-                    <i><img  style="margin-left: 22px;"  src="../../../assets/image/meditation (2).png" alt=""></i>
+                <div class="box" style="background-color: rgb(217, 246, 194) ">
+                    <i><img  style="margin-left: 22px;"  src="../../../assets/image/hinduist-yoga-position.png" alt=""></i>
                     <h4 style="margin-left: 15px;padding-top: 10px;">yoga videos</h4>
                 </div>
             </a>
             <a href="diseases/{{disList.name}}/#medicines">
                 <div class="box">
-                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/herbal-treatment.png" alt=""></i>
+                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/herbal-medicine.png" alt=""></i>
                     <h4 style="margin-left: 19px;padding-top: 10px;">ayurvedic medicines</h4>
                 </div>
             </a>
 
             <a href="diseases/{{disList.name}}/#precaution">
-                <div class="box" style="background-color: rgb(202, 242, 171)">
-                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/precaution.png" alt=""></i>
+                <div class="box" style="background-color: rgb(217, 246, 194)">
+                    <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/warning.png" alt=""></i>
                     <h4 style="margin-left: 20px;padding-top: 10px;">precaution</h4>
                 </div>
             </a>
             <a href="diseases/{{disList.name}}/#doctors">
                 <div class="box">
-                    <i><img  style="margin-left: 22px;" src="../../../assets/image/doctor.png" alt=""></i>
+                    <i><img  style="margin-left: 22px;" src="../../../assets/image/patient.png" alt=""></i>
                     <h4 style="margin-left: 28px;padding-top: 10px;">expert doctors</h4>
                 </div>
             </a>
@@ -65,7 +65,7 @@
 </section>
 <!-- home section starts  -->
 
-<section class="causes" style="background-color: rgb(202, 242, 171); margin-top:50px ;" id="causes">
+<section class="causes" style="background-color: rgb(217, 246, 194); margin-top:50px ;" id="causes">
 
     <!-- <div class="image">
         <img src="{{disList.image}}" alt="">
@@ -144,8 +144,8 @@
         <div class="box" *ngFor="let med of medicines| slice:0:3">
             <img  src="{{med.mId.image}}" alt="">
             <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.name}}</h3>
-            <span>₹{{med.mId.price}}</span>
-            <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{med.mId.description}}</p>
+            <span  style="font-size: 2rem; " >₹{{med.mId.price}}</span>
+            <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;font-size: 18px;" >{{med.mId.description}}</p>
             <div class="share">
 
                 <a (click)='add(med.mId._id)' class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
@@ -203,7 +203,7 @@
     </div>
 
 </section>
-<section class="livechat" style="background-color: rgb(230, 252, 213) ">
+<section class="livechat" >
     <div class="livechat-content container">
         <div class="livechat-text">
             <h2>Review!</h2>
