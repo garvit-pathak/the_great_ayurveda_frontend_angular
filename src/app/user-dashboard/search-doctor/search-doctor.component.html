@@ -17,8 +17,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> experience {{list.experience}}</a>
                     <a href="#"> <i class="fas fa-user"></i> verified </a>
                 </div>
-                <h3>{{list.name}}</h3>
-                <p>{{list.speciality}}</p>
+                <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{list.name}}</h3>
+                <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;" >{{list.speciality}}</p>
                 <h4 style="color: blue; cursor: pointer; " (click)='viewDetails(list._id)'><a>More information >></a> </h4>
                 <a class="btn" (click)='appoin(list._id)'>book appointment<span class="fas fa-chevron-right"></span>
                 </a>

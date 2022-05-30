@@ -107,6 +107,7 @@ section:nth-child(even) {
     color: var(--light-color);
     line-height: 1.8;
     padding: 1rem 0;
+    text-align: justify;
 }
 
 .services .box-container {
@@ -126,12 +127,13 @@ section:nth-child(even) {
 .services .box-container .box i {
     color: #2b734b;
     font-size: 5rem;
-    
+    margin-left: 50px;
     padding-bottom: .5rem;
 }
 
 .services .box-container .box h3 {
     color: var(--black);
+    /* text-align:justify ; */
     font-size: 2.5rem;
     padding: 1rem 0;
 }
@@ -154,8 +156,9 @@ section:nth-child(even) {
 }
 
 .about .row .image img {
-    width: 90%;
+    width: 80%;
     height: 350px;
+    margin-left: 35px;
 }
 
 .about .row .content {
@@ -173,6 +176,7 @@ section:nth-child(even) {
     color: var(--light-color);
     padding: 1rem 0;
     font-size: 1.5rem;
+    text-align: justify;
     line-height: 1.8;
 }
 
@@ -383,7 +387,33 @@ section:nth-child(even) {
     outline: none;
     border: 0;
 }
+/* .search-form input:active{
 
+} */
+.search-form {
+    position: relative;
+}
+.search-form i {
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    background-color: gray;
+    left: 5px;
+    top: 10%;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+.search-form input:focus + i {
+    display: none;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 .search-form label {
     font-size: 2.2rem;
     padding-right: 1.7rem;

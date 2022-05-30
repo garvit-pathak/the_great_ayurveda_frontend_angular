@@ -16,6 +16,8 @@
 
     <div class="content ">
         <h3>{{detail.name}}</h3>
+        <h4>Speciality</h4>
+        <p>{{detail.speciality}}</p>
         <h4>degree </h4>
         <p>{{detail.degree}}</p>
         <h4>experience</h4>
@@ -45,7 +47,7 @@
 
     <div class="box-container">
 
-        <div class="box" *ngFor='let rlist of reviewList '>
+        <div class="box" *ngFor='let rlist of reviewList | slice:0:3'>
             <img src='{{rlist.uId.image}}' alt=" ">
             <h3>{{rlist.uId.name}}</h3>
             <div class="stars ">

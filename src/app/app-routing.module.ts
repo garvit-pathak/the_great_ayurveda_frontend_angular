@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookAppointmentComponent } from './user-dashboard/book-appointment/book-appointment.component';
 
 import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
-import { AppointmentsComponent } from './doctor-dashboard/appointments/appointments.component';
-import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
-import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
+import { AppointmentsComponent } from './doctors/doctor-dashboard/appointments/appointments.component';
+
+import { ReviewsComponent } from './doctors/doctor-dashboard/reviews/reviews.component';
 import { DoctorDetailsComponent } from './user-dashboard/doctor-details/doctor-details.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { DoctorsComponent } from './user-dashboard/doctors/doctors.component';
@@ -44,13 +44,15 @@ const routes: Routes = [
    ]},
     {path:"doctor-profile",component:DoctorProfileComponent},
     {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
-
-    {path:"doctor-dasboard",component:DoctorDashboardComponent,
-     children:[
-       {path:"appointments",component:AppointmentsComponent},
-       {path:"reviews",component:ReviewsComponent}
-     ]
-     },
+    {path : "doctor-dasboard", 
+    loadChildren: ()=>import('./doctors/doctors.module').then(m=>m.DoctorsModule)
+  }
+    // {path:"doctor-dasboard",component:DoctorDashboardComponent,
+    //  children:[
+    //    {path:"appointments",component:AppointmentsComponent},
+    //    {path:"reviews",component:ReviewsComponent}
+    //  ]
+    //  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

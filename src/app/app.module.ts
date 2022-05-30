@@ -16,7 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
 import { OrderComponent } from './user-dashboard/order/order.component';
 import { SafePipe } from './safe.pipe';
@@ -25,13 +25,8 @@ import { MedicineDetailsComponent } from './user-dashboard/medicine-details/medi
 import { DoctorDetailsComponent } from './user-dashboard/doctor-details/doctor-details.component';
 import { SearchMedicineComponent } from './user-dashboard/search-medicine/search-medicine.component';
 import { SearchDoctorComponent } from './user-dashboard/search-doctor/search-doctor.component';
-import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
-import { AppointmentsComponent } from './doctor-dashboard/appointments/appointments.component';
-import { HeaderDoctorComponent } from './doctor-dashboard/header-doctor/header-doctor.component';
-import { FooterDoctorComponent } from './doctor-dashboard/footer-doctor/footer-doctor.component';
-import { ReviewsComponent } from './doctor-dashboard/reviews/reviews.component';
 import {
   SocialLoginModule,
   SocialAuthServiceConfig,
@@ -39,6 +34,7 @@ import {
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { OrderHistoryComponent } from './user-dashboard/order-history/order-history.component';
 import { AppointmentHistoryComponent } from './user-dashboard/appointment-history/appointment-history.component';
+import { CacheInterceptorService } from './interceptor/cache-interceptor.service';
 
 const social= {
   provide: 'SocialAuthServiceConfig',
@@ -73,13 +69,8 @@ const social= {
        DoctorDetailsComponent,
        SearchMedicineComponent,
        SearchDoctorComponent,
-       DoctorDashboardComponent,
        UserProfileComponent,
        DoctorProfileComponent,
-       AppointmentsComponent,
-       HeaderDoctorComponent,
-       FooterDoctorComponent,
-       ReviewsComponent,
        OrderHistoryComponent,
        AppointmentHistoryComponent,
        
@@ -97,7 +88,14 @@ const social= {
     ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [social],
+  providers: [social
+    ,{
+    useClass: CacheInterceptorService,
+    provide:HTTP_INTERCEPTORS,
+    multi:true,
+
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

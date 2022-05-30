@@ -1,11 +1,7 @@
-<!-- <p>appointments works!</p>
 <p>appointments works!</p>
 <p>appointments works!</p>
 <p>appointments works!</p>
 <p>appointments works!</p>
-<p>appointments works!</p>
-
-<p>appointments works!</p> -->
 
 <!-- <table class="table mt-5">
 
@@ -31,7 +27,7 @@
         </tr>
     </tbody>
 </table> -->
-
+<section>
 <table class="table tab">
     <thead class="thead">
         <tr>
@@ -64,7 +60,7 @@
         </tr>
     </thead>
     <tbody class="tbody">
-        <tr *ngFor="let appoint of viewAppoinments; index as i">
+        <tr style="font-size:2rem ;" *ngFor="let appoint of viewAppoinments; index as i">
             <td>{{i+1}}</td>
             <td>{{appoint.patientName}}</td>
             <td>{{appoint.age}}</td>
@@ -72,12 +68,12 @@
             <td>{{appoint.mobile}}</td>
             <td>{{appoint.date}}</td>
 
-            <button class="btn" (click)="approveAppoint(appoint._id,appoint.userId,appoint.mobile)" data-toggle="modal" data-target="#exampleModal">Accept</button>
-            <button class="btn" (click)="cancleAppointment(appoint.userId,appoint._id,appoint.mobile)">Reject</button>
+            <button class="btn" style="margin-right: 20px;margin-bottom:10px" (click)="approveAppoint(appoint._id,appoint.userId,appoint.mobile)" data-toggle="modal" data-target="#exampleModal">Accept</button>
+            <button class="btn" style="margin-bottom:10px" (click)="cancleAppointment(appoint.userId,appoint._id,appoint.mobile)">Reject</button>
         </tr>
     </tbody>
 </table>
-
+</section>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

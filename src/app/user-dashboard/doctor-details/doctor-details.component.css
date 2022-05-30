@@ -35,8 +35,13 @@
     font-size: 1.7rem;
     color:var(--light-color);
     line-height: 1.8;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
 }
+
+
+
+
+
 .livechat-content{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -71,7 +76,7 @@
   font-size: 1.5rem;
   /* padding-left: 0.5rem; */
   /* background-color: rgb(239, 239, 254); */
-  border: solid #2b734b;
+  /* border: solid #2b734b; */
 }
 
 .review .box-container{
@@ -134,4 +139,7 @@
     /* .details .image img{
         width: 380px;
     } */
+    .livechat-content .btn{
+     width: 60px;
+    }
 }
