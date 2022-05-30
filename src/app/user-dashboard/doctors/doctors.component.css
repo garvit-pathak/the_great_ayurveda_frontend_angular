@@ -1,4 +1,36 @@
 
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border:var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    color:var(--green) !important ;
+    cursor: pointer;
+    font-size: 1.7rem;
+    background: #fff;
+}
+
+.btn span{
+    padding:.7rem 1rem;
+    border-radius: .5rem;
+    background: var(--green);
+    color:#fff;
+    margin-left: .5rem;
+}
+
+.btn:hover{
+    background: var(--green);
+    color:#fff !important;
+}
+
+.btn:hover span{
+    color: var(--green);
+    background:#fff;
+    margin-left: 1rem;
+}
 .doctors .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -117,10 +149,10 @@
     font-size: 20px;
   }
 .container{
-    padding-bottom: 50px; padding-left: 35rem;
+    padding-bottom: 50px; 
 }
   @media (max-width:768px) {
-      .doctors .container{
+      /* .doctors .container{
              padding-left: 80px;
-      }
+      } */
   }

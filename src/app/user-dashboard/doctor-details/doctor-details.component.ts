@@ -48,7 +48,7 @@ export class DoctorDetailsComponent implements OnInit {
   }
 
   public review() {
-    alert(this.review1);
+    // alert(this.review1);
     this._drService
       .reviewDoctor(this.uid, this.doctorId, this.review1)
       .subscribe((data) => {

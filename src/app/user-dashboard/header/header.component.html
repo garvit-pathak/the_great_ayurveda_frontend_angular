@@ -13,7 +13,7 @@
         <a href="#about" class="about-a">about</a>
 
         <a data-toggle="modal" (click)="view()" class="cart-a" data-target="#CartModal" *ngIf="userIsLoggedIn()">
-            <span>{{tota}}</span>
+            <!-- <span style="top:0%" >{{tota}}</span> -->
 
             <i class='bx bx-cart-alt'></i>
         </a>
@@ -141,10 +141,10 @@
                         <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
 
                         <input type="email" name="email" placeholder="email" [(ngModel)]="email" class="box" required #Email="ngModel">
-                        <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
+                        <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid email</span>
 
                         <input type="password" name="password" placeholder="password" [(ngModel)]="password" class="box" required #Password="ngModel">
-                        <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid name</span>
+                        <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid password</span>
 
                         <label for="" style="font-size: 15px; color: #779;">upload your image</label>
                         <input type="file" name="file" (change)="selectImage($event)" placeholder="" class="box">
@@ -154,6 +154,7 @@
                         <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
 
                         <input type="submit" value="verify no." [disabled]="!regform.valid" (click)="sendOtp()" class="btn1" data-toggle="modal" data-target="#VerfyOtpModal" data-dismiss="modal" aria-label="Close">
+                        <span class="help-bpx" *ngIf="!regform.valid ">Please enter all fileds first</span>
 
                     </form>
 
@@ -377,7 +378,7 @@
 
                             <h3 class="total"> total : <span>{{totalPrice}}</span> </h3>
 
-                            <a routerLink="order" class="btn1" data-dismiss="modal" aria-label="Close">checkout cart</a>
+                            <a routerLink="order" class="btn1" style="text-align: center;text-decoration: none ;" data-dismiss="modal" aria-label="Close">checkout cart</a>
 
                         </div>
 

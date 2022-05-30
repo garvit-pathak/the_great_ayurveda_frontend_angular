@@ -22,6 +22,7 @@ export class DiseasesComponent implements OnInit {
   reviewText: any;
   diseaseID: any;
   diseasList: any;
+  errPage: any;
   constructor(
     private spinner: NgxSpinnerService,
     private taoster: ToastrService,
@@ -37,9 +38,11 @@ export class DiseasesComponent implements OnInit {
       );
       if (event instanceof NavigationEnd) {
         this.diseasesService.search(this.keywords).subscribe((data) => {
-          this.spinner.hide();
-
+          this.spinner.hide(); 
+         
           this.disList = data;
+          // this.errPage = this.disList.length;
+          // console.log(this.errPage);
           this.diseaseId = this.disList._id;
           sessionStorage.setItem('diseaseID', this.disList._id);
           this.medicines = data.medicines;

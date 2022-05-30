@@ -31,7 +31,7 @@
 }
 .container{
     padding-bottom: 50px;
-    padding-left: 35rem;
+    /* padding-left: 35rem; */
 }
 /* .medicines .box-container .box span{
     color:var(--green);
@@ -45,6 +45,38 @@
     padding-top: 2rem;
 }
 
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border:var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    color:var(--green);
+    cursor: pointer;
+    font-size: 1.7rem;
+    background: #fff;
+}
+
+.btn span{
+    padding:.7rem 1rem;
+    border-radius: .5rem;
+    background: var(--green);
+    color:#fff;
+    margin-left: .5rem;
+}
+
+.btn:hover{
+    background: var(--green);
+    color:#fff;
+}
+
+.btn:hover span{
+    color: var(--green);
+    background:#fff;
+    margin-left: 1rem;
+}
 /* .medicines .box-container .box .share a{
     height: 5rem;
     width: 5rem;
@@ -118,11 +150,11 @@
       font-size: 20px;
   }
 
-   @media (max-width:768px) {
+   /* @media (max-width:768px) {
        .container{
              padding-left: 80px;
       }
-  }
+  } */
   
   /* @media (max-width:414px) {
     .container{

@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-<section class="intro" style="margin-top:30px ;" id="intro">
+<section class="intro" *ngIf="disList._id" style="margin-top:30px ;" id="intro">
 
     <div class="image">
         <img src="{{disList.image}}" alt="">
@@ -64,8 +64,8 @@
 
 </section>
 <!-- home section starts  -->
-
-<section class="causes" style="background-color: rgb(217, 246, 194); margin-top:50px ;" id="causes">
+<div class="cau" id="causes" >
+<section class="causes" *ngIf="disList._id" style="background-color: rgb(217, 246, 194); margin-top:50px ;" >
 
     <!-- <div class="image">
         <img src="{{disList.image}}" alt="">
@@ -76,25 +76,25 @@
 
     <div class="content">
         <h3 class="heading">Causes</h3>
-        <p>{{disList.causes}}</p>
+        <p style="justify-content: center;" >{{disList.causes}}</p>
 
     </div>
 
 </section>
-
+</div>
 <!-- home section ends -->
 
 
 <!-- services section starts  -->
-
-<section class="remedies" id="remedies">
+<div class="rem" id="remedies" >
+<section class="remedies"  *ngIf="disList._id" >
 
     <h1 class="heading"> home remedies </h1>
 
     <div class="box-container">
 
         <div class="box">
-            <p>{{disList.homeRemedies}}</p>
+            <p style=" text-align: justify;">{{disList.homeRemedies}}</p>
 
         </div>
 
@@ -102,10 +102,10 @@
     </div>
 
 </section>
+</div>
 
-
-
-<section class="videos" id="yoga" style="background-color: #fff;" *ngIf="show" #yoga>
+<div class="vi" id="yoga" >
+<section  class="videos"   style="background-color: #fff;" *ngIf="show && disList._id" #yoga>
     <h1 class="heading"> yoga </h1>
 
     <div class="box-container">
@@ -126,11 +126,14 @@
     </div>
 
 </section>
+</div>
 
 
+
+<div class="med" id="medicines" >
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
-<section class="medicines" style="background: #fff;" id="medicines" #medicine>
+<section *ngIf="disList._id" class="medicines" style="background: #fff;"  #medicine>
 
     <h1 class="heading"> medicines </h1>
 
@@ -161,23 +164,29 @@
     </div>
 
 </section>
+</div>
 
-<section class="remedies" style="background-color: #fff;" id="precaution">
+
+
+
+<div class="rem" id="precaution" >
+<section class="remedies" *ngIf="disList._id" style="background-color: #fff;" >
 
     <h1 class="heading"> precaution</h1>
 
     <div class="box-container">
 
         <div class="box">
-            <p>{{disList.precaution}}</p>
+            <p style=" text-align: justify;" >{{disList.precaution}}</p>
 
         </div>
     </div>
 </section>
+</div>
 
 <!-- doctors section starts  -->
-
-<section class="doctors" style="background: #fff;" id="doctors">
+<div class="doc" id="doctors" >
+<section class="doctors" *ngIf="disList._id" style="background: #fff;" id="doctors">
 
     <h1 class="heading"> doctors </h1>
 
@@ -205,7 +214,8 @@
     </div>
 
 </section>
-<section class="livechat" >
+</div>
+<section class="livechat" *ngIf="disList._id" >
     <div class="livechat-content container">
         <div class="livechat-text">
             <h2>Review!</h2>
@@ -217,7 +227,16 @@
         </form>
     </div>
 </section>
-<hr>
+<div class="errPage"  *ngIf="!disList._id">
+<h5>404 Error </h5>
+<p class="zoom-area"><b>you are searching for which disease is  not found </b>  </p>
+<section class="error-container">
+  <span class="four"><span class="screen-reader-text">4</span></span>
+  <span class="zero"><span class="screen-reader-text">0</span></span>
+  <span class="four"><span class="screen-reader-text">4</span></span>
+</section>
+</div>
+<!-- <hr> -->
 <!-- doctors section ends -->
 
 <router-outlet></router-outlet>

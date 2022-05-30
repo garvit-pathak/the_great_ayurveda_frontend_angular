@@ -23,17 +23,22 @@ page: number = 1;
   cardSize: number = 9
   constructor(private medicineSearvice:MedicineService ,private spinner: NgxSpinnerService,private router:Router ,private cart: CartService ,private taoster : ToastrService ) {
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
-      this.spinner.hide();
-
-        // console.log(data);
+      // alert("chlri");
+      // this.hideSpinner();
+      
+          // console.log(data);
         this.medicines=data;
-        this.uid = sessionStorage.getItem('userId');
+        // this.spinner.hide();  
 
+        this.uid = sessionStorage.getItem('userId');
     })
+   }
+   async hideSpinner(){
+     await this.spinner.hide();
    }
    public searchMedicine(keyword:string){
        this.medicineSearvice.searchMedicine(keyword).subscribe((data:any)=>{
-        //  console.log(data);
+         console.log(data);
          this.medicineList=data;
        })
    } 
@@ -49,6 +54,10 @@ page: number = 1;
 
   ngOnInit(): void {
     this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
   }
   public add(mid:string){
     if(sessionStorage.getItem('userId')){

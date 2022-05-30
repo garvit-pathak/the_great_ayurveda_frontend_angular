@@ -25,7 +25,7 @@ export class DoctorsComponent implements OnInit {
     private router: Router
   ) {
     this.doctorService.view().subscribe((data) => {
-      this.spinner.hide();
+      // this.spinner.hide();
 
       this.doctorList = data;
     });
@@ -50,5 +50,9 @@ export class DoctorsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
   }
 }

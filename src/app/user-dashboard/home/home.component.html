@@ -4,7 +4,7 @@
 <!-- home section starts  -->
 
 
-<section class="home" style="background: rgb(217, 246, 194) ;"  id="home">
+<section class="home" style="background: rgb(223, 249, 201) ;"  id="home">
 
     <div class="image">
         <img  src="../../../assets/image/Indian-Ayurveda-Centers-Welcome-removebg-preview.png" alt="">
@@ -12,13 +12,13 @@
 
     </div>
 
-    <div class="content">
+    <div class="content" id="search-content">
 
         <h3>True health care reforms from ayurveda</h3>
-        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions   treatment of your disease.</p>
+        <p>You have to just simply search your disease . we will provide you multiple genuine and ayurvedic solutions for the   treatment of your disease.</p>
          
-            <form action="" class="search-form" id="search" #search>
-                <input type="search" (change)="navigate($event)" placeholder="search here..." id="search-box">
+            <form action="" class="search-form" id="search" #search  >
+                <input type="search" (change)="navigate($event)"  placeholder="search here..." id="search-box">
                 <label for="search-box"  class="fas fa-search"></label>
             </form>
 
@@ -38,39 +38,44 @@
     <div class="box-container">
 
         <div class="box">
-
+         <a  style="text-decoration: none;" href="#search-content">
             <i ><img src="../../../assets/image/causes.png" alt=""></i>
             
 
-            <h3>causes</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
+            <h3 style="padding-left:30px"  >causes</h3>
+            <p>you have to just search your disease than we will give you what is the cuase of your disease</p>
+        </a> 
         </div>
 
 
 
         <div class="box">
+            <a  style="text-decoration: none;" href="#search-content">
 
-            <i ><img src="../../../assets/image/patient.png" alt=""></i>
+            <i  ><img src="../../../assets/image/patient.png" alt=""></i>
 
-            <h3>expert doctors</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
+            <h3  >expert doctors</h3>
+            <p>you can take appointment from doctors page</p>
+            </a>
         </div>
 
         <div class="box">
+            <a  style="text-decoration: none;" href="#search-content">
 
             <i ><img src="../../../assets/image/ayurvedic-medicine.png" alt=""></i>
-            <h3>ayurvedic  medicines</h3>
+            <h3 style="padding-left:20px" >  medicines</h3>
 
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, omnis.</p>
+            <p  >you can shop medicines from medicines page </p>
+            </a>
         </div>
 
         <div class="box">
-
+            <a  style="text-decoration: none;" href="#search-content">
             <i ><img   src="../../../assets/image/hinduist-yoga-position.png" alt=""></i>
-
-            <h3>yoga videos</h3>
+            <h3 style="padding-left:10px" >yoga videos</h3>
             <p>we will provide you yoga related your disease to cure your disease permanently</p>
             <!-- <a href="#" class="btn"> learn more <span class="fas fa-chevron-right"></span> </a> -->
+             </a>
         </div>
 
         
@@ -87,33 +92,54 @@
 
     <div class="box-container">
         <div class="box">
-            <img src="../../../assets/image/digestive-white-icon.png" alt="">
-            <h3 style="margin-top: 50px;">digestive</h3>
+            <a style="text-decoration: none; color:#fff " href="#search-content">
+             <img src="../../../assets/image/digestive-white-icon.png" alt="">
+             <h3 style="margin-top: 50px;">digestive</h3>
+            </a>
         </div>
 
         <div class="box">
-            <img src="../../../assets/image/endocrine-white-icon.png" alt="">
-            <h3 style="margin-top: 55px;">endocrine</h3>
+            <a style="text-decoration: none; color:#fff " href="#search-content">
+ 
+              <img src="../../../assets/image/endocrine-white-icon.png" alt="">
+              <h3 style="margin-top: 55px;">endocrine</h3>
+            </a>
         </div>
 
+                <div class="box">
+                  <a style="text-decoration: none; color:#fff " href="#search-content">
+
+                  <img src="../../../assets/image/hairandskin-white-icon.png" alt="">
+                   <h3 style="margin-top: 50px;">hair and skin</h3>
+                </a>
+                </div>
+       
+
+
+
         <div class="box">
-            <img src="../../../assets/image/hairandskin-white-icon.png" alt="">
-            <h3 style="margin-top: 50px;">hair and skin</h3>
-        </div>
-        <div class="box">
+        <a style="text-decoration: none; color:#fff " href="#search-content">
+
             <img src="../../../assets/image/jointpain-white-icon.png" alt="">
             <h3 style="margin-top: 45px;">joint pain</h3>
+        </a>
         </div>
+
+        
         <div class="box">
+            <a style="text-decoration: none; color:#fff " href="#search-content">
 
             <img style="width: 100px;" src="../../../assets/image/brain.png" alt="">
             <h3 style="margin-top: 55px;" >Mental</h3>
+            </a>
         </div>
  
         <div class="box">
+            <a style="text-decoration: none; color:#fff " href="#search-content">
 
             <img style="width: 100px;" src="../../../assets/image/respiratory-white-icon.png" alt="">
             <h3 style="margin-top: 55px;" >Breathing</h3>
+            </a>
         </div>
         </div>
        
@@ -122,7 +148,7 @@
 </section>
 <!-- about section starts  -->
 
-<section class="about" style="margin-top:90px;background: rgb(217, 246, 194) ;"  id="about">
+<section class="about" style="margin-top:90px;background: rgb(223, 249, 201) ;"  id="about">
 
     <h1 class="heading" style="margin-bottom:10px ;"> <span>about</span> us </h1>
 
@@ -261,7 +287,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text"> perspiciatis libero nobis rem numquam nesciunt alias sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text"> After watching the yoga from this website my disease is cured </p>
         </div>
 
         <div class="box">
@@ -274,7 +300,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text"> sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text"> thank you for giving me genuine solutions</p>
         </div>
 
         <div class="box">
@@ -287,7 +313,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <p class="text"> sapiente minus voluptatem, reiciendis consequuntur optio dolorem!</p>
+            <p class="text"> thanks great ayurveda for saving my life </p>
         </div>
 
     </div>
@@ -297,7 +323,7 @@
 
 
 
-
+<!-- 
 <owl-carousel-o [options]="customOptions">
 
     <ng-container>
@@ -307,7 +333,7 @@
         </ng-template>
     </ng-container>
 
-</owl-carousel-o>
+</owl-carousel-o> -->
 
 <!-- review section ends -->
 
