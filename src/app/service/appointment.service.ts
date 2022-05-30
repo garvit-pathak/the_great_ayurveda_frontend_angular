@@ -28,5 +28,13 @@ export class AppointmentService {
     return this.http.post(cancle,{uId:uId,aId:aId,mobile:mobile});
 
   }
+  public pendingAppointment(dId:string):Observable<any>{
+    let pending="http://localhost:8801/api/appointment/viewAppointmentByDidPending";
+    return this.http.post(pending,{dId:dId});
+  }
+  public viewAppoimentByDid(dId:string):Observable<any>{
+    let api="http://localhost:8801/api/appointment/viewAppoimentByDid"
+    return this.http.post(api,{dId:dId});
+  }
   
 }

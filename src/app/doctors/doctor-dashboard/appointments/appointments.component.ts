@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from 'src/app/service/appointment.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-appointments',
@@ -8,32 +10,32 @@ import { AppointmentService } from 'src/app/service/appointment.service';
 })
 export class AppointmentsComponent implements OnInit {
   viewAppoinments:any=[];
-  //  i:any=0;
    dId:any;
    aId:any;
    date:any;
    time:any;
    userId:any;
    mobile:any;
-  constructor(private appointments:AppointmentService) { 
+  
+  constructor(private appointments:AppointmentService,private taoster: ToastrService) { 
     this.dId=sessionStorage.getItem('doctorId')
-    this.appointments.viewAppoinment(this.dId).subscribe((data:any)=>{
-      console.log(data);
-      this.viewAppoinments=data;
-    })
+    console.log(this.dId)
+  
   }
 
   ngOnInit(): void {
+    this.appointments.pendingAppointment(this.dId).subscribe((data:any)=>{
+      console.log(data);
+      this.viewAppoinments=data;
+    })
+  
   }
    public approveAppoint(id:any,uId:any,mobile:any)
    { 
-            sessionStorage.setItem("userrId",uId);
-            sessionStorage.setItem("apointtId",id);
-            sessionStorage.setItem("mobilee",mobile);
-              // this.aId=id;
-              // this.userId=uId;
-              // this.mobile=mobile;
-              console.log(this.aId,this.userId,this.mobile)
+      sessionStorage.setItem("userrId",uId);
+      sessionStorage.setItem("apointtId",id);
+      sessionStorage.setItem("mobilee",mobile);
+        console.log(id,uId,mobile)
   }
  public approve(){
   this.aId = sessionStorage.getItem("apointtId");
@@ -42,17 +44,24 @@ export class AppointmentsComponent implements OnInit {
    sessionStorage.removeItem("userrId");
    sessionStorage.removeItem("apointtId");
    sessionStorage.removeItem("mobilee");
-
-  alert("Your Appoinment is booked ")
   console.log(this.date,this.time,this.aId,this.userId,this.mobile);
   this.appointments.approveAppointment(this.aId,this.userId,this.date,this.time,this.mobile).subscribe((data:any)=>{
-    
+    if(data)
+    this.taoster.success("Your Appointment is booked ")
+
     console.log(data);
+    this.ngOnInit();
   })
 }
+
 public cancleAppointment(userId:any,aId:any,mobile:any){
+   confirm("Are you sure ?")
    this.appointments.cancleAppoinment(userId,aId,mobile).subscribe((data:any)=>{
-     console.log(data);
+     if(data)
+    this.taoster.success("Appointment is canceled ") 
+    console.log(data);
+    this.ngOnInit()
+
    })
 }
 

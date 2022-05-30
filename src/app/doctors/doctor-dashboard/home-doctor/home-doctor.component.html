@@ -1,6 +1,67 @@
-<p>home-doctor works!</p>
-<p>home-doctor works!</p>
-<p>home-doctor works!</p>
-<p>home-doctor works!</p>
+<p>appointments works!</p>
+<p>appointments works!</p>
+<p>appointments works!</p>
+<p>appointments works!</p>
 
-<p>home-doctor works!</p>
+<!-- <section>
+    <table class="table tab">
+        <thead class="thead">
+            <tr>
+
+                <th scope="col">
+                    <h3>S.no</h3>
+                </th>
+                <th scope="col">
+                    <h3>Name</h3>
+                </th>
+                <th scope="col">
+                    <h3>Age</h3>
+                </th>
+                <th scope="col">
+                    <h3>Disease</h3>
+                </th>
+                <th scope="col">
+                    <h3>Mobile</h3>
+                </th>
+                <th scope="col">
+                    <h3>Date</h3>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr style="font-size:2rem ;" *ngFor="let appoint of viewAppoinments; index as i">
+                <td>{{i+1}}</td>
+                <td>{{appoint.patientName}}</td>
+                <td>{{appoint.age}}</td>
+                <td>{{appoint.disease}}</td>
+                <td>{{appoint.mobile}}</td>
+                <td>{{appoint.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section> -->
+
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-4" *ngFor="let appoint of viewAppoinments;">
+            <div class="card border-success mb-4 grid-container" style="max-width: 25rem; ">
+
+                <div class=" card-header " style="background-color: rgb(230, 252, 213);">
+                    <h1 style="text-align: center;">{{appoint.patientName}}</h1>
+                </div>
+                <div class="card-body text-success ">
+                    <h5 class="card-title ">
+                        <h5>Age:{{appoint.age}}</h5>
+                    </h5>
+                    <p class="card-text ">{{appoint.disease}}</p>
+                    <p class="card-text ">{{appoint.mobile}}</p>
+                    <p class="card-text ">{{appoint.date}}</p>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

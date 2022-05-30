@@ -1,0 +1,21 @@
+.tab {
+    padding-top: 20px;
+    /* background-color: #2b734b; */
+}
+
+.tab input {
+    padding: 10px;
+}
+
+.tbody {
+    background-color: rgb(230, 252, 213);
+}
+
+.thead {
+    border-style: solid;
+    border-color: #2b734b;
+}
+
+.grid-container {
+    display: grid;
+}
