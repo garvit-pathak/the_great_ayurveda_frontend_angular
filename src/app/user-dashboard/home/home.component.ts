@@ -18,6 +18,7 @@ total:any;
 doctorList:any;
 diseas:any;
 userList:any;
+review:any=[];
   constructor(private router:Router,private cart: CartService
     ,private medicineSearvice:MedicineService,private user:UserService,private doctorService: DoctorService,private disease:DiseasesService
     ) { 
@@ -32,6 +33,10 @@ userList:any;
     })
     this.user.view().subscribe(data=>{
       this.userList=data.length;
+    })
+    this.disease.reviewRevie1().subscribe(data=>{
+      console.log(data)
+      this.review=data.reviewerDetail;
     })
   }
 
