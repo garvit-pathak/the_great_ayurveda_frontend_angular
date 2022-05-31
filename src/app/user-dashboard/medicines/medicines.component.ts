@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { MedicineService } from '../../service/medicine.service';
 import { NgxSpinnerService } from "ngx-spinner";
+declare var webkitSpeechRecognition:any;
 
 @Component({
   selector: 'app-medicines',
@@ -81,6 +82,36 @@ page: number = 1;
   else
   this.taoster.warning('Login First Please');
 }
+
+
+voice(){
+  if("webkitSpeechRecognition" in window){
+      
+    let vSearch = new webkitSpeechRecognition();
+    vSearch.lang = "en-US";
+    vSearch.start();
+
+    vSearch.onresult = async (e:any) =>{
+      this.search = await e.results[0][0].transcript;
+      console.log(this.search);
+      this.router.navigate(['search-medicine',this.search]).then(()=>{
+        location.reload();
+      });
+      // location.reload();
+      vSearch.stop();
+      
+    }
+    vSearch.onerror = function(e:any){
+      console.log(e);
+      vSearch.stop();
+    }
+  }
+  else{
+    console.log("Your browser dosen't support speech recognition");
+  }
+ }
+
+
 
   onCardDataChange(event: any) {
     this.page = event;

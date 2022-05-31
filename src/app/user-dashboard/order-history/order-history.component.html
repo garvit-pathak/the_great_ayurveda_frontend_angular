@@ -1,59 +1,76 @@
 <p>order-history works!</p>
 <p>order-history works!</p>
 <p>order-history works!</p>
-<section class="order-history" style="padding-top: 30px;">
 
+<section class="order-history" style="padding-top: 30px;font-size: 2rem; ">
 
     <table class="table" style="color:#444;">
-        <thead>
+        <thead style="border: solid #2b734b; ">
             <tr style="background-color: rgb(230, 252, 213) ;">
+
                 <th scope="col">S.no.</th>
-                <th scope="col">medicine list</th>
+
                 <th scope="col">date</th>
                 <th scope="col">Order Id</th>
                 <th scope="col">Order status</th>
+                <th scope="col">Medicine Lists</th>
+
                 <th scope="col">total</th>
+                
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td scope="row">1</td>
-                <td>
-                    <tr *ngFor='let List of medList index as i' class=" medicine-list" style="margin-bottom: 15px ; display: flex;">
-                        <img style="width:80px ;height:80px ;" src="{{List.product.image}}" alt="">
+        <tbody style=" border: solid #2b734b; box-shadow: .5rem .5rem 0 rgba(22, 160, 133, .2);">
+            <tr *ngFor='let orderlist of orderList ;index as i'>
 
-                        <span style="padding-left: 10px ;width: 40px;">
-                    {{List.product.name}}  {{List.qty}}Qty
-                    {{List.totalPrice}}rs
-                   </span>
+                <td>{{i+1}}</td>
+               
+                <!-- <td><tr  class=" medicine-list" style="margin-bottom: 15px ; display: flex;"  *ngFor="let o of orderlist.medicineList" >
+                    <img style="width:80px ;height:80px ;" src="{{o.product.image}}" alt="">
 
-                    </tr>
+                <span >
+                {{o.product.name}}  {{o.qty}}Qty
+                {{o.totalPrice}}rs
+               </span>
 
-                    <!-- <span class=" medicine-list" style="margin-bottom: 15px; display: flex;">  
-                <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
-                  <span style="padding-left: 10px ;width: 40px;" >
-                    gilovati  1Qty
-                    150rs
-                   </span> -->
+                </tr></td> -->
 
-                    <!-- </span> -->
-                    <!-- <span class=" medicine-list" style="margin-bottom: 15px; display: flex;">  
-                <img style="width:80px ;height:80px ;" src="../../../assets/image/blog-3.jpg" alt="">
-                   <span style="padding-left: 10px ;width: 90px;" >
-                      gilovati  1Qty
-                      150rs
-                   </span> -->
-
-                    <!-- </span> -->
-
-                </td>
-                <span *ngFor='let orderlist of orderList | slice:0:1'>
                 <td>{{orderlist.date}}</td>
                 <td>{{orderlist._id}}</td>
                 <td>{{orderlist.orderStatus}}</td>
+
+
+                <td><div class="dropdown" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      See List
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" *ngFor="let o of orderlist.medicineList">
+                        <span style="display: flex;" >
+                        <img style="width:80px ;height:80px;" src="{{o.product.image}}" alt="">
+                        <span style="font-size:2rem ;" >
+                        <h3 style="padding-top:20px ;">{{o.product.name}}</h3>
+                        <span style="padding-right: 20px;">
+                        {{o.product.price+" ₹"}}</span>
+                        {{o.qty+" qty"}}
+                        </span>
+                    </span>
+                    </a>
+                      
+                    </div>
+                  </div></td>
+
+
+
+             
+
+
+
                 <td>{{orderlist.amount}}</td>
-              </span>
+
             </tr>
+
+
+
         </tbody>
     </table>
 </section>

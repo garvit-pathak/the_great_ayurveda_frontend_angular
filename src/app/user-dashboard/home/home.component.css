@@ -393,7 +393,7 @@ section:nth-child(even) {
 .search-form {
     position: relative;
 }
-.search-form i {
+/* .search-form i {
     position: absolute;
     width: 1px;
     height: 80%;
@@ -404,7 +404,7 @@ section:nth-child(even) {
     animation-duration: 800ms;
     animation-iteration-count: infinite;
     opacity: 1;
-}
+} */
 
 .search-form input:focus + i {
     display: none;
