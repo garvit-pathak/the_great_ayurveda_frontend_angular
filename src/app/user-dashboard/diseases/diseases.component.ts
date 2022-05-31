@@ -23,6 +23,7 @@ export class DiseasesComponent implements OnInit {
   diseaseID: any;
   diseasList: any;
   errPage: any;
+  catList:any=[];
   constructor(
     private spinner: NgxSpinnerService,
     private taoster: ToastrService,
@@ -65,6 +66,10 @@ export class DiseasesComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
     this.drService.view().subscribe(
       (data) => {
         this.doctor = data;
@@ -73,6 +78,13 @@ export class DiseasesComponent implements OnInit {
         console.log(err);
       }
     );
+    this.uid = sessionStorage.getItem('userId');
+    console.log(this.uid)
+    this.cart.cartView(this.uid).subscribe((data) => {
+      console.log(data);
+      this.catList = data.medicineList;
+      console.log(this.catList);
+    });
   }
   public appoin(id: string) {
     if (sessionStorage.getItem('userId')) {
@@ -80,12 +92,27 @@ export class DiseasesComponent implements OnInit {
     } else this.taoster.warning('Please LogIn First');
   }
   public add(mid: string) {
+    let flage: boolean = false;
     if (sessionStorage.getItem('userId')) {
-      this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
-        // console.log(data);
-        if (data) this.taoster.success('Medicine Added To The Cart');
-      });
+      for (let element of this.catList) {
+        if (element._id == mid) {
+          flage = true;
+          break;
+        }
+      }
+      if (flage) {
+        this.taoster.warning('Already Added');
+      } else {
+        this.cart.addToCart(this.uid, mid).subscribe((data) => {
+          console.log(data);
+          if (data) {
+            this.taoster.success('Medicine Added To The Cart');
+          }
+          this.ngOnInit();
+        });
+      }
     } else this.taoster.warning('Login First Please');
+    flage = false;
   }
 
   public review() {

@@ -39,11 +39,11 @@
                 <i class='bx bx-user-circle'></i>
             </a>
 
-            <div  class="dropdown-menu">
-                <a class="dropdown-item"  routerLink="user-profile" >Profile</a>
-                <a  routerLink="order-history" class="dropdown-item">Order history</a>
-                <a routerLink="appointment-history" class="dropdown-item" >Appointments </a>
-                <a class="dropdown-item" (click)="signout()" >Sign out  </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="user-profile">Profile</a>
+                <a routerLink="order-history" class="dropdown-item">Order history</a>
+                <a routerLink="appointment-history" class="dropdown-item">Appointments </a>
+                <a class="dropdown-item" (click)="signout()">Sign out  </a>
 
             </div>
         </div>
@@ -279,15 +279,22 @@
                         <input [(ngModel)]="dexperience" name="experience" type="text" placeholder=" experience" class="box" required #Exprience="ngModel">
                         <span class="help-bpx" *ngIf="Exprience.touched && !Exprience.valid">Please enter valid Mobile</span>
 
-                        <!-- <input [(ngModel)]="dspecialities" type="text" placeholder=" specialities" class="box"> -->
+                        <input [(ngModel)]="dspecialities" name="speciality" type="text" placeholder=" specialities" class="box">
 
-                        <!-- <label>Category Name</label> -->
                         <select name="categoryId" class="form-control" style="box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834); height: 45px;border: none;font-size: 14px; ">
-              <option  >Select Speciality</option>
+              <option  >Select Medical Filed</option>
               <option (click)="get(cat._id)" *ngFor="let cat of catList" value="{{cat._id}}">{{cat.name}}</option>
 
             </select>
-                        <!-- <input [(ngModel)]="dkeyword" type="text" placeholder=" keyword" class="box"> -->
+                        <h4 style="padding-top: 10px;padding-bottom: 10px; color:#2b734b">Gender</h4>
+                        <div class="gender" style="display: flex;">
+                            <input (change)="getname($event)" type="radio" id="html" name="fav_language" value="men">
+                            <label for="html">Male</label><br>
+                            <input (change)="getname($event)" type="radio" style="margin-left:10px;" id="html" name="fav_language" value="Women">
+                            <label for="html">Women</label><br>
+                            <input (change)="getname($event)" type="radio" style="margin-left:10px;" id="html" name="fav_language" value="Women">
+                            <label for="html">Other</label><br>
+                        </div>
                         <input [(ngModel)]="dclinicName" name="Clinicname" type="text" placeholder=" Clinic name" class="box" required #ClinicName="ngModel">
                         <span class="help-bpx" *ngIf="ClinicName.touched && !ClinicName.valid">Please enter valid Mobile</span>
 
