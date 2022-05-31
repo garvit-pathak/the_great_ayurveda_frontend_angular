@@ -98,7 +98,7 @@ export class OrderComponent implements OnInit {
         currency: 'INR',
         name: 'Acme Corp',
         description: 'Test Transaction',
-        image: 'https://example.com/your_logo',
+        image: '../../assets/image/WhatsApp Image 2022-05-05 at 12.45.30 PM (2).jpeg',
         order_id: data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         handler: (response: {
           razorpay_payment_id: any;
@@ -120,7 +120,7 @@ export class OrderComponent implements OnInit {
           address: 'Razorpay Corporate Office',
         },
         theme: {
-          color: '#3399cc',
+          color: '#2b734b',
         },
       };
       var rzp1 = new Razorpay(options);
@@ -148,6 +148,7 @@ export class OrderComponent implements OnInit {
       rzp1.open();
       this.cart.deleteCart().subscribe((data) => {
         console.log('cart deleted');
+        this.ngOnInit();
       });
     });
   }
