@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
-import { User } from 'src/app/model/user';
 import { ToastrService } from 'ngx-toastr';
 import {
   SocialAuthService,
@@ -11,7 +10,6 @@ import { DoctorService } from '../../service/doctor.service';
 import { HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -33,6 +31,7 @@ export class HeaderComponent implements OnInit {
   dpassword = '';
   dexperience = '';
   dcategory = '';
+  dspecialities = '';
   dclinicName = '';
   dclinicAddress = '';
   dclinicNo = '';
@@ -40,6 +39,7 @@ export class HeaderComponent implements OnInit {
   dmobile = '';
   dimage = '';
   ddegree = '';
+  dgender = '';
   dotp = '';
   did = '';
   uid1: any = '';
@@ -55,15 +55,7 @@ export class HeaderComponent implements OnInit {
     if (this.scrWidth >= 768) this.value = false;
     else this.value = true;
   }
-  // constructor(
-  //   private _userService: UserService,
-  //   private _doctorService: DoctorService
-  // ) {
-
-  // }
-
   catList: any = [];
-
   constructor(
     private _userService: UserService,
     private _doctorService: DoctorService,
@@ -79,17 +71,10 @@ export class HeaderComponent implements OnInit {
       // console.log(data);
       this.catList = data;
     });
-
-   
-
   }
-  get(id:string) {
-    // this.dcategory = event.target.value;
-    this.dcategory=id;
-    alert(this.dcategory);
+  get(id: string) {
+    this.dcategory = id;
   }
-  
-
   ngOnInit(): void {}
   socialLogin() {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
@@ -166,7 +151,7 @@ export class HeaderComponent implements OnInit {
   checkOtp() {
     this._userService.signUpByOtp(this.uid, this.uotp).subscribe((data) => {
       // console.log(data);
-      
+
       if (data) this.taoster.success('SignUp Success now Log In ', 'Success');
     });
   }
@@ -192,13 +177,14 @@ export class HeaderComponent implements OnInit {
     formData.append('clinicTiming', this.dclinicTiming);
     formData.append('image', this.dimage);
     formData.append('degree', this.ddegree);
-
+    formData.append('speciality', this.dspecialities);
+    formData.append('gender', this.dgender);
     this._doctorService.doctorSingup(formData).subscribe((data) => {
       // console.log(data);
-      this.dotp = data.otp;
+      // this.dotp = data.otp;
       this.did = data._id;
-      console.log(this.did + ' ' + this.dotp);
-      if (data) this.taoster.success('SignUp Success', 'Success');
+      console.log(this.did);
+      // if (data) this.taoster.success('SignUp Success', 'Success');
     });
   }
 
@@ -210,26 +196,25 @@ export class HeaderComponent implements OnInit {
   }
 
   doctorSignin() {
-    this._doctorService
-      .signinDoctor(this.email, this.password)
-      .subscribe((data) => {
+    this._doctorService.signinDoctor(this.email, this.password).subscribe(
+      (data) => {
         this.router.navigate(['/doctor-dasboard']);
-
         // console.log(data);
-
         sessionStorage.setItem('doctorId', data.result._id);
         localStorage.setItem('doctor', JSON.stringify(data.result));
         if (data) this.taoster.success('Login Success', 'Success');
-      },err=>{
-        console.log(err)
-        this.taoster.error('Invalid Doctor Please Sing Up First')
-      });
+      },
+      (err) => {
+        console.log(err);
+        this.taoster.error('Invalid Doctor Please Sing Up First');
+      }
+    );
   }
   checkToken(): boolean {
     return !!localStorage.getItem('jwt-token');
   }
   totalPrice: number = 0;
-  tota:any;
+  tota: any;
   cart1: any;
   public view() {
     this.cart.cartView(this.uid1).subscribe((data) => {
@@ -264,5 +249,8 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('cart');
     sessionStorage.removeItem('userId');
     this.router.navigate(['']);
+  }
+  getname(event: any) {
+    this.dgender = event.target.value;
   }
 }

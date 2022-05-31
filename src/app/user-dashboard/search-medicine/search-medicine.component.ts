@@ -13,6 +13,7 @@ export class SearchMedicineComponent implements OnInit {
   medicines: any = [];
   keyword: any;
   uid: any;
+  catList: any = [];
   constructor(
     private activateRouter: ActivatedRoute,
     private _medService: MedicineService,
@@ -35,13 +36,35 @@ export class SearchMedicineComponent implements OnInit {
   public viewDetails(pid: string) {
     this.router.navigate(['medicine-details' + '/' + pid]);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.uid = sessionStorage.getItem('userId');
+    this.cart.cartView(this.uid).subscribe((data) => {
+      console.log(data);
+      this.catList = data.medicineList;
+      console.log(this.catList);
+    });
+  }
   public add(mid: string) {
+    let flage: boolean = false;
     if (sessionStorage.getItem('userId')) {
-      this.cart.addToCart(this.uid, mid).subscribe((data: any) => {
-        console.log(data);
-        if (data) this.taoster.success('Medicine Added To The Cart');
-      });
+      for (let element of this.catList) {
+        if (element._id == mid) {
+          flage = true;
+          break;
+        }
+      }
+      if (flage) {
+        this.taoster.warning('Already Added');
+      } else {
+        this.cart.addToCart(this.uid, mid).subscribe((data) => {
+          console.log(data);
+          if (data) {
+            this.taoster.success('Medicine Added To The Cart');
+          }
+          this.ngOnInit();
+        });
+      }
     } else this.taoster.warning('Login First Please');
+    flage = false;
   }
 }

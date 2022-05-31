@@ -15,6 +15,7 @@ export class MedicineDetailsComponent implements OnInit {
   uid: any;
   revie = '';
   reviewList:any;
+  catList:any=[];
   constructor(
     private _med: MedicineService,
     private acitvateRouter: ActivatedRoute,
@@ -39,7 +40,15 @@ export class MedicineDetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.uid = sessionStorage.getItem('userId');
+    console.log(this.uid)
+    this.cart.cartView(this.uid).subscribe((data) => {
+      console.log(data);
+      this.catList = data.medicineList;
+      console.log(this.catList);
+    });
+  }
   public review() {
     this._med
       .medicineReview(this.uid, this.pid, this.revie)
@@ -60,9 +69,26 @@ export class MedicineDetailsComponent implements OnInit {
   //   });
   //  }
   public add(mid: string) {
-    this.cart.addToCart(this.uid, mid).subscribe((data) => {
-      // console.log(data)
-      if (data) this.taoster.success('Medicine Added To The Cart');
-    });
+    let flage: boolean = false;
+    if (sessionStorage.getItem('userId')) {
+      for (let element of this.catList) {
+        if (element._id == mid) {
+          flage = true;
+          break;
+        }
+      }
+      if (flage) {
+        this.taoster.warning('Already Added');
+      } else {
+        this.cart.addToCart(this.uid, mid).subscribe((data) => {
+          console.log(data);
+          if (data) {
+            this.taoster.success('Medicine Added To The Cart');
+          }
+          this.ngOnInit();
+        });
+      }
+    } else this.taoster.warning('Login First Please');
+    flage = false;
   }
 }
