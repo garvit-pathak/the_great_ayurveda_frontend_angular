@@ -8,7 +8,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class OrderHistoryComponent implements OnInit {
 userId:any;
-medList:any[]=[];
+// medList:any[]=[];
 orderList:any[]=[];
   constructor(private _user:UserService) {
     this.userId=sessionStorage.getItem("userId")
@@ -17,11 +17,12 @@ orderList:any[]=[];
   ngOnInit(): void {
     this._user.orderHistory(this.userId).subscribe(data=>{
       console.log(data)
-      this.medList=data[0].medicineList;
-      console.log(this.medList)
+      // this.medList=data[0].medicineList;
+      // console.log(this.medList)
       this.orderList=data;
       console.log(this.orderList)
     })
   }
+  
     
 }

@@ -7,6 +7,8 @@ import { DoctorService } from 'src/app/service/doctor.service';
 import { MedicineService } from 'src/app/service/medicine.service';
 import { UserService } from 'src/app/service/user.service';
 
+
+declare var webkitSpeechRecognition:any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,6 +21,7 @@ doctorList:any;
 diseas:any;
 userList:any;
 review:any=[];
+
   constructor(private router:Router,private cart: CartService
     ,private medicineSearvice:MedicineService,private user:UserService,private doctorService: DoctorService,private disease:DiseasesService
     ) { 
@@ -67,7 +70,32 @@ review:any=[];
     },
     nav: true
   }
+ voice(){
+  if("webkitSpeechRecognition" in window){
+      
+    let vSearch = new webkitSpeechRecognition();
+    vSearch.lang = "en-US";
+    vSearch.start();
 
+    vSearch.onresult = async (e:any) =>{
+      this.search = await e.results[0][0].transcript;
+      console.log(this.search);
+      this.router.navigate(['diseases',this.search]).then(()=>{
+        location.reload();
+      });
+      // location.reload();
+      vSearch.stop();
+      
+    }
+    vSearch.onerror = function(e:any){
+      console.log(e);
+      vSearch.stop();
+    }
+  }
+  else{
+    console.log("Your browser dosen't support speech recognition");
+  }
+ }
 
 
  public navigate(event:any){

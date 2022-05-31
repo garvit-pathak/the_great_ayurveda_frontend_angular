@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../service/doctor.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+declare var webkitSpeechRecognition:any;
 
 @Component({
   selector: 'app-doctors',
@@ -40,11 +41,41 @@ export class DoctorsComponent implements OnInit {
     this.router.navigate(['search-doctor', this.search]);
   }
 
+
+  voice(){
+    if("webkitSpeechRecognition" in window){
+        
+      let vSearch = new webkitSpeechRecognition();
+      vSearch.lang = "en-US";
+      vSearch.start();
+  
+      vSearch.onresult = async (e:any) =>{
+        this.search = await e.results[0][0].transcript;
+        console.log(this.search);
+        this.router.navigate(['search-doctor',this.search]).then(()=>{
+          location.reload();
+        });
+        // location.reload();
+        vSearch.stop();
+        
+      }
+      vSearch.onerror = function(e:any){
+        console.log(e);
+        vSearch.stop();
+      }
+    }
+    else{
+      console.log("Your browser dosen't support speech recognition");
+    }
+   }
+  
+
   public viewDetails(did: string) {
     if (sessionStorage.getItem('userId')) {
       this.router.navigate(['doctor-details' + '/' + did]);
     } else this.taoster.warning('Login First Please');
   }
+  
   onCardDataChange(event: any) {
     this.page = event;
   }

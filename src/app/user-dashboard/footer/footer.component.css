@@ -73,7 +73,7 @@
     border:var(--border);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
-    color: #fff ;
+    color: #fff !important;
     cursor: pointer;
     font-size: 1.7rem;
     background: var(--green);
@@ -93,8 +93,8 @@
 }
 
 .btn:hover span{
-    color: var(--green);
-    background:#fff;
+    color: var(--green) !important;
+    background:#fff !important;
     margin-left: 1rem;
 }
 

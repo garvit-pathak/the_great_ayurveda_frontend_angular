@@ -13,7 +13,6 @@ import { HeaderComponent } from './user-dashboard/header/header.component';
 import { BookAppointmentComponent } from './user-dashboard/book-appointment/book-appointment.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
-
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
