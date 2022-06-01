@@ -1,21 +1,27 @@
-.tab {
-    padding-top: 20px;
-    /* background-color: #2b734b; */
-}
 
-.tab input {
-    padding: 10px;
-}
-
-.tbody {
-    background-color: rgb(230, 252, 213);
-}
-
-.thead {
-    border-style: solid;
-    border-color: #2b734b;
-}
-
-.grid-container {
+.medicines .box-container{
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 0.4fr));
+    gap:2rem;
 }
+
+.medicines .box-container .box{
+    text-align: center;
+    background:#fff;
+    border-radius: .5rem;
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+}
+
+
+
+.medicines .box-container .box h3{
+    color:var(--black);
+    font-size: 2.5rem;
+}
+
+
+/* .grid-container {
+    display: grid;
+} */

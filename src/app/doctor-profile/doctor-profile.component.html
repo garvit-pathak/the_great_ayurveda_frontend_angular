@@ -11,12 +11,12 @@
                             <img src="{{profile.image}}" class="rounded-circle img-fluid" style="width: 100px; border-radius:50% ;height: 100px; " />
                         </div>
                         <h4 style="font-size: 25px;" class="mb-2">{{profile.name}}</h4>
-
-                        <p style="margin-top:40px;margin-left:45px"><a style="color: rgb(37, 112, 49); cursor:pointer" data-toggle="modal" data-target="#SignUpModal">Edit Profile</a></p>
+<div class="links">
+                        <p style="margin-top:40px;margin-left:45px;margin-bottom: 20px;"><a style="color: rgb(37, 112, 49); cursor:pointer" data-toggle="modal" data-target="#SignUpModal">Edit Profile</a></p>
                         <!-- <p style="margin-left:30px" (click)="appointmentView()"><a href="#">Appointment history</a></p> -->
-                        <p style="margin-left:45px" (click)="remove()"><a href="#">Remove account</a></p>
-                        <p style="margin-left:45px"><a href="#">Help</a></p>
-
+                        <p style="margin-left:45px;margin-bottom: 20px;" (click)="remove()"><a href="#">Remove account</a></p>
+                        <p style="margin-left:45px;"><a href="#">Help</a></p>
+                    </div>
                         <button type="button" (click)="signOut()" style="margin-top: 80px;" class="btn1  btn-rounded btn-lg">
               Sign out
             </button>
