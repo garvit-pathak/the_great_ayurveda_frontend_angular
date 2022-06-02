@@ -31,17 +31,17 @@
 
     
     <section class="medicines" id="medicines" style="background-color: #fff;" >
-    <h1 class="heading"  style="padding-top: 35px;" > your <span>Appointments</span> </h1>
+    <h1 class="heading"  style="padding-top: 20px;" > your <span>Appointments</span> </h1>
    
-    <div class="box-container"  *ngFor="let appoint of viewAppoinments;">
-        <div class="box">
-            <h3 style="text-align: center;">{{appoint.patientName}}</h3>
+    <div class="box-container"  >
+        <div class="box" *ngFor="let appoint of viewAppoinments;">
+            <h3 style="text-align: center;">pateint name: {{appoint.patientName}}</h3>
 
-            <span><h5>Age:{{appoint.age}}</h5></span>
+            <span>Age:{{appoint.age}}</span>
 
-            <p class="card-text ">{{appoint.disease}}</p>
-                    <p class="card-text ">{{appoint.mobile}}</p>
-                    <p class="card-text ">{{appoint.date}}</p>
+            <p class="card-text "> disease :{{appoint.disease}}</p>
+                    <p class="card-text ">pateint number :{{appoint.mobile}}</p>
+                    <p class="card-text "> appointment date :{{appoint.date}}</p>
             
         </div>
     </div>

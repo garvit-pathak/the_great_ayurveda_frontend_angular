@@ -15,11 +15,11 @@ export class OrderService {
   // }
 
   public placeOrder(order:any):Observable<any>{
-    let api='http://localhost:8801/api/order/create'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/order/create'
     return this._http.post<any>(api,{order})
   }
   onlinePay(payment:any){
-    let api='http://localhost:8801/api/order/payment'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/order/payment'
     return this._http.post<any>(api,{payment:payment})
   }
 }

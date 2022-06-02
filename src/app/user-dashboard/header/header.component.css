@@ -185,16 +185,16 @@ margin-left: 10px ;
     text-decoration: underline;
   }
   form button{
-    color: #fff;
-    background-color: rgb(249, 68, 65);
-    border: none;
+    color: #2b734b;
+    background-color: rgb(245, 240, 240);
+    /* border: none; */
     margin-top: 20px !important ;
-
     margin-bottom: 30px !important ;
     
 }
            form button:hover{
-  background-color: rgb(230, 87, 87);
+             color:green;
+  background-color: rgb(252, 243, 243);
 
 }
 
@@ -209,6 +209,8 @@ margin-left: 10px ;
 .modal-title{
   font-size: large;color:#2b734b;margin-left: 70px;
 }
+.modal .social button {
+  width: 280px;}
 
 
 
@@ -351,6 +353,12 @@ margin-left: 10px ;
   .modal{
     width:300px ;
     /* margin-left: 5px; */
+  }
+  .modal .social img{
+    height: 22px;
+  }
+  .modal .social button {
+    width: 240px;
   }
 }
 

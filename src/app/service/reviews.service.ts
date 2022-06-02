@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ReviewsService {
 
-  apiUrl='http://localhost:8801/api/doctor/viewReviewbyDid';
+  apiUrl='https://the-great-ayurveda-api.herokuapp.com/api/doctor/viewReviewbyDid';
 
   constructor(private _http :HttpClient) { }
 

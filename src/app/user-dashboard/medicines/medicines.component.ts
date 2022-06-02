@@ -69,7 +69,7 @@ export class MedicinesComponent implements OnInit {
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 1500);
+    }, 2000);
     this.cart.cartView(this.uid).subscribe((data) => {
       console.log(data);
       this.catList = data.medicineList;

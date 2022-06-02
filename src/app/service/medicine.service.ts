@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MedicineService {
-private viewMedicineApi="http://localhost:8801/api/medicine/viewall";
-private SearchByKeywordApi="http://localhost:8801/api/medicine/search";
-private viewByproID = "http://localhost:8801/api/medicine/viewbypro" ;
+private viewMedicineApi="https://the-great-ayurveda-api.herokuapp.com/api/medicine/viewall";
+private SearchByKeywordApi="https://the-great-ayurveda-api.herokuapp.com/api/medicine/search";
+private viewByproID = "https://the-great-ayurveda-api.herokuapp.com/api/medicine/viewbypro" ;
   constructor(private _http: HttpClient) { }
   public viewMedicine(): Observable<any> {
     return this._http.get<any>(this.viewMedicineApi);
@@ -20,11 +20,11 @@ private viewByproID = "http://localhost:8801/api/medicine/viewbypro" ;
         return this._http.post<any>(this.viewByproID,{id:pid});
   }
   public medicineReview(uid:string,pid:string,review:string){
-    let api='http://localhost:8801/api/medicine/review'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/medicine/review'
     return this._http.post<any>(api,{uId:uid,pId:pid,reviewText:review})
   }
   public reviewView(mid:string){
-    let api='http://localhost:8801/api/medicine/viewbypro'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/medicine/viewbypro'
     return this._http.post<any>(api,{id:mid})
   }
 }
