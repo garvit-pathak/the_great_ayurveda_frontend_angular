@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { OrderService } from 'src/app/service/order.service';
 declare let Razorpay: any;
@@ -18,11 +20,12 @@ export class OrderComponent implements OnInit {
   subTotal: any;
   totalLength: any;
   
-  constructor(private cart: CartService, private order: OrderService) {}
+  constructor(private cart: CartService, private order: OrderService,private toaster:ToastrService) {}
 
   ngOnInit(): void {
     this.uid1 = sessionStorage.getItem('userId');
     this.cart.cartView(this.uid1).subscribe((data) => {
+      
       this.cart1 = data;
       this.cart1 = this.cart1.medicineList;
       for (let i = 0; i < this.cart1.length; i++) {
@@ -30,7 +33,6 @@ export class OrderComponent implements OnInit {
         this.cart1[i].index = i;
         this.cart1[i].pro_qty = 1;
       }
-      console.log(this.cart1);
       localStorage.setItem('cart', JSON.stringify(this.cart1));
 
       this.cartList = data.medicineList;
@@ -107,8 +109,13 @@ export class OrderComponent implements OnInit {
         }) => {
           this.order.placeOrder(order1).subscribe((data) => {
             console.log(data);
-            window.alert('Order added successfully...');
+            window.alert('Order success...');
             localStorage.removeItem('cart');
+            this.cart.deleteCart().subscribe((data) => {
+              // alert('cart deleted');
+              location.reload();
+
+            });
           });
         },
         prefill: {
@@ -146,10 +153,7 @@ export class OrderComponent implements OnInit {
         }
       );
       rzp1.open();
-      this.cart.deleteCart().subscribe((data) => {
-        console.log('cart deleted');
-        this.ngOnInit();
-      });
+      
     });
   }
 }
