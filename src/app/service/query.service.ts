@@ -11,7 +11,7 @@ export class QueryService {
 
    }
 public querySend(query1:Query){
-  let api='http://localhost:8801/api/query/sendquery'
+  let api='https://the-great-ayurveda-api.herokuapp.com/api/query/sendquery'
   return this._http.post<any>(api,query1)
 }
   }

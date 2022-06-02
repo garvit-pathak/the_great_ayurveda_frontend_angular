@@ -7,14 +7,14 @@ import { SocialUser } from 'angularx-social-login';
   providedIn: 'root',
 })
 export class UserService {
-  private signInApi = 'http://localhost:8801/api/user/signin';
-  private signUpApi = 'http://localhost:8801/api/user/signup';
-  private verifyApi = 'http://localhost:8801/api/user/verify';
+  private signInApi = 'https://the-great-ayurveda-api.herokuapp.com/api/user/signin';
+  private signUpApi = 'https://the-great-ayurveda-api.herokuapp.com/user/signup';
+  private verifyApi = 'https://the-great-ayurveda-api.herokuapp.com/api/user/verify';
 
   constructor(private _http: HttpClient) {}
 
   socialLogin(user: SocialUser): Observable<any> {
-    let socialApi = 'http://localhost:8801/api/user/login-by-social-media';
+    let socialApi = 'https://the-great-ayurveda-api.herokuapp.com/api/user/login-by-social-media';
     return this._http.post(socialApi, {
       name: user.name,
       email: user.email,
@@ -47,23 +47,23 @@ export class UserService {
   }
 
   public removeUser(uid: string): Observable<any> {
-    let api = 'http://localhost:8801/api/user/remove';
+    let api = 'https://the-great-ayurveda-api.herokuapp.com/api/user/remove';
     return this._http.post<any>(api, { id: uid });
   }
   public updateUser(formData: FormData): Observable<any> {
-    let api = 'http://localhost:8801/api/user/updateUser';
+    let api = 'https://the-great-ayurveda-api.herokuapp.com/api/user/updateUser';
     return this._http.post<any>(api, formData);
   }
   public orderHistory(id:string){
-    let api='http://localhost:8801/api/order/viewOrderByUserId'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/order/viewOrderByUserId'
     return this._http.post<any>(api,{id});
   }
   public viewAppointmentByUid(uId:string):Observable<any>{
-    let appointmentApi="http://localhost:8801/api/appointment/viewAppoimentByUid";
+    let appointmentApi="https://the-great-ayurveda-api.herokuapp.com/api/appointment/viewAppoimentByUid";
     return this._http.post<any>(appointmentApi,{uId:uId});
   }
   public view():Observable<any>{
-    let api='http://localhost:8801/api/user/view'
+    let api='https://the-great-ayurveda-api.herokuapp.com/api/user/view'
     return this._http.get<any>(api)
   }
 }

@@ -1,7 +1,7 @@
 
 .medicines .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 0.4fr));
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
     gap:2rem;
 }
 
@@ -11,7 +11,8 @@
     border-radius: .5rem;
     border:var(--border);
     box-shadow: var(--box-shadow);
-    padding:2rem;
+    padding:3rem;
+    font-size: 2rem;
 }
 
 
