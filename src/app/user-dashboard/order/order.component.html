@@ -31,17 +31,20 @@
                 <div class="col" style="padding-left:0;">ITEMS {{totalLength}}</div>
                 <div class="col text-right">₹ {{subTotal}}</div>
             </div>
-            <form>
+            <form #reform="ngForm">
                 <p>SHIPPING ADDRESS</p>
-                <input [(ngModel)]="address" name="address" type="text" placeholder="Enter your address">
+                <input [(ngModel)]="address" name="address" type="text" placeholder="Enter your address" required #Address="ngModel">
+                <span class='help-bpx' *ngIf="Address.touched && !Address.valid">Please Enter Address</span>
                 <p>Mobile</p>
-                <input [(ngModel)]="mobile" name='mobile' placeholder="Enter your mobile no.">
+                <input [(ngModel)]="mobile" name='mobile' placeholder="Enter your mobile no." required #Mobile="ngModel">
+                <span class='help-bpx' *ngIf="Mobile.touched && !Mobile.valid">Please enter mobile number</span>
+                <!-- <span class="help-bpx" *ngIf="!Mobile.valid">Please enter valid number</span> -->
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL PRICE</div>
                 <div class="col text-right">₹ {{subTotal}}</div>
             </div>
-            <button (click)="payment()" class="btn1">pay now</button>
+            <button [disabled]="!reform.valid" (click)="payment()" class="btn1">pay now</button>
         </div>
     </div>
 

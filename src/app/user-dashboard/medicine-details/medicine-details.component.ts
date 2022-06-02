@@ -50,12 +50,14 @@ export class MedicineDetailsComponent implements OnInit {
     });
   }
   public review() {
+    if (sessionStorage.getItem('userId')) {
     this._med
       .medicineReview(this.uid, this.pid, this.revie)
       .subscribe((data) => {
         // console.log(data)
         if (data) this.taoster.success('Medicine Added To The Cart');
       });
+    }else this.taoster.warning('Login First Please');
   }
 
   // constructor() {
