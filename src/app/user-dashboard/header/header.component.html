@@ -96,10 +96,12 @@
                         <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter password</span><br>
 
                         <input type="submit" style="margin-top: 20px;" [disabled]="!regform.valid" (click)="signInUser()" value="SignIn as user" class="btn1" data-dismiss="modal" aria-label="Close">
+
                     <div class="social"  style="margin-bottom: 30px;" >
                         <button style="position: absolute;" type="button" (click)="socialLogin()" data-dismiss="modal" aria-label="Close" class="btn1">SignIn using Google</button>
                         <img   style="width: 50px;position: relative;margin-top: 28px;margin-left:5px ;" src="../../../assets/image/google_logo.webp" alt="">
                     </div>
+
                         <p>don't have an account? <a href="#" data-toggle="modal" data-target="#SignUpModal" data-dismiss="modal" aria-label="Close">SignUp now </a></p>
 
                     </form>
@@ -136,17 +138,19 @@
 
                     <form #regform="ngForm">
                         <input type="text" name="name" placeholder="name" [(ngModel)]="name" class="box" required #Name="ngModel">
-                        <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid name</span>
+                        <span class="help-bpx" *ngIf="Name.touched && !Name.valid">Please enter valid name</span>
 
                         <input type="email" name="email" placeholder="email" [(ngModel)]="email" class="box" required #Email="ngModel">
-                        <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please enter valid email</span>
+                        <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valid email</span>
 
                         <input type="password" name="password" placeholder="password" [(ngModel)]="password" class="box" required #Password="ngModel">
                         <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid password</span>
 
                         <label for="" style="font-size: 15px; color: #779;">upload your image</label>
                         <input type="file" name="file" (change)="selectImage($event)" placeholder="" class="box">
+
                         <span class="help-bpx" *ngIf="Name.touched && !Email.valid">Please choose image</span>
+
 
                         <input type="text" name="mobile" placeholder="mobile no." [(ngModel)]="mobile" class="box" required #Mobile="ngModel">
                         <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
@@ -181,7 +185,7 @@
 
                     <form #regform="ngForm">
                         <input type="text" name="otp" [(ngModel)]="uotp" placeholder="enter otp" class="box" required #Otp="ngModel">
-                        <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid otp</span>
 
                         <input type="submit" [disabled]="!regform.valid" (click)="checkOtp()" value="sign up" class="btn1" data-dismiss="modal" aria-label="Close">
                         <hr style="border:#2b734b solid">
@@ -207,7 +211,7 @@
          signIn
         </a>
                     <a style="cursor: pointer; color: #79af91;" data-toggle="modal" data-target="#DrRegistrationModal" data-dismiss="modal" aria-label="Close">
-          Registration
+          singUp
         </a>
                 </h5>
                 <button type="button" style="font-size: 30px;" class="close" data-dismiss="modal" aria-label="Close">
@@ -252,7 +256,7 @@
             signIn
            </a>
                     <a style="cursor: pointer; border-bottom:solid #2b734b ; ">
-             Registration
+             singUp
            </a>
 
                 </h5>
@@ -265,19 +269,20 @@
                 <div class="login-form">
 
                     <form #regform="ngForm">
-                        <input [(ngModel)]="dname" name="name" type="text" placeholder="name" class="box" required #Name="ngModel">
-                        <span class="help-bpx" *ngIf="Name.touched && !Name.valid">Please enter valid Mobile</span>
+                        <input [(ngModel)]="dname" name="name" type="text" placeholder="name" class="box" required #Name1="ngModel">
+                        <span class="help-bpx" *ngIf="Name1.touched && !Name1.valid">Please enter valid Name</span>
 
-                        <input [(ngModel)]="demail" name="email" type="email" placeholder=" email" class="box" required #Email="ngModel">
-                        <span class="help-bpx" *ngIf="Email.touched && !Email.valid">Please enter valid Mobile</span>
+                        <input [(ngModel)]="demail" name="email" type="email" placeholder=" email" class="box" required #Email1="ngModel">
+                        <span class="help-bpx" *ngIf="Email1.touched && !Email1.valid">Please enter valid Email</span>
 
                         <input [(ngModel)]="ddegree" name="Degree" type="text" placeholder="Degree" class="box" required #Degree="ngModel">
-                        <span class="help-bpx" *ngIf="Degree.touched && !Degree.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="Degree.touched && !Degree.valid">Please enter Degree</span>
 
                         <input [(ngModel)]="dexperience" name="experience" type="text" placeholder=" experience" class="box" required #Exprience="ngModel">
-                        <span class="help-bpx" *ngIf="Exprience.touched && !Exprience.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="Exprience.touched && !Exprience.valid">Please enter Exprience</span>
 
-                        <input [(ngModel)]="dspecialities" name="speciality" type="text" placeholder=" specialities" class="box">
+                        <input [(ngModel)]="dspecialities" name="speciality" type="text" placeholder=" specialities" class="box" required #Specialities1="ngModel">
+                        <span class="help-bpx" *ngIf="Specialities1.touched && !Specialities1.valid">Please enter Specialities</span>
 
                         <select name="categoryId" class="form-control" style="box-shadow: -2px 4px 2px  rgba(209, 214, 211, 0.834); height: 45px;border: none;font-size: 14px; ">
               <option  >Select Medical Filed</option>
@@ -294,26 +299,26 @@
                             <label for="html">Other</label><br>
                         </div>
                         <input [(ngModel)]="dclinicName" name="Clinicname" type="text" placeholder=" Clinic name" class="box" required #ClinicName="ngModel">
-                        <span class="help-bpx" *ngIf="ClinicName.touched && !ClinicName.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="ClinicName.touched && !ClinicName.valid">Please enter valid Clinic Name</span>
 
                         <input [(ngModel)]="dclinicNo" name="Phone" type="text" placeholder=" Clinic Phone no." class="box" required #ClinicPhone="ngModel">
-                        <span class="help-bpx" *ngIf="ClinicPhone.touched && !ClinicPhone.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="ClinicPhone.touched && !ClinicPhone.valid">Please enter valid Clinic Mobile</span>
 
                         <input [(ngModel)]="dclinicAddress" name="Clinic" type="text" placeholder=" Clinic address" class="box" required #ClinicAddress="ngModel">
-                        <span class="help-bpx" *ngIf="ClinicAddress.touched && !ClinicAddress.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="ClinicAddress.touched && !ClinicAddress.valid">Please enter valid Clinic Address</span>
 
                         <input [(ngModel)]="dclinicTiming" name="clinicTiming" type="text" placeholder=" clinicTiming" class="box" required #ClinicTime="ngModel">
-                        <span class="help-bpx" *ngIf="ClinicTime.touched && !ClinicTime.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="ClinicTime.touched && !ClinicTime.valid">Please enter valid Clinic Time</span>
 
                         <input [(ngModel)]="dpassword" name="password" type="password" placeholder="password" class="box" required #Password="ngModel">
-                        <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid Mobile</span>
+                        <span class="help-bpx" *ngIf="Password.touched && !Password.valid">Please enter valid Password</span>
 
                         <label for="" style="font-size: 15px; color: #779;">upload your image</label>
                         <input type="file" name="file" (change)="selectimage($event)" placeholder="" class="box">
-                        <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid Mobile</span>
+                        <!-- <span class="help-bpx" *ngIf="Otp.touched && !Otp.valid">Please enter valid Mobile</span> -->
 
-                        <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required #Mobile="ngModel">
-                        <span class="help-bpx" *ngIf="Mobile.touched && !Mobile.valid">Please enter valid Mobile</span>
+                        <input [(ngModel)]="dmobile" name="mobile" type="text" placeholder="mobile no." class="box" required #Mobile1="ngModel">
+                        <span class="help-bpx" *ngIf="Mobile1.touched && !Mobile1.valid">Please enter valid Mobile</span>
 
                         <input type="submit" value="Send Otp " (click)="doctorSingup()" class="btn1" data-toggle="modal" data-target="#VerfyOtpModalDoctor" data-dismiss="modal" aria-label="Close">
                     </form>

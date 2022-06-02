@@ -1,6 +1,6 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +35,7 @@ import { OrderHistoryComponent } from './user-dashboard/order-history/order-hist
 import { AppointmentHistoryComponent } from './user-dashboard/appointment-history/appointment-history.component';
 import { CacheInterceptorService } from './interceptor/cache-interceptor.service';
 
-const social= {
+const social = {
   provide: 'SocialAuthServiceConfig',
   useValue: {
     autoLogin: false,
@@ -48,7 +48,7 @@ const social= {
       },
     ],
   } as SocialAuthServiceConfig,
-}
+};
 
 @NgModule({
   declarations: [
@@ -60,19 +60,18 @@ const social= {
     HeaderComponent,
     BookAppointmentComponent,
     UserDashboardComponent,
-    
-       DiseasesComponent,
-       OrderComponent,
-       SafePipe,
-       MedicineDetailsComponent,
-       DoctorDetailsComponent,
-       SearchMedicineComponent,
-       SearchDoctorComponent,
-       UserProfileComponent,
-       DoctorProfileComponent,
-       OrderHistoryComponent,
-       AppointmentHistoryComponent,
-       
+
+    DiseasesComponent,
+    OrderComponent,
+    SafePipe,
+    MedicineDetailsComponent,
+    DoctorDetailsComponent,
+    SearchMedicineComponent,
+    SearchDoctorComponent,
+    UserProfileComponent,
+    DoctorProfileComponent,
+    OrderHistoryComponent,
+    AppointmentHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,17 +83,17 @@ const social= {
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [social
-    ,{
-    useClass: CacheInterceptorService,
-    provide:HTTP_INTERCEPTORS,
-    multi:true,
-
-  }
-],
-  bootstrap: [AppComponent]
+  providers: [
+    social,
+    {
+      useClass: CacheInterceptorService,
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
