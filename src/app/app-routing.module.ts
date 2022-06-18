@@ -1,7 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookAppointmentComponent } from './user-dashboard/book-appointment/book-appointment.component';
-
 import { DiseasesComponent } from './user-dashboard/diseases/diseases.component';
 import { AppointmentsComponent } from './doctors/doctor-dashboard/appointments/appointments.component';
 
