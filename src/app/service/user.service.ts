@@ -8,7 +8,8 @@ import { SocialUser } from 'angularx-social-login';
 })
 export class UserService {
   private signInApi = 'https://the-great-ayurveda-api.herokuapp.com/api/user/signin';
-  private signUpApi = 'https://the-great-ayurveda-api.herokuapp.com/user/signup';
+  // https://the-great-ayurveda-api.herokuapp.com/user/signup
+  private signUpApi = 'http://localhost:8801/api/user/signup';
   private verifyApi = 'https://the-great-ayurveda-api.herokuapp.com/api/user/verify';
 
   constructor(private _http: HttpClient) {}
