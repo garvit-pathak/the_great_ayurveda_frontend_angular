@@ -55,21 +55,12 @@ export class MedicineDetailsComponent implements OnInit {
       .medicineReview(this.uid, this.pid, this.revie)
       .subscribe((data) => {
         // console.log(data)
-        if (data) this.taoster.success('Medicine Added To The Cart');
+        if (data) this.taoster.success('Review sended successfully');
       });
     }else this.taoster.warning('Login First Please');
   }
 
-  // constructor() {
-  //   this.router.events.subscribe(event=>{
-  //     this.catid=<string>this.ActivateRoute.snapshot.paramMap.get("id");
-  //     if(event instanceof NavigationEnd){
-  //       this.productService.productView(this.catid).subscribe(data=>{
-  //         this.products = data;
-  //       })
-  //     }
-  //   });
-  //  }
+  
   public add(mid: string) {
     let flage: boolean = false;
     if (sessionStorage.getItem('userId')) {

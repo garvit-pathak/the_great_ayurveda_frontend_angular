@@ -20,7 +20,7 @@ export class OrderComponent implements OnInit {
   subTotal: any;
   totalLength: any;
   
-  constructor(private cart: CartService, private order: OrderService,private toaster:ToastrService) {}
+  constructor(private cart: CartService, private router:Router,private order: OrderService,private toaster:ToastrService) {}
 
   ngOnInit(): void {
     this.uid1 = sessionStorage.getItem('userId');
@@ -113,7 +113,8 @@ export class OrderComponent implements OnInit {
             localStorage.removeItem('cart');
             this.cart.deleteCart().subscribe((data) => {
               // alert('cart deleted');
-              location.reload();
+              this.router.navigate(['']);
+              
 
             });
           });
