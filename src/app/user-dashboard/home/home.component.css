@@ -168,7 +168,7 @@ section:nth-child(even) {
 .about .row .content h3 {
     color: var(--black);
     text-shadow: var(--text-shadow);
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 1.8;
 }
 

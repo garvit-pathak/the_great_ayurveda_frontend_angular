@@ -64,6 +64,8 @@ export class DiseasesComponent implements OnInit {
     });
   }
 
+  
+
   ngOnInit(): void {
     this.spinner.show();
     setTimeout(() => {
