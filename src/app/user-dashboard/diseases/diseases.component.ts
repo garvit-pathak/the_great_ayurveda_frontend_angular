@@ -5,6 +5,7 @@ import { DiseasesService } from '../../service/diseases.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ViewportScroller } from '@angular/common'; 
 @Component({
   selector: 'app-diseases',
   templateUrl: './diseases.component.html',
@@ -16,6 +17,7 @@ export class DiseasesComponent implements OnInit {
   doctor: any[] = [];
   diseaseId: any;
   uid: any;
+  showErr:number=0;
   medicines: any[] = [];
   show: boolean = false;
   link: string = '';
@@ -25,6 +27,7 @@ export class DiseasesComponent implements OnInit {
   errPage: any;
   catList:any=[];
   constructor(
+    private viewPort:ViewportScroller,
     private spinner: NgxSpinnerService,
     private taoster: ToastrService,
     private cart: CartService,
@@ -33,17 +36,28 @@ export class DiseasesComponent implements OnInit {
     private router: Router,
     private drService: DoctorService
   ) {
+    this.spinner.show();
+
     this.router.events.subscribe((event) => {
       this.keywords = <string>(
         this.activatedRouter.snapshot.paramMap.get('search')
       );
       if (event instanceof NavigationEnd) {
-        this.diseasesService.search(this.keywords).subscribe((data) => {
+          this.diseasesService.search(this.keywords).subscribe((data) => {
+
+            if(!data){
+              this.showErr=1;
           this.spinner.hide(); 
-         
-          this.disList = data;
-          // this.errPage = this.disList.length;
-          // console.log(this.errPage);
+
+              console.log(this.showErr)
+  
+            }
+          // console.log(data+"data");
+          else
+          {
+          this.spinner.hide(); 
+             
+                  this.disList = data;
           this.diseaseId = this.disList._id;
           sessionStorage.setItem('diseaseID', this.disList._id);
           this.medicines = data.medicines;
@@ -51,32 +65,43 @@ export class DiseasesComponent implements OnInit {
           if (data.yogaLink) {
             this.link = this.disList.yogaLink;
             this.show = true;
-            // console.log(this.link);
           }
-        });
+          
+        }
+ 
+        },(error)=>{
+          // console.log(error);
+        })
+        
       }
     });
+    
     this.uid = sessionStorage.getItem('userId');
     this.diseaseID = sessionStorage.getItem('diseaseID');
     this.diseasesService.reviewRevie(this.diseaseID).subscribe((data) => {
-      console.log('fchdrtfrd' + data);
       this.diseasList = data.reviewerDetail;
     });
+
   }
 
   
-
+ onClick(id:string){
+  this.viewPort.scrollToAnchor(id);
+ }
   ngOnInit(): void {
     this.spinner.show();
-    setTimeout(() => {
+
+    // setTimeout(() => {
       /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1500);
+      
+    // }, 1500);
     this.drService.view().subscribe(
       (data) => {
+        this.spinner.hide();
         this.doctor = data;
       },
       (err) => {
+        this.spinner.hide();
         console.log(err);
       }
     );

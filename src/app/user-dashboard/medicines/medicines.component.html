@@ -22,11 +22,11 @@
             } ">
             <img src="{{medicine.image}}" alt="">
             <h3 style="text-overflow: hidden;overflow:hidden;white-space: nowrap;">{{medicine.name}}</h3>
-            <span style="font-size: 2rem;color:green ; ">₹{{medicine.price}}</span>
+            <span style="font-size: 2rem;">₹{{medicine.price}}</span>
             <p style="text-overflow: hidden;overflow:hidden;white-space: nowrap;font-size: 18px;" >{{medicine.description}}</p>
             <h4><a   (click)="viewDetails(medicine._id)">more info >></a></h4>
             <div class="share" style="display: flex; gap: 8px;" >
-                <a style="margin-left:70px ;" #cartButton (click)="add(medicine._id)" id="{{medicine._id}}" class="btn">add to cart<i class='bx bxs-cart-add'></i> </a>
+                <a style="margin-left:70px ;" #cartButton (click)="add(medicine._id)" id="{{medicine._id}}" class="btn">add to cart<i style="padding-left: 5px;font-size:21px;" class='bx bxs-cart-add'></i> </a>
                 <!-- <a class="btn" (click)="viewDetails(medicine._id)">more info <span class="fas fa-chevron-right"></span>
                 </a> -->
             </div>

@@ -75,6 +75,7 @@ export class HeaderComponent implements OnInit {
   get(id: string) {
     this.dcategory = id;
   }
+  
   ngOnInit(): void {}
   socialLogin() {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {

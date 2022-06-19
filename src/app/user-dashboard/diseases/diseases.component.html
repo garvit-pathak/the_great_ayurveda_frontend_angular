@@ -14,40 +14,40 @@
     <div class="content ">
 
         <div class="box-container">
-            <a href="diseases/{{disList.name}}/#causes">
+            <a (click)="onClick('causes')">
                 <div class="box" style="background-color: rgb(217, 246, 194) ">
                     <i><img style="margin-left: 22px;" src="../../../assets/image/causes.png" alt=""></i>
 
                     <h4 style="margin-left: 25px;padding-top: 10px;"> causes</h4>
                 </div>
             </a>
-            <a href="diseases/{{disList.name}}/#remedies">
+            <a (click)="onClick('remedies')">
                 <div class="box">
                     <i><img  style="margin-left: 22px;" src="../../../assets/image/ayurvedic-medicine.png" alt=""></i>
                     <h4 style="margin-left: 28px;padding-top: 10px;">home remdies</h4>
                 </div>
             </a>
 
-            <a href="diseases/{{disList.name}}/#yoga">
+            <a (click)="onClick('yoga')">
                 <div class="box" style="background-color: rgb(217, 246, 194) ">
                     <i><img  style="margin-left: 22px;"  src="../../../assets/image/hinduist-yoga-position.png" alt=""></i>
                     <h4 style="margin-left: 15px;padding-top: 10px;">yoga videos</h4>
                 </div>
             </a>
-            <a href="diseases/{{disList.name}}/#medicines">
+            <a (click)="onClick('medicines')">
                 <div class="box">
                     <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/herbal-medicine.png" alt=""></i>
                     <h4 style="margin-left: 19px;padding-top: 10px;">ayurvedic medicines</h4>
                 </div>
             </a>
 
-            <a href="diseases/{{disList.name}}/#precaution">
+            <a (click)="onClick('precaution')">
                 <div class="box" style="background-color: rgb(217, 246, 194)">
                     <i><img style="height:70px ;margin-left: 22px;" src="../../../assets/image/warning.png" alt=""></i>
                     <h4 style="margin-left: 20px;padding-top: 10px;">precaution</h4>
                 </div>
             </a>
-            <a href="diseases/{{disList.name}}/#doctors">
+            <a (click)="onClick('doctors')">
                 <div class="box">
                     <i><img  style="margin-left: 22px;" src="../../../assets/image/patient.png" alt=""></i>
                     <h4 style="margin-left: 28px;padding-top: 10px;">expert doctors</h4>
@@ -152,7 +152,7 @@
 
             <div class="share">
                 <h4 style="font-size: 2rem;" ><a (click)="viewDetails(med.mId._id)">more info >></a></h4>
-                <a (click)='add(med.mId._id)' class="btn"> add to cart <i class='bx bxs-cart-add '></i> </a>
+                <a (click)='add(med.mId._id)' class="btn"> add to cart <i style="padding-left: 5px;font-size:21px;" class='bx bxs-cart-add '></i> </a>
 
             </div>
         </div>
@@ -226,7 +226,7 @@
         </form>
     </div>
 </section>
-<div class="errPage"  *ngIf="!disList._id">
+<div class="errPage"  *ngIf="showErr==1">
 <h5>404 Error </h5>
 <p class="zoom-area"><b>you are searching for which disease is  not found </b>  </p>
 <section class="error-container">

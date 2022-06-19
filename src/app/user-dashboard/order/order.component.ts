@@ -113,7 +113,8 @@ export class OrderComponent implements OnInit {
             localStorage.removeItem('cart');
             this.cart.deleteCart().subscribe((data) => {
               // alert('cart deleted');
-              this.router.navigate(['']);
+              // this.router.navigate(['medicines']);
+              location.href="";
               
 
             });
