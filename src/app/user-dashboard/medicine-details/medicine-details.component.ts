@@ -23,7 +23,7 @@ export class MedicineDetailsComponent implements OnInit {
     private router: Router,
     private taoster: ToastrService,
     private cart: CartService,
-    private Spinner : NgxSpinnerService
+    private spinner : NgxSpinnerService
   ) {
     this.pid = <string>this.acitvateRouter.snapshot.paramMap.get('pid');
     this.router.events.subscribe((event) => {
@@ -31,7 +31,7 @@ export class MedicineDetailsComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this._med.viewParticular(this.pid).subscribe((data) => {
           // console.log(data);
-          this.Spinner.hide();
+          // this.spinner.hide();
           this.detail = data;
         });
       }
@@ -44,7 +44,11 @@ export class MedicineDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Spinner.show();
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
     this.uid = sessionStorage.getItem('userId');
     console.log(this.uid)
     this.cart.cartView(this.uid).subscribe((data) => {

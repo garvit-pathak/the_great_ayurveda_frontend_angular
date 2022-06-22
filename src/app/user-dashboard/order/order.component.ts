@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { OrderService } from 'src/app/service/order.service';
@@ -20,12 +21,13 @@ export class OrderComponent implements OnInit {
   subTotal: any;
   totalLength: any;
   
-  constructor(private cart: CartService, private router:Router,private order: OrderService,private toaster:ToastrService) {}
+  constructor(private cart: CartService, private router:Router,private spinner : NgxSpinnerService,private order: OrderService,private toaster:ToastrService) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.uid1 = sessionStorage.getItem('userId');
     this.cart.cartView(this.uid1).subscribe((data) => {
-      
+      this.spinner.hide();
       this.cart1 = data;
       this.cart1 = this.cart1.medicineList;
       for (let i = 0; i < this.cart1.length; i++) {

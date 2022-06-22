@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-profile',
@@ -19,7 +20,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private router: Router,
     private user: UserService,
-    private taoster: ToastrService
+    private taoster: ToastrService,
+    private spinner : NgxSpinnerService
   ) {
     this.uid = sessionStorage.getItem('userId');
   }
@@ -32,6 +34,11 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['']);
   }
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
     this.userDetail = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.userDetail);
     this.name = this.userDetail.name;

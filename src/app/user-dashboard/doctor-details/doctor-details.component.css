@@ -72,7 +72,7 @@
     /* outline-color: var(--main-color); */
     border-radius: 0.5rem;
     font-size: 2rem;
-    color: var(--text-color);
+    color: (--text-color);
     margin-top: 5px;
     border: solid #0e4810;
 }

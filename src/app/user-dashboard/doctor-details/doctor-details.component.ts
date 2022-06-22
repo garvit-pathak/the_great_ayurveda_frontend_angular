@@ -32,7 +32,7 @@ export class DoctorDetailsComponent implements OnInit {
       this.doctorId = this.activateRouter.snapshot.paramMap.get('did');
       if (event instanceof NavigationEnd) {
         this._drService.details(this.doctorId).subscribe((data) => {
-          this.spinner.hide();
+          // this.spinner.hide();
           console.log(data);
           this.detail = data;
         });
@@ -46,6 +46,10 @@ export class DoctorDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1500);
   }
 
   public appoin(id: string) {

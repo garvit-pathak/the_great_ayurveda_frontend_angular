@@ -28,15 +28,14 @@ export class DiseasesComponent implements OnInit {
   catList:any=[];
   constructor(
     private viewPort:ViewportScroller,
-    private spinner: NgxSpinnerService,
     private taoster: ToastrService,
     private cart: CartService,
     private diseasesService: DiseasesService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
+    private spinner : NgxSpinnerService,
     private drService: DoctorService
   ) {
-    this.spinner.show();
 
     this.router.events.subscribe((event) => {
       this.keywords = <string>(
@@ -47,7 +46,6 @@ export class DiseasesComponent implements OnInit {
 
             if(!data){
               this.showErr=1;
-          this.spinner.hide(); 
 
               console.log(this.showErr)
   
@@ -55,7 +53,6 @@ export class DiseasesComponent implements OnInit {
           // console.log(data+"data");
           else
           {
-          this.spinner.hide(); 
              
                   this.disList = data;
           this.diseaseId = this.disList._id;
@@ -91,18 +88,15 @@ export class DiseasesComponent implements OnInit {
  
   ngOnInit(): void {
     this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      
-    }, 1500);
+    setTimeout(()=>{
+    this.spinner.hide();
+    },1500);
+    
     this.drService.view().subscribe(
       (data) => {
-        this.spinner.hide();
         this.doctor = data;
       },
       (err) => {
-        this.spinner.hide();
         console.log(err);
       }
     );
