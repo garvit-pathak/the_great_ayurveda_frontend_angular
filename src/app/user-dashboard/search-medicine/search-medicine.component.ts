@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
 import { MedicineService } from '../../service/medicine.service';
@@ -19,6 +20,7 @@ export class SearchMedicineComponent implements OnInit {
     private _medService: MedicineService,
     private router: Router,
     private cart: CartService,
+    private Spinner  : NgxSpinnerService,
     private taoster: ToastrService
   ) {
     this.router.events.subscribe((event) => {
@@ -27,6 +29,7 @@ export class SearchMedicineComponent implements OnInit {
       );
       if (event instanceof NavigationEnd) {
         this._medService.searchMedicine(this.keyword).subscribe((data) => {
+          this.Spinner.hide();
           console.log(data);
           this.medicines = data;
         });
@@ -37,6 +40,7 @@ export class SearchMedicineComponent implements OnInit {
     this.router.navigate(['medicine-details' + '/' + pid]);
   }
   ngOnInit(): void {
+    this.Spinner.show();
     this.uid = sessionStorage.getItem('userId');
     this.cart.cartView(this.uid).subscribe((data) => {
       console.log(data);

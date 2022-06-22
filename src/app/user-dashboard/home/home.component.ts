@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CartService } from 'src/app/service/cart.service';
 import { DiseasesService } from 'src/app/service/diseases.service';
 import { DoctorService } from 'src/app/service/doctor.service';
@@ -22,7 +23,7 @@ diseas:any;
 userList:any;
 review:any=[];
 
-  constructor(private router:Router,private cart: CartService
+  constructor(private router:Router,private cart: CartService , private spinner : NgxSpinnerService
     ,private medicineSearvice:MedicineService,private user:UserService,private doctorService: DoctorService,private disease:DiseasesService
     ) { 
     this.medicineSearvice.viewMedicine().subscribe((data:any)=>{
@@ -39,11 +40,13 @@ review:any=[];
     })
     this.disease.reviewRevie1().subscribe(data=>{
       console.log(data)
+      this.spinner.hide();
       this.review=data.reviewerDetail;
     })
   }
 
   ngOnInit(): void {
+    this.spinner.show();
   }
   customOptions: OwlOptions = {
     loop: true,

@@ -535,16 +535,18 @@ a.more-link {
     display: grid;
     grid-template-columns: 1fr 0.4fr;
     column-gap: 1rem;
+    
 }
 
 .livechat-content form input {
     /* border: none; */
     /* padding: 15px; */
     /* outline-color: var(--main-color); */
-    /* border-radius: 0.5rem; */
-    /* font-size: 2rem; */
-    /* color: var(--text-color); */
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    color: var(--text-color);
     margin-top: 5px;
+    border: solid #0e4810;
 }
 
 

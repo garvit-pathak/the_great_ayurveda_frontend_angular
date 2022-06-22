@@ -88,13 +88,14 @@ export class DiseasesComponent implements OnInit {
  onClick(id:string){
   this.viewPort.scrollToAnchor(id);
  }
+ 
   ngOnInit(): void {
     this.spinner.show();
 
-    // setTimeout(() => {
+    setTimeout(() => {
       /** spinner ends after 5 seconds */
       
-    // }, 1500);
+    }, 1500);
     this.drService.view().subscribe(
       (data) => {
         this.spinner.hide();

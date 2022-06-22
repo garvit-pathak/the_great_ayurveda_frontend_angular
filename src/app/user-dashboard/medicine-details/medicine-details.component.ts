@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { MedicineService } from '../../service/medicine.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/service/cart.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-medicine-details',
@@ -21,7 +22,8 @@ export class MedicineDetailsComponent implements OnInit {
     private acitvateRouter: ActivatedRoute,
     private router: Router,
     private taoster: ToastrService,
-    private cart: CartService
+    private cart: CartService,
+    private Spinner : NgxSpinnerService
   ) {
     this.pid = <string>this.acitvateRouter.snapshot.paramMap.get('pid');
     this.router.events.subscribe((event) => {
@@ -29,6 +31,7 @@ export class MedicineDetailsComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this._med.viewParticular(this.pid).subscribe((data) => {
           // console.log(data);
+          this.Spinner.hide();
           this.detail = data;
         });
       }
@@ -41,6 +44,7 @@ export class MedicineDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Spinner.show();
     this.uid = sessionStorage.getItem('userId');
     console.log(this.uid)
     this.cart.cartView(this.uid).subscribe((data) => {

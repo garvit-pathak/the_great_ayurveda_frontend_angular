@@ -38,11 +38,11 @@ const routes: Routes = [
     {path:"order",component:OrderComponent,canActivate:[AuthService]},
     {path:"appointment-history",component:AppointmentHistoryComponent,canActivate:[AuthService]},
     {path:"user-profile",component:UserProfileComponent},
+    {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
 
     {path:"order-history",component:OrderHistoryComponent,canActivate:[AuthService]}
    ]},
     {path:"doctor-profile",component:DoctorProfileComponent},
-    {path:"book-appointment/:id",component:BookAppointmentComponent,canActivate:[AuthService]},
     {path : "doctor-dasboard", 
     loadChildren: ()=>import('./doctors/doctors.module').then(m=>m.DoctorsModule)
   }

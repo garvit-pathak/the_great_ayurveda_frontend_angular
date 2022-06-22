@@ -5,6 +5,7 @@ import { AppointmentService } from '../../service/appointment.service';
 import { DoctorService } from '../../service/doctor.service';
 import { ToastrService } from 'ngx-toastr';
 import { ReviewsService } from 'src/app/service/reviews.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-doctor-details',
@@ -23,6 +24,7 @@ export class DoctorDetailsComponent implements OnInit {
     private taoster: ToastrService,
     private router: Router,
     private _drService: DoctorService,
+    private spinner : NgxSpinnerService                                 ,
     private _app: AppointmentService
   ) {
     this.doctorId = this.activateRouter.snapshot.paramMap.get('did');
@@ -30,6 +32,7 @@ export class DoctorDetailsComponent implements OnInit {
       this.doctorId = this.activateRouter.snapshot.paramMap.get('did');
       if (event instanceof NavigationEnd) {
         this._drService.details(this.doctorId).subscribe((data) => {
+          this.spinner.hide();
           console.log(data);
           this.detail = data;
         });
@@ -41,7 +44,9 @@ export class DoctorDetailsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+  }
 
   public appoin(id: string) {
     this.router.navigate(['book-appointment' + '/' + id]);
